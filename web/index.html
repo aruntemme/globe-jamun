@@ -34,6 +34,13 @@
   #source { color: var(--dim); font-size: 11px; margin-top: 12px;
     border-top: 1px solid var(--line); padding-top: 10px; }
   #source b { color: var(--ink); font-weight: 500; }
+  #hud-upload { display: flex; align-items: center; justify-content: center; gap: 7px;
+    width: 100%; margin-top: 11px; padding: 9px 12px; font-size: 12px;
+    color: var(--air); background: rgba(255,183,74,.16); border-color: rgba(255,183,74,.42); }
+  #hud-upload:hover { background: rgba(255,183,74,.3); border-color: rgba(255,183,74,.7); }
+  #hud-upload svg { width: 14px; height: 14px; flex: none; }
+  #hud-hint { margin-top: 7px; text-align: center; font-size: 11px; color: var(--dim); }
+  @media (pointer: coarse) { #hud-hint { display: none; } }
   .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 8px;
     border-top: 1px solid var(--line); padding-top: 12px; }
   .stat b { display: block; font-size: 19px; font-weight: 500; letter-spacing: -.01em; }
@@ -183,6 +190,15 @@
       <i class="lg" data-icon="road" style="color:var(--road)"></i> road &amp; walking</div>
   </div>
   <div id="source">showing <b>sample data</b></div>
+  <button id="hud-upload">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 16V4"/><path d="m7 9 5-5 5 5"/>
+      <path d="M4 16v2.5A1.5 1.5 0 0 0 5.5 20h13a1.5 1.5 0 0 0 1.5-1.5V16"/>
+    </svg>
+    <span id="hud-upload-label">Upload your Timeline.json</span>
+  </button>
+  <div id="hud-hint">or drop the file anywhere on this page</div>
   </div>
 </div>
 
@@ -556,6 +572,8 @@ function render(data, label) {
   document.getElementById('s-trips').textContent = fmtInt(trails.length + arcs.length);
   document.getElementById('s-days').textContent = fmtInt(days);
   document.getElementById('source').innerHTML = `showing <b>${label}</b>`;
+  document.getElementById('hud-upload-label').textContent =
+    label.startsWith('sample') ? 'Upload your Timeline.json' : 'Load a different file';
   document.getElementById('info').style.display = 'none';
 }
 
@@ -633,6 +651,7 @@ function loadFile(file) {
 
 fileInput.onchange = () => { loadFile(fileInput.files[0]); fileInput.value = ''; };
 document.getElementById('load').onclick = () => fileInput.click();
+document.getElementById('hud-upload').onclick = () => fileInput.click();
 document.getElementById('guide-load').onclick = () => fileInput.click();
 
 let dragDepth = 0;
