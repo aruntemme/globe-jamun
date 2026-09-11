@@ -48,7 +48,10 @@
   .place-row .nm { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .place-row .mt { flex: none; font-size: 11px; color: var(--dim); }
   .place-row[aria-current="true"] .mt { color: var(--air); }
-  #zoom-in, #zoom-out { font-style: normal; font-size: 15px; }
+  #zoom { right: 20px; bottom: 58px; padding: 5px; display: flex;
+    flex-direction: column; gap: 5px; }
+  #zoom button { width: 32px; height: 32px; padding: 0; font-size: 17px; line-height: 1;
+    display: flex; align-items: center; justify-content: center; }
   #hud-upload { display: flex; align-items: center; justify-content: center; gap: 7px;
     width: 100%; margin-top: 11px; padding: 9px 12px; font-size: 12px;
     color: var(--air); background: rgba(255,183,74,.16); border-color: rgba(255,183,74,.42); }
@@ -169,10 +172,12 @@
 
     /* Sheet above the control bar, so tapping a marker still tells you something. */
     #info { top: auto; bottom: 74px; left: 12px; right: 12px; width: auto; padding: 15px 16px; }
+    #info[style*="block"] ~ #zoom { display: none; }
     #info h2 { padding-right: 30px; }
     #info-close { display: flex; }
 
     #footer { left: 12px; right: 12px; bottom: 78px; justify-content: center; }
+    #zoom { right: 12px; bottom: 108px; }
     #guide { padding: 20px 18px; max-height: 92vh; border-radius: 12px; }
     #guide h2 { font-size: 16px; }
     #guide .lede { font-size: 12.5px; margin-bottom: 18px; }
@@ -259,10 +264,13 @@
   <button id="load"><span class="full">Load your Timeline.json</span><span class="short">Load</span></button>
   <button id="spin" aria-pressed="false"><span class="full">Auto-rotate</span><span class="short">Spin</span></button>
   <button id="trails" aria-pressed="false"><span class="full">GPS trails</span><span class="short">GPS</span></button>
-  <button class="icon-btn" id="zoom-in" aria-label="Zoom in" title="Zoom in">+</button>
-  <button class="icon-btn" id="zoom-out" aria-label="Zoom out" title="Zoom out">&minus;</button>
   <button id="reset"><span class="full">Reset view</span><span class="short">Reset</span></button>
 </div>
+<div id="zoom" class="panel">
+  <button id="zoom-in" aria-label="Zoom in" title="Zoom in">+</button>
+  <button id="zoom-out" aria-label="Zoom out" title="Zoom out">&minus;</button>
+</div>
+
 <footer id="footer">
   <span id="attrib" hidden></span>
   <span id="views" hidden></span>
@@ -943,6 +951,10 @@ function rankPlaceLabels() {
 
 function labelPlaces() {
   if (!current) return;
+  // Clear the cache first. A lookup made before cities.json arrived resolved to
+  // null, and applyPlaceLabel only recomputes when city is undefined — so
+  // whichever file won the race decided whether names ever appeared.
+  for (const p of current.places) p.city = undefined;
   current.places.forEach(applyPlaceLabel);
   for (const p of current.places) {
     if (p.row) p.row.querySelector('.nm').textContent = placeRowName(p);
