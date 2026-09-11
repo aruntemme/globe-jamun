@@ -99,9 +99,13 @@ identical normalization.
 
 Every leg is stitched into one continuous path — consecutive legs meet at the
 place between them, so the traveller crosses a leg boundary without a restart
-or a seam. While it plays, the route lines and rider icons are cleared and the
-camera height eases between travel modes, so a drive rising into a flight reads
-as one movement rather than a cut.
+or a seam. While it plays, the map's own route lines and rider icons are
+cleared and a single trail draws itself in behind the traveller, so the journey
+appears as you fly it. The camera height eases between travel modes, so a drive
+rising into a flight reads as one movement rather than a cut.
+
+The trail is revealed with the path's dash uniforms rather than by rebuilding
+its geometry each frame — measured at 120fps during playback.
 
 The map draws direct lines because they read better at a glance, but the
 traveller follows the recorded GPS breadcrumbs where they exist — so playback

@@ -975,6 +975,7 @@ let travelling = false;
 let travelStart = 0;
 let shownLeg = -1;
 let camAlt = 1;
+let trailProgress = 0;
 
 const travelBtn = document.getElementById('travel');
 const speedSel = document.getElementById('speed');
@@ -1016,7 +1017,19 @@ function startTravel() {
   travelBar.hidden = false;
   document.body.classList.add('travelling');
   document.getElementById('info').style.display = 'none';
-  world.pathsData([]);                        // a clean map while it plays
+
+  // The map's own routes go away, replaced by a single path that draws itself
+  // in behind the traveller. Revealing it with the dash uniforms costs a
+  // uniform update per frame; rebuilding the geometry each frame would not.
+  trailProgress = 0;
+  world
+    .pathsData([{ pts: travelPts, trail: true }])
+    .pathColor(() => '#ffd08a')
+    .pathStroke(() => 1.7)
+    .pathDashLength(() => trailProgress)
+    .pathDashGap(() => Math.max(1e-4, 1 - trailProgress))
+    .pathDashInitialGap(() => 0)
+    .pathDashAnimateTime(() => 0);
 }
 
 function stopTravel() {
@@ -1026,7 +1039,20 @@ function stopTravel() {
   travelBar.hidden = true;
   document.body.classList.remove('travelling');
   for (const el of document.querySelectorAll('.traveller')) el.style.opacity = '0';
-  world.pathsData(displayRoutes);             // put the routes back
+  restoreRoutes();
+}
+
+// Travel overrides the path accessors, so restoring means putting the normal
+// ones back, not just the data.
+function restoreRoutes() {
+  world
+    .pathsData(displayRoutes)
+    .pathColor((d) => FAMILY[d.fam].color)
+    .pathStroke((d) => FAMILY[d.fam].stroke)
+    .pathDashLength((d) => (d.fam === 'air' ? 0.06 : d.fam === 'rail' ? 0.12 : 1))
+    .pathDashGap((d) => (d.fam === 'air' ? 0.014 : d.fam === 'rail' ? 0.05 : 0))
+    .pathDashInitialGap(() => Math.random())
+    .pathDashAnimateTime((d) => (d.fam === 'air' ? 26000 : d.fam === 'rail' ? 16000 : 0));
 }
 
 function describeLeg(i) {
@@ -1061,6 +1087,13 @@ function stepTravel(now) {
   traveller.obj.position.set(x, y, z);
   traveller.el.style.opacity = '1';
   document.getElementById('tb-fill').style.width = `${(f * 100).toFixed(1)}%`;
+
+  // Re-setting the accessors is what makes globe.gl re-read them; the geometry
+  // itself is untouched, so this is a uniform update rather than a rebuild.
+  trailProgress = f;
+  world
+    .pathDashLength(() => trailProgress)
+    .pathDashGap(() => Math.max(1e-4, 1 - trailProgress));
 
   // Which leg are we on? Index by distance along the stitched path.
   const target = f * travelCum[travelCum.length - 1];
