@@ -1302,6 +1302,8 @@ const TILE_URL = (x, y, l) =>
 const BASE_TEXTURE = 'https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-blue-marble.jpg';
 let tilesOn = false;
 
+let disableTimer = null;
+
 function updateImagery(altitude) {
   // Leave imagery alone during playback. Forcing tiles on for the flight looked
   // like an improvement but floods the tile engine at playback altitudes: on a
@@ -1309,23 +1311,30 @@ function updateImagery(altitude) {
   // rate collapses to 1-2fps. The base texture is the right call here.
   if (travelling) return;
   const attrib = document.getElementById('attrib');
-  // Hysteresis, so sitting on the boundary doesn't thrash the tile loader.
   try {
-    if (!tilesOn && altitude < 0.55) {
-      tilesOn = true;
-      world.globeTileEngineUrl(TILE_URL);
-      attrib.textContent = 'imagery © Esri';
-      attrib.hidden = false;
-    } else if (tilesOn && altitude > 0.75) {
-      tilesOn = false;
-      // Nulling the engine is the only way to actually remove the tile sphere.
-      // Substituting a transparent tile instead looked tempting (it avoids the
-      // library's async URL read below) but renders black — the tile material
-      // does not alpha-blend — and keeps paying for tile meshes.
-      world.globeTileEngineClearCache?.();
-      world.globeTileEngineUrl(null);
-      world.globeImageUrl(BASE_TEXTURE);   // the tile layer leaves it dimmed otherwise
-      attrib.hidden = true;
+    if (altitude < 0.55) {
+      clearTimeout(disableTimer);
+      disableTimer = null;
+      if (!tilesOn) {
+        tilesOn = true;
+        world.globeTileEngineUrl(TILE_URL);
+        attrib.textContent = 'imagery © Esri';
+        attrib.hidden = false;
+      }
+    } else if (tilesOn && altitude > 0.75 && !disableTimer) {
+      // Wait before removing the engine. A tile still in flight resolves its
+      // URL after the builder is gone and throws there — asynchronously, so no
+      // try/catch of ours can catch it. Flying back out from a zoomed-in
+      // playback is exactly when tiles are mid-stream.
+      disableTimer = setTimeout(() => {
+        disableTimer = null;
+        if (travelling || world.pointOfView().altitude <= 0.75) return;
+        tilesOn = false;
+        world.globeTileEngineClearCache?.();
+        world.globeTileEngineUrl(null);
+        world.globeImageUrl(BASE_TEXTURE);   // the tile layer leaves it dimmed
+        attrib.hidden = true;
+      }, 2000);
     }
   } catch {
     // Imagery is a nicety; never let a tile-layer hiccup break the globe.
