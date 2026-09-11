@@ -1,0 +1,8 @@
+# Your real Timeline export and everything derived from it. Never deploy these:
+# they contain your home address and movements.
+data/Timeline.json
+data/routes.geojson
+web/journey.json
+
+.DS_Store
+node_modules/

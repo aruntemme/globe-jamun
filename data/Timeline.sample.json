@@ -1,0 +1,6303 @@
+{
+ "semanticSegments": [
+  {
+   "startTime": "2025-01-14T07:40:00+05:30",
+   "endTime": "2025-01-14T08:00:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "visit": {
+    "hierarchyLevel": 0,
+    "probability": 0.94,
+    "topCandidate": {
+     "placeId": "ChIJ_sample_home_adyar",
+     "semanticType": "Home",
+     "probability": 0.75,
+     "placeLocation": {
+      "latLng": "13.0067000\u00b0, 80.2206000\u00b0"
+     }
+    }
+   }
+  },
+  {
+   "startTime": "2025-01-14T08:00:00+05:30",
+   "endTime": "2025-01-14T08:42:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "activity": {
+    "start": {
+     "latLng": "13.0067000\u00b0, 80.2206000\u00b0"
+    },
+    "end": {
+     "latLng": "12.9915000\u00b0, 80.2337000\u00b0"
+    },
+    "distanceMeters": 2207.1,
+    "topCandidate": {
+     "type": "IN_PASSENGER_VEHICLE",
+     "probability": 0.74
+    }
+   },
+   "timelinePath": [
+    {
+     "point": "13.0067000\u00b0, 80.2206000\u00b0",
+     "durationMinutesOffsetFromStartTime": "0"
+    },
+    {
+     "point": "13.0069729\u00b0, 80.2208977\u00b0",
+     "durationMinutesOffsetFromStartTime": "2"
+    },
+    {
+     "point": "13.0072084\u00b0, 80.2198371\u00b0",
+     "durationMinutesOffsetFromStartTime": "3"
+    },
+    {
+     "point": "13.0080318\u00b0, 80.2240297\u00b0",
+     "durationMinutesOffsetFromStartTime": "5"
+    },
+    {
+     "point": "13.0064477\u00b0, 80.2215124\u00b0",
+     "durationMinutesOffsetFromStartTime": "7"
+    },
+    {
+     "point": "13.0081028\u00b0, 80.2250200\u00b0",
+     "durationMinutesOffsetFromStartTime": "8"
+    },
+    {
+     "point": "13.0096846\u00b0, 80.2235497\u00b0",
+     "durationMinutesOffsetFromStartTime": "10"
+    },
+    {
+     "point": "13.0083924\u00b0, 80.2278463\u00b0",
+     "durationMinutesOffsetFromStartTime": "12"
+    },
+    {
+     "point": "13.0082848\u00b0, 80.2240524\u00b0",
+     "durationMinutesOffsetFromStartTime": "13"
+    },
+    {
+     "point": "13.0100914\u00b0, 80.2298943\u00b0",
+     "durationMinutesOffsetFromStartTime": "15"
+    },
+    {
+     "point": "13.0090085\u00b0, 80.2193478\u00b0",
+     "durationMinutesOffsetFromStartTime": "17"
+    },
+    {
+     "point": "13.0093984\u00b0, 80.2192583\u00b0",
+     "durationMinutesOffsetFromStartTime": "18"
+    },
+    {
+     "point": "13.0068859\u00b0, 80.2174051\u00b0",
+     "durationMinutesOffsetFromStartTime": "20"
+    },
+    {
+     "point": "13.0067733\u00b0, 80.2350592\u00b0",
+     "durationMinutesOffsetFromStartTime": "22"
+    },
+    {
+     "point": "13.0024444\u00b0, 80.2227452\u00b0",
+     "durationMinutesOffsetFromStartTime": "24"
+    },
+    {
+     "point": "13.0046077\u00b0, 80.2224638\u00b0",
+     "durationMinutesOffsetFromStartTime": "25"
+    },
+    {
+     "point": "13.0047580\u00b0, 80.2262037\u00b0",
+     "durationMinutesOffsetFromStartTime": "27"
+    },
+    {
+     "point": "13.0025580\u00b0, 80.2321802\u00b0",
+     "durationMinutesOffsetFromStartTime": "29"
+    },
+    {
+     "point": "13.0010538\u00b0, 80.2309221\u00b0",
+     "durationMinutesOffsetFromStartTime": "30"
+    },
+    {
+     "point": "13.0001114\u00b0, 80.2331081\u00b0",
+     "durationMinutesOffsetFromStartTime": "32"
+    },
+    {
+     "point": "12.9992176\u00b0, 80.2273596\u00b0",
+     "durationMinutesOffsetFromStartTime": "34"
+    },
+    {
+     "point": "12.9980630\u00b0, 80.2333474\u00b0",
+     "durationMinutesOffsetFromStartTime": "35"
+    },
+    {
+     "point": "12.9955931\u00b0, 80.2326566\u00b0",
+     "durationMinutesOffsetFromStartTime": "37"
+    },
+    {
+     "point": "12.9947439\u00b0, 80.2312777\u00b0",
+     "durationMinutesOffsetFromStartTime": "39"
+    },
+    {
+     "point": "12.9932580\u00b0, 80.2339202\u00b0",
+     "durationMinutesOffsetFromStartTime": "40"
+    },
+    {
+     "point": "12.9915000\u00b0, 80.2337000\u00b0",
+     "durationMinutesOffsetFromStartTime": "42"
+    }
+   ]
+  },
+  {
+   "startTime": "2025-01-14T08:42:00+05:30",
+   "endTime": "2025-01-14T17:22:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "visit": {
+    "hierarchyLevel": 0,
+    "probability": 0.82,
+    "topCandidate": {
+     "placeId": "ChIJ_sample_office_guvi",
+     "semanticType": "Work",
+     "probability": 0.71,
+     "placeLocation": {
+      "latLng": "12.9915000\u00b0, 80.2337000\u00b0"
+     }
+    }
+   }
+  },
+  {
+   "startTime": "2025-01-14T17:22:00+05:30",
+   "endTime": "2025-01-14T18:13:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "activity": {
+    "start": {
+     "latLng": "12.9915000\u00b0, 80.2337000\u00b0"
+    },
+    "end": {
+     "latLng": "13.0067000\u00b0, 80.2206000\u00b0"
+    },
+    "distanceMeters": 2207.1,
+    "topCandidate": {
+     "type": "IN_PASSENGER_VEHICLE",
+     "probability": 0.76
+    }
+   },
+   "timelinePath": [
+    {
+     "point": "12.9915000\u00b0, 80.2337000\u00b0",
+     "durationMinutesOffsetFromStartTime": "0"
+    },
+    {
+     "point": "12.9928514\u00b0, 80.2338478\u00b0",
+     "durationMinutesOffsetFromStartTime": "2"
+    },
+    {
+     "point": "12.9939676\u00b0, 80.2302756\u00b0",
+     "durationMinutesOffsetFromStartTime": "4"
+    },
+    {
+     "point": "12.9965382\u00b0, 80.2327536\u00b0",
+     "durationMinutesOffsetFromStartTime": "6"
+    },
+    {
+     "point": "12.9977413\u00b0, 80.2362267\u00b0",
+     "durationMinutesOffsetFromStartTime": "8"
+    },
+    {
+     "point": "12.9988687\u00b0, 80.2305822\u00b0",
+     "durationMinutesOffsetFromStartTime": "10"
+    },
+    {
+     "point": "13.0001247\u00b0, 80.2257668\u00b0",
+     "durationMinutesOffsetFromStartTime": "12"
+    },
+    {
+     "point": "13.0027635\u00b0, 80.2346257\u00b0",
+     "durationMinutesOffsetFromStartTime": "14"
+    },
+    {
+     "point": "13.0033837\u00b0, 80.2372035\u00b0",
+     "durationMinutesOffsetFromStartTime": "16"
+    },
+    {
+     "point": "13.0020257\u00b0, 80.2291470\u00b0",
+     "durationMinutesOffsetFromStartTime": "18"
+    },
+    {
+     "point": "13.0042618\u00b0, 80.2357775\u00b0",
+     "durationMinutesOffsetFromStartTime": "20"
+    },
+    {
+     "point": "13.0068876\u00b0, 80.2353108\u00b0",
+     "durationMinutesOffsetFromStartTime": "22"
+    },
+    {
+     "point": "13.0047617\u00b0, 80.2178840\u00b0",
+     "durationMinutesOffsetFromStartTime": "24"
+    },
+    {
+     "point": "13.0079428\u00b0, 80.2334710\u00b0",
+     "durationMinutesOffsetFromStartTime": "27"
+    },
+    {
+     "point": "13.0042761\u00b0, 80.2204796\u00b0",
+     "durationMinutesOffsetFromStartTime": "29"
+    },
+    {
+     "point": "13.0083482\u00b0, 80.2264242\u00b0",
+     "durationMinutesOffsetFromStartTime": "31"
+    },
+    {
+     "point": "13.0052493\u00b0, 80.2174425\u00b0",
+     "durationMinutesOffsetFromStartTime": "33"
+    },
+    {
+     "point": "13.0058864\u00b0, 80.2307927\u00b0",
+     "durationMinutesOffsetFromStartTime": "35"
+    },
+    {
+     "point": "13.0055578\u00b0, 80.2217263\u00b0",
+     "durationMinutesOffsetFromStartTime": "37"
+    },
+    {
+     "point": "13.0070810\u00b0, 80.2271533\u00b0",
+     "durationMinutesOffsetFromStartTime": "39"
+    },
+    {
+     "point": "13.0070472\u00b0, 80.2177473\u00b0",
+     "durationMinutesOffsetFromStartTime": "41"
+    },
+    {
+     "point": "13.0066922\u00b0, 80.2246443\u00b0",
+     "durationMinutesOffsetFromStartTime": "43"
+    },
+    {
+     "point": "13.0066062\u00b0, 80.2257457\u00b0",
+     "durationMinutesOffsetFromStartTime": "45"
+    },
+    {
+     "point": "13.0071769\u00b0, 80.2225132\u00b0",
+     "durationMinutesOffsetFromStartTime": "47"
+    },
+    {
+     "point": "13.0067910\u00b0, 80.2218048\u00b0",
+     "durationMinutesOffsetFromStartTime": "49"
+    },
+    {
+     "point": "13.0067000\u00b0, 80.2206000\u00b0",
+     "durationMinutesOffsetFromStartTime": "51"
+    }
+   ]
+  },
+  {
+   "startTime": "2025-01-14T18:13:00+05:30",
+   "endTime": "2025-01-15T06:53:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "visit": {
+    "hierarchyLevel": 0,
+    "probability": 0.96,
+    "topCandidate": {
+     "placeId": "ChIJ_sample_home_adyar",
+     "semanticType": "Home",
+     "probability": 0.75,
+     "placeLocation": {
+      "latLng": "13.0067000\u00b0, 80.2206000\u00b0"
+     }
+    }
+   }
+  },
+  {
+   "startTime": "2025-01-15T07:40:00+05:30",
+   "endTime": "2025-01-15T08:00:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "visit": {
+    "hierarchyLevel": 0,
+    "probability": 0.77,
+    "topCandidate": {
+     "placeId": "ChIJ_sample_home_adyar",
+     "semanticType": "Home",
+     "probability": 0.81,
+     "placeLocation": {
+      "latLng": "13.0067000\u00b0, 80.2206000\u00b0"
+     }
+    }
+   }
+  },
+  {
+   "startTime": "2025-01-15T08:00:00+05:30",
+   "endTime": "2025-01-15T08:42:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "activity": {
+    "start": {
+     "latLng": "13.0067000\u00b0, 80.2206000\u00b0"
+    },
+    "end": {
+     "latLng": "12.9915000\u00b0, 80.2337000\u00b0"
+    },
+    "distanceMeters": 2207.1,
+    "topCandidate": {
+     "type": "IN_PASSENGER_VEHICLE",
+     "probability": 0.89
+    }
+   },
+   "timelinePath": [
+    {
+     "point": "13.0067000\u00b0, 80.2206000\u00b0",
+     "durationMinutesOffsetFromStartTime": "0"
+    },
+    {
+     "point": "13.0066709\u00b0, 80.2221774\u00b0",
+     "durationMinutesOffsetFromStartTime": "2"
+    },
+    {
+     "point": "13.0069530\u00b0, 80.2240287\u00b0",
+     "durationMinutesOffsetFromStartTime": "3"
+    },
+    {
+     "point": "13.0071493\u00b0, 80.2189192\u00b0",
+     "durationMinutesOffsetFromStartTime": "5"
+    },
+    {
+     "point": "13.0074719\u00b0, 80.2241495\u00b0",
+     "durationMinutesOffsetFromStartTime": "7"
+    },
+    {
+     "point": "13.0073936\u00b0, 80.2247393\u00b0",
+     "durationMinutesOffsetFromStartTime": "8"
+    },
+    {
+     "point": "13.0095591\u00b0, 80.2175415\u00b0",
+     "durationMinutesOffsetFromStartTime": "10"
+    },
+    {
+     "point": "13.0058890\u00b0, 80.2184971\u00b0",
+     "durationMinutesOffsetFromStartTime": "12"
+    },
+    {
+     "point": "13.0077869\u00b0, 80.2213379\u00b0",
+     "durationMinutesOffsetFromStartTime": "13"
+    },
+    {
+     "point": "13.0056219\u00b0, 80.2342609\u00b0",
+     "durationMinutesOffsetFromStartTime": "15"
+    },
+    {
+     "point": "13.0078800\u00b0, 80.2165542\u00b0",
+     "durationMinutesOffsetFromStartTime": "17"
+    },
+    {
+     "point": "13.0089416\u00b0, 80.2349109\u00b0",
+     "durationMinutesOffsetFromStartTime": "18"
+    },
+    {
+     "point": "13.0091702\u00b0, 80.2303420\u00b0",
+     "durationMinutesOffsetFromStartTime": "20"
+    },
+    {
+     "point": "13.0038913\u00b0, 80.2286277\u00b0",
+     "durationMinutesOffsetFromStartTime": "22"
+    },
+    {
+     "point": "13.0027516\u00b0, 80.2326850\u00b0",
+     "durationMinutesOffsetFromStartTime": "24"
+    },
+    {
+     "point": "13.0053220\u00b0, 80.2367366\u00b0",
+     "durationMinutesOffsetFromStartTime": "25"
+    },
+    {
+     "point": "13.0012180\u00b0, 80.2312829\u00b0",
+     "durationMinutesOffsetFromStartTime": "27"
+    },
+    {
+     "point": "13.0040463\u00b0, 80.2260631\u00b0",
+     "durationMinutesOffsetFromStartTime": "29"
+    },
+    {
+     "point": "13.0028596\u00b0, 80.2281471\u00b0",
+     "durationMinutesOffsetFromStartTime": "30"
+    },
+    {
+     "point": "13.0017988\u00b0, 80.2356240\u00b0",
+     "durationMinutesOffsetFromStartTime": "32"
+    },
+    {
+     "point": "12.9979105\u00b0, 80.2297664\u00b0",
+     "durationMinutesOffsetFromStartTime": "34"
+    },
+    {
+     "point": "12.9979514\u00b0, 80.2289341\u00b0",
+     "durationMinutesOffsetFromStartTime": "35"
+    },
+    {
+     "point": "12.9964494\u00b0, 80.2299624\u00b0",
+     "durationMinutesOffsetFromStartTime": "37"
+    },
+    {
+     "point": "12.9948282\u00b0, 80.2311535\u00b0",
+     "durationMinutesOffsetFromStartTime": "39"
+    },
+    {
+     "point": "12.9926532\u00b0, 80.2340685\u00b0",
+     "durationMinutesOffsetFromStartTime": "40"
+    },
+    {
+     "point": "12.9915000\u00b0, 80.2337000\u00b0",
+     "durationMinutesOffsetFromStartTime": "42"
+    }
+   ]
+  },
+  {
+   "startTime": "2025-01-15T08:42:00+05:30",
+   "endTime": "2025-01-15T17:22:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "visit": {
+    "hierarchyLevel": 0,
+    "probability": 0.83,
+    "topCandidate": {
+     "placeId": "ChIJ_sample_office_guvi",
+     "semanticType": "Work",
+     "probability": 0.81,
+     "placeLocation": {
+      "latLng": "12.9915000\u00b0, 80.2337000\u00b0"
+     }
+    }
+   }
+  },
+  {
+   "startTime": "2025-01-15T17:22:00+05:30",
+   "endTime": "2025-01-15T18:13:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "activity": {
+    "start": {
+     "latLng": "12.9915000\u00b0, 80.2337000\u00b0"
+    },
+    "end": {
+     "latLng": "13.0067000\u00b0, 80.2206000\u00b0"
+    },
+    "distanceMeters": 2207.1,
+    "topCandidate": {
+     "type": "IN_PASSENGER_VEHICLE",
+     "probability": 0.84
+    }
+   },
+   "timelinePath": [
+    {
+     "point": "12.9915000\u00b0, 80.2337000\u00b0",
+     "durationMinutesOffsetFromStartTime": "0"
+    },
+    {
+     "point": "12.9929850\u00b0, 80.2327080\u00b0",
+     "durationMinutesOffsetFromStartTime": "2"
+    },
+    {
+     "point": "12.9945568\u00b0, 80.2345675\u00b0",
+     "durationMinutesOffsetFromStartTime": "4"
+    },
+    {
+     "point": "12.9960102\u00b0, 80.2334692\u00b0",
+     "durationMinutesOffsetFromStartTime": "6"
+    },
+    {
+     "point": "12.9962632\u00b0, 80.2288714\u00b0",
+     "durationMinutesOffsetFromStartTime": "8"
+    },
+    {
+     "point": "12.9984531\u00b0, 80.2306800\u00b0",
+     "durationMinutesOffsetFromStartTime": "10"
+    },
+    {
+     "point": "13.0014793\u00b0, 80.2300429\u00b0",
+     "durationMinutesOffsetFromStartTime": "12"
+    },
+    {
+     "point": "13.0020451\u00b0, 80.2230402\u00b0",
+     "durationMinutesOffsetFromStartTime": "14"
+    },
+    {
+     "point": "13.0029002\u00b0, 80.2310362\u00b0",
+     "durationMinutesOffsetFromStartTime": "16"
+    },
+    {
+     "point": "13.0053165\u00b0, 80.2294697\u00b0",
+     "durationMinutesOffsetFromStartTime": "18"
+    },
+    {
+     "point": "13.0018355\u00b0, 80.2213085\u00b0",
+     "durationMinutesOffsetFromStartTime": "20"
+    },
+    {
+     "point": "13.0023278\u00b0, 80.2229343\u00b0",
+     "durationMinutesOffsetFromStartTime": "22"
+    },
+    {
+     "point": "13.0083265\u00b0, 80.2186325\u00b0",
+     "durationMinutesOffsetFromStartTime": "24"
+    },
+    {
+     "point": "13.0082697\u00b0, 80.2290053\u00b0",
+     "durationMinutesOffsetFromStartTime": "27"
+    },
+    {
+     "point": "13.0056722\u00b0, 80.2265122\u00b0",
+     "durationMinutesOffsetFromStartTime": "29"
+    },
+    {
+     "point": "13.0060675\u00b0, 80.2313334\u00b0",
+     "durationMinutesOffsetFromStartTime": "31"
+    },
+    {
+     "point": "13.0078808\u00b0, 80.2212944\u00b0",
+     "durationMinutesOffsetFromStartTime": "33"
+    },
+    {
+     "point": "13.0092925\u00b0, 80.2210841\u00b0",
+     "durationMinutesOffsetFromStartTime": "35"
+    },
+    {
+     "point": "13.0063121\u00b0, 80.2186096\u00b0",
+     "durationMinutesOffsetFromStartTime": "37"
+    },
+    {
+     "point": "13.0086769\u00b0, 80.2272330\u00b0",
+     "durationMinutesOffsetFromStartTime": "39"
+    },
+    {
+     "point": "13.0074580\u00b0, 80.2190595\u00b0",
+     "durationMinutesOffsetFromStartTime": "41"
+    },
+    {
+     "point": "13.0089506\u00b0, 80.2183561\u00b0",
+     "durationMinutesOffsetFromStartTime": "43"
+    },
+    {
+     "point": "13.0064482\u00b0, 80.2215210\u00b0",
+     "durationMinutesOffsetFromStartTime": "45"
+    },
+    {
+     "point": "13.0067861\u00b0, 80.2227217\u00b0",
+     "durationMinutesOffsetFromStartTime": "47"
+    },
+    {
+     "point": "13.0071071\u00b0, 80.2213663\u00b0",
+     "durationMinutesOffsetFromStartTime": "49"
+    },
+    {
+     "point": "13.0067000\u00b0, 80.2206000\u00b0",
+     "durationMinutesOffsetFromStartTime": "51"
+    }
+   ]
+  },
+  {
+   "startTime": "2025-01-15T18:13:00+05:30",
+   "endTime": "2025-01-16T06:53:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "visit": {
+    "hierarchyLevel": 0,
+    "probability": 0.75,
+    "topCandidate": {
+     "placeId": "ChIJ_sample_home_adyar",
+     "semanticType": "Home",
+     "probability": 0.68,
+     "placeLocation": {
+      "latLng": "13.0067000\u00b0, 80.2206000\u00b0"
+     }
+    }
+   }
+  },
+  {
+   "startTime": "2025-01-16T07:40:00+05:30",
+   "endTime": "2025-01-16T08:00:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "visit": {
+    "hierarchyLevel": 0,
+    "probability": 0.92,
+    "topCandidate": {
+     "placeId": "ChIJ_sample_home_adyar",
+     "semanticType": "Home",
+     "probability": 0.81,
+     "placeLocation": {
+      "latLng": "13.0067000\u00b0, 80.2206000\u00b0"
+     }
+    }
+   }
+  },
+  {
+   "startTime": "2025-01-16T08:00:00+05:30",
+   "endTime": "2025-01-16T08:42:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "activity": {
+    "start": {
+     "latLng": "13.0067000\u00b0, 80.2206000\u00b0"
+    },
+    "end": {
+     "latLng": "12.9915000\u00b0, 80.2337000\u00b0"
+    },
+    "distanceMeters": 2207.1,
+    "topCandidate": {
+     "type": "IN_PASSENGER_VEHICLE",
+     "probability": 0.78
+    }
+   },
+   "timelinePath": [
+    {
+     "point": "13.0067000\u00b0, 80.2206000\u00b0",
+     "durationMinutesOffsetFromStartTime": "0"
+    },
+    {
+     "point": "13.0071228\u00b0, 80.2201305\u00b0",
+     "durationMinutesOffsetFromStartTime": "2"
+    },
+    {
+     "point": "13.0070642\u00b0, 80.2204667\u00b0",
+     "durationMinutesOffsetFromStartTime": "3"
+    },
+    {
+     "point": "13.0071941\u00b0, 80.2205137\u00b0",
+     "durationMinutesOffsetFromStartTime": "5"
+    },
+    {
+     "point": "13.0079536\u00b0, 80.2252976\u00b0",
+     "durationMinutesOffsetFromStartTime": "7"
+    },
+    {
+     "point": "13.0087531\u00b0, 80.2264167\u00b0",
+     "durationMinutesOffsetFromStartTime": "8"
+    },
+    {
+     "point": "13.0080597\u00b0, 80.2200998\u00b0",
+     "durationMinutesOffsetFromStartTime": "10"
+    },
+    {
+     "point": "13.0068505\u00b0, 80.2211521\u00b0",
+     "durationMinutesOffsetFromStartTime": "12"
+    },
+    {
+     "point": "13.0089640\u00b0, 80.2293441\u00b0",
+     "durationMinutesOffsetFromStartTime": "13"
+    },
+    {
+     "point": "13.0098603\u00b0, 80.2192601\u00b0",
+     "durationMinutesOffsetFromStartTime": "15"
+    },
+    {
+     "point": "13.0087995\u00b0, 80.2197675\u00b0",
+     "durationMinutesOffsetFromStartTime": "17"
+    },
+    {
+     "point": "13.0084087\u00b0, 80.2208232\u00b0",
+     "durationMinutesOffsetFromStartTime": "18"
+    },
+    {
+     "point": "13.0048259\u00b0, 80.2229152\u00b0",
+     "durationMinutesOffsetFromStartTime": "20"
+    },
+    {
+     "point": "13.0068808\u00b0, 80.2238019\u00b0",
+     "durationMinutesOffsetFromStartTime": "22"
+    },
+    {
+     "point": "13.0021207\u00b0, 80.2240426\u00b0",
+     "durationMinutesOffsetFromStartTime": "24"
+    },
+    {
+     "point": "13.0053833\u00b0, 80.2275106\u00b0",
+     "durationMinutesOffsetFromStartTime": "25"
+    },
+    {
+     "point": "13.0016200\u00b0, 80.2244284\u00b0",
+     "durationMinutesOffsetFromStartTime": "27"
+    },
+    {
+     "point": "13.0042443\u00b0, 80.2373102\u00b0",
+     "durationMinutesOffsetFromStartTime": "29"
+    },
+    {
+     "point": "13.0010935\u00b0, 80.2292656\u00b0",
+     "durationMinutesOffsetFromStartTime": "30"
+    },
+    {
+     "point": "13.0017814\u00b0, 80.2293746\u00b0",
+     "durationMinutesOffsetFromStartTime": "32"
+    },
+    {
+     "point": "12.9989613\u00b0, 80.2331979\u00b0",
+     "durationMinutesOffsetFromStartTime": "34"
+    },
+    {
+     "point": "12.9971316\u00b0, 80.2350113\u00b0",
+     "durationMinutesOffsetFromStartTime": "35"
+    },
+    {
+     "point": "12.9964586\u00b0, 80.2346264\u00b0",
+     "durationMinutesOffsetFromStartTime": "37"
+    },
+    {
+     "point": "12.9947389\u00b0, 80.2332312\u00b0",
+     "durationMinutesOffsetFromStartTime": "39"
+    },
+    {
+     "point": "12.9927615\u00b0, 80.2342062\u00b0",
+     "durationMinutesOffsetFromStartTime": "40"
+    },
+    {
+     "point": "12.9915000\u00b0, 80.2337000\u00b0",
+     "durationMinutesOffsetFromStartTime": "42"
+    }
+   ]
+  },
+  {
+   "startTime": "2025-01-16T08:42:00+05:30",
+   "endTime": "2025-01-16T17:22:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "visit": {
+    "hierarchyLevel": 0,
+    "probability": 0.81,
+    "topCandidate": {
+     "placeId": "ChIJ_sample_office_guvi",
+     "semanticType": "Work",
+     "probability": 0.75,
+     "placeLocation": {
+      "latLng": "12.9915000\u00b0, 80.2337000\u00b0"
+     }
+    }
+   }
+  },
+  {
+   "startTime": "2025-01-16T17:22:00+05:30",
+   "endTime": "2025-01-16T18:13:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "activity": {
+    "start": {
+     "latLng": "12.9915000\u00b0, 80.2337000\u00b0"
+    },
+    "end": {
+     "latLng": "13.0067000\u00b0, 80.2206000\u00b0"
+    },
+    "distanceMeters": 2207.1,
+    "topCandidate": {
+     "type": "IN_PASSENGER_VEHICLE",
+     "probability": 0.86
+    }
+   },
+   "timelinePath": [
+    {
+     "point": "12.9915000\u00b0, 80.2337000\u00b0",
+     "durationMinutesOffsetFromStartTime": "0"
+    },
+    {
+     "point": "12.9933191\u00b0, 80.2333391\u00b0",
+     "durationMinutesOffsetFromStartTime": "2"
+    },
+    {
+     "point": "12.9947910\u00b0, 80.2302824\u00b0",
+     "durationMinutesOffsetFromStartTime": "4"
+    },
+    {
+     "point": "12.9965154\u00b0, 80.2289984\u00b0",
+     "durationMinutesOffsetFromStartTime": "6"
+    },
+    {
+     "point": "12.9985740\u00b0, 80.2326584\u00b0",
+     "durationMinutesOffsetFromStartTime": "8"
+    },
+    {
+     "point": "12.9999352\u00b0, 80.2334888\u00b0",
+     "durationMinutesOffsetFromStartTime": "10"
+    },
+    {
+     "point": "13.0001587\u00b0, 80.2368523\u00b0",
+     "durationMinutesOffsetFromStartTime": "12"
+    },
+    {
+     "point": "13.0001078\u00b0, 80.2363470\u00b0",
+     "durationMinutesOffsetFromStartTime": "14"
+    },
+    {
+     "point": "12.9997592\u00b0, 80.2241105\u00b0",
+     "durationMinutesOffsetFromStartTime": "16"
+    },
+    {
+     "point": "13.0022818\u00b0, 80.2254621\u00b0",
+     "durationMinutesOffsetFromStartTime": "18"
+    },
+    {
+     "point": "13.0032612\u00b0, 80.2209532\u00b0",
+     "durationMinutesOffsetFromStartTime": "20"
+    },
+    {
+     "point": "13.0031867\u00b0, 80.2373272\u00b0",
+     "durationMinutesOffsetFromStartTime": "22"
+    },
+    {
+     "point": "13.0042347\u00b0, 80.2262842\u00b0",
+     "durationMinutesOffsetFromStartTime": "24"
+    },
+    {
+     "point": "13.0082777\u00b0, 80.2275231\u00b0",
+     "durationMinutesOffsetFromStartTime": "27"
+    },
+    {
+     "point": "13.0094064\u00b0, 80.2178999\u00b0",
+     "durationMinutesOffsetFromStartTime": "29"
+    },
+    {
+     "point": "13.0065689\u00b0, 80.2302360\u00b0",
+     "durationMinutesOffsetFromStartTime": "31"
+    },
+    {
+     "point": "13.0095198\u00b0, 80.2256333\u00b0",
+     "durationMinutesOffsetFromStartTime": "33"
+    },
+    {
+     "point": "13.0097663\u00b0, 80.2198563\u00b0",
+     "durationMinutesOffsetFromStartTime": "35"
+    },
+    {
+     "point": "13.0086177\u00b0, 80.2197157\u00b0",
+     "durationMinutesOffsetFromStartTime": "37"
+    },
+    {
+     "point": "13.0062342\u00b0, 80.2176677\u00b0",
+     "durationMinutesOffsetFromStartTime": "39"
+    },
+    {
+     "point": "13.0067168\u00b0, 80.2185903\u00b0",
+     "durationMinutesOffsetFromStartTime": "41"
+    },
+    {
+     "point": "13.0080730\u00b0, 80.2232036\u00b0",
+     "durationMinutesOffsetFromStartTime": "43"
+    },
+    {
+     "point": "13.0067313\u00b0, 80.2188872\u00b0",
+     "durationMinutesOffsetFromStartTime": "45"
+    },
+    {
+     "point": "13.0075761\u00b0, 80.2239877\u00b0",
+     "durationMinutesOffsetFromStartTime": "47"
+    },
+    {
+     "point": "13.0072492\u00b0, 80.2222262\u00b0",
+     "durationMinutesOffsetFromStartTime": "49"
+    },
+    {
+     "point": "13.0067000\u00b0, 80.2206000\u00b0",
+     "durationMinutesOffsetFromStartTime": "51"
+    }
+   ]
+  },
+  {
+   "startTime": "2025-01-16T18:13:00+05:30",
+   "endTime": "2025-01-17T06:53:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "visit": {
+    "hierarchyLevel": 0,
+    "probability": 0.95,
+    "topCandidate": {
+     "placeId": "ChIJ_sample_home_adyar",
+     "semanticType": "Home",
+     "probability": 0.81,
+     "placeLocation": {
+      "latLng": "13.0067000\u00b0, 80.2206000\u00b0"
+     }
+    }
+   }
+  },
+  {
+   "startTime": "2025-01-17T07:40:00+05:30",
+   "endTime": "2025-01-17T08:00:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "visit": {
+    "hierarchyLevel": 0,
+    "probability": 0.88,
+    "topCandidate": {
+     "placeId": "ChIJ_sample_home_adyar",
+     "semanticType": "Home",
+     "probability": 0.68,
+     "placeLocation": {
+      "latLng": "13.0067000\u00b0, 80.2206000\u00b0"
+     }
+    }
+   }
+  },
+  {
+   "startTime": "2025-01-17T08:00:00+05:30",
+   "endTime": "2025-01-17T08:42:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "activity": {
+    "start": {
+     "latLng": "13.0067000\u00b0, 80.2206000\u00b0"
+    },
+    "end": {
+     "latLng": "12.9915000\u00b0, 80.2337000\u00b0"
+    },
+    "distanceMeters": 2207.1,
+    "topCandidate": {
+     "type": "IN_PASSENGER_VEHICLE",
+     "probability": 0.81
+    }
+   },
+   "timelinePath": [
+    {
+     "point": "13.0067000\u00b0, 80.2206000\u00b0",
+     "durationMinutesOffsetFromStartTime": "0"
+    },
+    {
+     "point": "13.0068279\u00b0, 80.2211885\u00b0",
+     "durationMinutesOffsetFromStartTime": "2"
+    },
+    {
+     "point": "13.0077321\u00b0, 80.2205326\u00b0",
+     "durationMinutesOffsetFromStartTime": "3"
+    },
+    {
+     "point": "13.0069023\u00b0, 80.2219033\u00b0",
+     "durationMinutesOffsetFromStartTime": "5"
+    },
+    {
+     "point": "13.0074732\u00b0, 80.2267552\u00b0",
+     "durationMinutesOffsetFromStartTime": "7"
+    },
+    {
+     "point": "13.0080694\u00b0, 80.2239298\u00b0",
+     "durationMinutesOffsetFromStartTime": "8"
+    },
+    {
+     "point": "13.0062179\u00b0, 80.2195234\u00b0",
+     "durationMinutesOffsetFromStartTime": "10"
+    },
+    {
+     "point": "13.0067535\u00b0, 80.2274736\u00b0",
+     "durationMinutesOffsetFromStartTime": "12"
+    },
+    {
+     "point": "13.0056572\u00b0, 80.2213201\u00b0",
+     "durationMinutesOffsetFromStartTime": "13"
+    },
+    {
+     "point": "13.0074042\u00b0, 80.2163148\u00b0",
+     "durationMinutesOffsetFromStartTime": "15"
+    },
+    {
+     "point": "13.0045107\u00b0, 80.2193189\u00b0",
+     "durationMinutesOffsetFromStartTime": "17"
+    },
+    {
+     "point": "13.0098227\u00b0, 80.2245015\u00b0",
+     "durationMinutesOffsetFromStartTime": "18"
+    },
+    {
+     "point": "13.0047823\u00b0, 80.2211939\u00b0",
+     "durationMinutesOffsetFromStartTime": "20"
+    },
+    {
+     "point": "13.0064321\u00b0, 80.2182757\u00b0",
+     "durationMinutesOffsetFromStartTime": "22"
+    },
+    {
+     "point": "13.0032984\u00b0, 80.2350485\u00b0",
+     "durationMinutesOffsetFromStartTime": "24"
+    },
+    {
+     "point": "13.0017083\u00b0, 80.2212570\u00b0",
+     "durationMinutesOffsetFromStartTime": "25"
+    },
+    {
+     "point": "13.0042902\u00b0, 80.2256304\u00b0",
+     "durationMinutesOffsetFromStartTime": "27"
+    },
+    {
+     "point": "13.0019453\u00b0, 80.2256505\u00b0",
+     "durationMinutesOffsetFromStartTime": "29"
+    },
+    {
+     "point": "13.0026713\u00b0, 80.2324070\u00b0",
+     "durationMinutesOffsetFromStartTime": "30"
+    },
+    {
+     "point": "13.0015030\u00b0, 80.2298011\u00b0",
+     "durationMinutesOffsetFromStartTime": "32"
+    },
+    {
+     "point": "12.9980760\u00b0, 80.2276662\u00b0",
+     "durationMinutesOffsetFromStartTime": "34"
+    },
+    {
+     "point": "12.9976820\u00b0, 80.2293209\u00b0",
+     "durationMinutesOffsetFromStartTime": "35"
+    },
+    {
+     "point": "12.9952449\u00b0, 80.2286312\u00b0",
+     "durationMinutesOffsetFromStartTime": "37"
+    },
+    {
+     "point": "12.9951465\u00b0, 80.2320478\u00b0",
+     "durationMinutesOffsetFromStartTime": "39"
+    },
+    {
+     "point": "12.9930927\u00b0, 80.2323913\u00b0",
+     "durationMinutesOffsetFromStartTime": "40"
+    },
+    {
+     "point": "12.9915000\u00b0, 80.2337000\u00b0",
+     "durationMinutesOffsetFromStartTime": "42"
+    }
+   ]
+  },
+  {
+   "startTime": "2025-01-17T08:42:00+05:30",
+   "endTime": "2025-01-17T17:22:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "visit": {
+    "hierarchyLevel": 0,
+    "probability": 0.8,
+    "topCandidate": {
+     "placeId": "ChIJ_sample_office_guvi",
+     "semanticType": "Work",
+     "probability": 0.8,
+     "placeLocation": {
+      "latLng": "12.9915000\u00b0, 80.2337000\u00b0"
+     }
+    }
+   }
+  },
+  {
+   "startTime": "2025-01-17T17:22:00+05:30",
+   "endTime": "2025-01-17T18:13:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "activity": {
+    "start": {
+     "latLng": "12.9915000\u00b0, 80.2337000\u00b0"
+    },
+    "end": {
+     "latLng": "13.0067000\u00b0, 80.2206000\u00b0"
+    },
+    "distanceMeters": 2207.1,
+    "topCandidate": {
+     "type": "IN_PASSENGER_VEHICLE",
+     "probability": 0.75
+    }
+   },
+   "timelinePath": [
+    {
+     "point": "12.9915000\u00b0, 80.2337000\u00b0",
+     "durationMinutesOffsetFromStartTime": "0"
+    },
+    {
+     "point": "12.9927633\u00b0, 80.2333606\u00b0",
+     "durationMinutesOffsetFromStartTime": "2"
+    },
+    {
+     "point": "12.9941898\u00b0, 80.2319773\u00b0",
+     "durationMinutesOffsetFromStartTime": "4"
+    },
+    {
+     "point": "12.9969829\u00b0, 80.2326576\u00b0",
+     "durationMinutesOffsetFromStartTime": "6"
+    },
+    {
+     "point": "12.9985584\u00b0, 80.2274146\u00b0",
+     "durationMinutesOffsetFromStartTime": "8"
+    },
+    {
+     "point": "12.9987955\u00b0, 80.2316170\u00b0",
+     "durationMinutesOffsetFromStartTime": "10"
+    },
+    {
+     "point": "12.9997657\u00b0, 80.2266703\u00b0",
+     "durationMinutesOffsetFromStartTime": "12"
+    },
+    {
+     "point": "13.0003821\u00b0, 80.2294800\u00b0",
+     "durationMinutesOffsetFromStartTime": "14"
+    },
+    {
+     "point": "13.0008411\u00b0, 80.2224950\u00b0",
+     "durationMinutesOffsetFromStartTime": "16"
+    },
+    {
+     "point": "13.0034848\u00b0, 80.2251193\u00b0",
+     "durationMinutesOffsetFromStartTime": "18"
+    },
+    {
+     "point": "13.0022368\u00b0, 80.2273578\u00b0",
+     "durationMinutesOffsetFromStartTime": "20"
+    },
+    {
+     "point": "13.0059385\u00b0, 80.2201847\u00b0",
+     "durationMinutesOffsetFromStartTime": "22"
+    },
+    {
+     "point": "13.0052763\u00b0, 80.2343485\u00b0",
+     "durationMinutesOffsetFromStartTime": "24"
+    },
+    {
+     "point": "13.0037352\u00b0, 80.2223205\u00b0",
+     "durationMinutesOffsetFromStartTime": "27"
+    },
+    {
+     "point": "13.0050163\u00b0, 80.2238777\u00b0",
+     "durationMinutesOffsetFromStartTime": "29"
+    },
+    {
+     "point": "13.0044781\u00b0, 80.2228504\u00b0",
+     "durationMinutesOffsetFromStartTime": "31"
+    },
+    {
+     "point": "13.0075710\u00b0, 80.2235917\u00b0",
+     "durationMinutesOffsetFromStartTime": "33"
+    },
+    {
+     "point": "13.0095182\u00b0, 80.2165163\u00b0",
+     "durationMinutesOffsetFromStartTime": "35"
+    },
+    {
+     "point": "13.0088870\u00b0, 80.2234602\u00b0",
+     "durationMinutesOffsetFromStartTime": "37"
+    },
+    {
+     "point": "13.0087728\u00b0, 80.2260666\u00b0",
+     "durationMinutesOffsetFromStartTime": "39"
+    },
+    {
+     "point": "13.0074702\u00b0, 80.2240289\u00b0",
+     "durationMinutesOffsetFromStartTime": "41"
+    },
+    {
+     "point": "13.0087486\u00b0, 80.2259562\u00b0",
+     "durationMinutesOffsetFromStartTime": "43"
+    },
+    {
+     "point": "13.0085285\u00b0, 80.2239144\u00b0",
+     "durationMinutesOffsetFromStartTime": "45"
+    },
+    {
+     "point": "13.0076570\u00b0, 80.2226936\u00b0",
+     "durationMinutesOffsetFromStartTime": "47"
+    },
+    {
+     "point": "13.0069989\u00b0, 80.2214789\u00b0",
+     "durationMinutesOffsetFromStartTime": "49"
+    },
+    {
+     "point": "13.0067000\u00b0, 80.2206000\u00b0",
+     "durationMinutesOffsetFromStartTime": "51"
+    }
+   ]
+  },
+  {
+   "startTime": "2025-01-17T18:13:00+05:30",
+   "endTime": "2025-01-18T06:53:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "visit": {
+    "hierarchyLevel": 0,
+    "probability": 0.92,
+    "topCandidate": {
+     "placeId": "ChIJ_sample_home_adyar",
+     "semanticType": "Home",
+     "probability": 0.86,
+     "placeLocation": {
+      "latLng": "13.0067000\u00b0, 80.2206000\u00b0"
+     }
+    }
+   }
+  },
+  {
+   "startTime": "2025-01-25T06:15:00+05:30",
+   "endTime": "2025-01-25T09:30:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "activity": {
+    "start": {
+     "latLng": "13.0067000\u00b0, 80.2206000\u00b0"
+    },
+    "end": {
+     "latLng": "11.9416000\u00b0, 79.8083000\u00b0"
+    },
+    "distanceMeters": 126610.8,
+    "topCandidate": {
+     "type": "IN_PASSENGER_VEHICLE",
+     "probability": 0.61
+    }
+   },
+   "timelinePath": [
+    {
+     "point": "13.0067000\u00b0, 80.2206000\u00b0",
+     "durationMinutesOffsetFromStartTime": "0"
+    },
+    {
+     "point": "12.9966218\u00b0, 80.2155846\u00b0",
+     "durationMinutesOffsetFromStartTime": "2"
+    },
+    {
+     "point": "12.9851647\u00b0, 80.2114519\u00b0",
+     "durationMinutesOffsetFromStartTime": "4"
+    },
+    {
+     "point": "12.9732658\u00b0, 80.2095470\u00b0",
+     "durationMinutesOffsetFromStartTime": "7"
+    },
+    {
+     "point": "12.9626991\u00b0, 80.1999379\u00b0",
+     "durationMinutesOffsetFromStartTime": "9"
+    },
+    {
+     "point": "12.9561420\u00b0, 80.2018772\u00b0",
+     "durationMinutesOffsetFromStartTime": "11"
+    },
+    {
+     "point": "12.9437081\u00b0, 80.1972480\u00b0",
+     "durationMinutesOffsetFromStartTime": "13"
+    },
+    {
+     "point": "12.9322794\u00b0, 80.1773277\u00b0",
+     "durationMinutesOffsetFromStartTime": "15"
+    },
+    {
+     "point": "12.9210965\u00b0, 80.1875281\u00b0",
+     "durationMinutesOffsetFromStartTime": "18"
+    },
+    {
+     "point": "12.9095113\u00b0, 80.1804742\u00b0",
+     "durationMinutesOffsetFromStartTime": "20"
+    },
+    {
+     "point": "12.8978659\u00b0, 80.1745773\u00b0",
+     "durationMinutesOffsetFromStartTime": "22"
+    },
+    {
+     "point": "12.8858363\u00b0, 80.1660699\u00b0",
+     "durationMinutesOffsetFromStartTime": "24"
+    },
+    {
+     "point": "12.8852015\u00b0, 80.1745699\u00b0",
+     "durationMinutesOffsetFromStartTime": "26"
+    },
+    {
+     "point": "12.8705712\u00b0, 80.1691574\u00b0",
+     "durationMinutesOffsetFromStartTime": "28"
+    },
+    {
+     "point": "12.8567892\u00b0, 80.1717287\u00b0",
+     "durationMinutesOffsetFromStartTime": "31"
+    },
+    {
+     "point": "12.8501992\u00b0, 80.1740491\u00b0",
+     "durationMinutesOffsetFromStartTime": "33"
+    },
+    {
+     "point": "12.8376075\u00b0, 80.1485934\u00b0",
+     "durationMinutesOffsetFromStartTime": "35"
+    },
+    {
+     "point": "12.8271041\u00b0, 80.1693534\u00b0",
+     "durationMinutesOffsetFromStartTime": "37"
+    },
+    {
+     "point": "12.8182058\u00b0, 80.1160925\u00b0",
+     "durationMinutesOffsetFromStartTime": "39"
+    },
+    {
+     "point": "12.8075602\u00b0, 80.1518475\u00b0",
+     "durationMinutesOffsetFromStartTime": "42"
+    },
+    {
+     "point": "12.8029209\u00b0, 80.1028106\u00b0",
+     "durationMinutesOffsetFromStartTime": "44"
+    },
+    {
+     "point": "12.7730862\u00b0, 80.1447477\u00b0",
+     "durationMinutesOffsetFromStartTime": "46"
+    },
+    {
+     "point": "12.7803467\u00b0, 80.1343894\u00b0",
+     "durationMinutesOffsetFromStartTime": "48"
+    },
+    {
+     "point": "12.7653292\u00b0, 80.0836728\u00b0",
+     "durationMinutesOffsetFromStartTime": "50"
+    },
+    {
+     "point": "12.7540721\u00b0, 80.1437373\u00b0",
+     "durationMinutesOffsetFromStartTime": "53"
+    },
+    {
+     "point": "12.7474708\u00b0, 80.0870467\u00b0",
+     "durationMinutesOffsetFromStartTime": "55"
+    },
+    {
+     "point": "12.7144698\u00b0, 80.0794324\u00b0",
+     "durationMinutesOffsetFromStartTime": "57"
+    },
+    {
+     "point": "12.7124930\u00b0, 80.0755500\u00b0",
+     "durationMinutesOffsetFromStartTime": "59"
+    },
+    {
+     "point": "12.6986869\u00b0, 80.0616482\u00b0",
+     "durationMinutesOffsetFromStartTime": "61"
+    },
+    {
+     "point": "12.7046349\u00b0, 80.1059982\u00b0",
+     "durationMinutesOffsetFromStartTime": "64"
+    },
+    {
+     "point": "12.6948197\u00b0, 80.0532290\u00b0",
+     "durationMinutesOffsetFromStartTime": "66"
+    },
+    {
+     "point": "12.6827324\u00b0, 80.0655104\u00b0",
+     "durationMinutesOffsetFromStartTime": "68"
+    },
+    {
+     "point": "12.6478771\u00b0, 80.0231736\u00b0",
+     "durationMinutesOffsetFromStartTime": "70"
+    },
+    {
+     "point": "12.6598715\u00b0, 80.0766212\u00b0",
+     "durationMinutesOffsetFromStartTime": "72"
+    },
+    {
+     "point": "12.6371787\u00b0, 80.0729517\u00b0",
+     "durationMinutesOffsetFromStartTime": "74"
+    },
+    {
+     "point": "12.6358119\u00b0, 80.0332441\u00b0",
+     "durationMinutesOffsetFromStartTime": "77"
+    },
+    {
+     "point": "12.6118139\u00b0, 80.0998945\u00b0",
+     "durationMinutesOffsetFromStartTime": "79"
+    },
+    {
+     "point": "12.6037054\u00b0, 80.0600890\u00b0",
+     "durationMinutesOffsetFromStartTime": "81"
+    },
+    {
+     "point": "12.5738148\u00b0, 80.0592673\u00b0",
+     "durationMinutesOffsetFromStartTime": "83"
+    },
+    {
+     "point": "12.5809660\u00b0, 80.0931799\u00b0",
+     "durationMinutesOffsetFromStartTime": "85"
+    },
+    {
+     "point": "12.5661483\u00b0, 80.0088204\u00b0",
+     "durationMinutesOffsetFromStartTime": "88"
+    },
+    {
+     "point": "12.5666963\u00b0, 80.0028235\u00b0",
+     "durationMinutesOffsetFromStartTime": "90"
+    },
+    {
+     "point": "12.5512195\u00b0, 79.9869776\u00b0",
+     "durationMinutesOffsetFromStartTime": "92"
+    },
+    {
+     "point": "12.5235823\u00b0, 79.9932762\u00b0",
+     "durationMinutesOffsetFromStartTime": "94"
+    },
+    {
+     "point": "12.5259084\u00b0, 80.0350218\u00b0",
+     "durationMinutesOffsetFromStartTime": "96"
+    },
+    {
+     "point": "12.5189167\u00b0, 80.0569749\u00b0",
+     "durationMinutesOffsetFromStartTime": "99"
+    },
+    {
+     "point": "12.4916343\u00b0, 80.0555661\u00b0",
+     "durationMinutesOffsetFromStartTime": "101"
+    },
+    {
+     "point": "12.4760816\u00b0, 79.9906342\u00b0",
+     "durationMinutesOffsetFromStartTime": "103"
+    },
+    {
+     "point": "12.4597492\u00b0, 80.0095082\u00b0",
+     "durationMinutesOffsetFromStartTime": "105"
+    },
+    {
+     "point": "12.4620344\u00b0, 80.0370251\u00b0",
+     "durationMinutesOffsetFromStartTime": "107"
+    },
+    {
+     "point": "12.4370300\u00b0, 79.9901104\u00b0",
+     "durationMinutesOffsetFromStartTime": "110"
+    },
+    {
+     "point": "12.4410541\u00b0, 79.9484763\u00b0",
+     "durationMinutesOffsetFromStartTime": "112"
+    },
+    {
+     "point": "12.4342613\u00b0, 79.9880340\u00b0",
+     "durationMinutesOffsetFromStartTime": "114"
+    },
+    {
+     "point": "12.4143722\u00b0, 79.9388083\u00b0",
+     "durationMinutesOffsetFromStartTime": "116"
+    },
+    {
+     "point": "12.3819174\u00b0, 80.0056641\u00b0",
+     "durationMinutesOffsetFromStartTime": "118"
+    },
+    {
+     "point": "12.3972373\u00b0, 80.0057133\u00b0",
+     "durationMinutesOffsetFromStartTime": "121"
+    },
+    {
+     "point": "12.3596871\u00b0, 79.9240158\u00b0",
+     "durationMinutesOffsetFromStartTime": "123"
+    },
+    {
+     "point": "12.3658409\u00b0, 79.9287156\u00b0",
+     "durationMinutesOffsetFromStartTime": "125"
+    },
+    {
+     "point": "12.3513960\u00b0, 79.9429438\u00b0",
+     "durationMinutesOffsetFromStartTime": "127"
+    },
+    {
+     "point": "12.3457980\u00b0, 79.9907436\u00b0",
+     "durationMinutesOffsetFromStartTime": "129"
+    },
+    {
+     "point": "12.3270907\u00b0, 79.9365092\u00b0",
+     "durationMinutesOffsetFromStartTime": "131"
+    },
+    {
+     "point": "12.3175934\u00b0, 79.9063729\u00b0",
+     "durationMinutesOffsetFromStartTime": "134"
+    },
+    {
+     "point": "12.2925414\u00b0, 79.9241507\u00b0",
+     "durationMinutesOffsetFromStartTime": "136"
+    },
+    {
+     "point": "12.2838155\u00b0, 79.9613662\u00b0",
+     "durationMinutesOffsetFromStartTime": "138"
+    },
+    {
+     "point": "12.2598627\u00b0, 79.9090013\u00b0",
+     "durationMinutesOffsetFromStartTime": "140"
+    },
+    {
+     "point": "12.2459709\u00b0, 79.9244106\u00b0",
+     "durationMinutesOffsetFromStartTime": "142"
+    },
+    {
+     "point": "12.2530093\u00b0, 79.9469919\u00b0",
+     "durationMinutesOffsetFromStartTime": "145"
+    },
+    {
+     "point": "12.2245140\u00b0, 79.9273925\u00b0",
+     "durationMinutesOffsetFromStartTime": "147"
+    },
+    {
+     "point": "12.2244569\u00b0, 79.9169539\u00b0",
+     "durationMinutesOffsetFromStartTime": "149"
+    },
+    {
+     "point": "12.2101407\u00b0, 79.8868529\u00b0",
+     "durationMinutesOffsetFromStartTime": "151"
+    },
+    {
+     "point": "12.1958463\u00b0, 79.9026798\u00b0",
+     "durationMinutesOffsetFromStartTime": "153"
+    },
+    {
+     "point": "12.1887473\u00b0, 79.9080650\u00b0",
+     "durationMinutesOffsetFromStartTime": "156"
+    },
+    {
+     "point": "12.1658845\u00b0, 79.8929510\u00b0",
+     "durationMinutesOffsetFromStartTime": "158"
+    },
+    {
+     "point": "12.1506113\u00b0, 79.9070336\u00b0",
+     "durationMinutesOffsetFromStartTime": "160"
+    },
+    {
+     "point": "12.1357386\u00b0, 79.8552707\u00b0",
+     "durationMinutesOffsetFromStartTime": "162"
+    },
+    {
+     "point": "12.1324442\u00b0, 79.8898121\u00b0",
+     "durationMinutesOffsetFromStartTime": "164"
+    },
+    {
+     "point": "12.1120556\u00b0, 79.8534969\u00b0",
+     "durationMinutesOffsetFromStartTime": "167"
+    },
+    {
+     "point": "12.1049478\u00b0, 79.8828374\u00b0",
+     "durationMinutesOffsetFromStartTime": "169"
+    },
+    {
+     "point": "12.0929803\u00b0, 79.8632047\u00b0",
+     "durationMinutesOffsetFromStartTime": "171"
+    },
+    {
+     "point": "12.0700322\u00b0, 79.8536163\u00b0",
+     "durationMinutesOffsetFromStartTime": "173"
+    },
+    {
+     "point": "12.0647774\u00b0, 79.8670145\u00b0",
+     "durationMinutesOffsetFromStartTime": "175"
+    },
+    {
+     "point": "12.0500476\u00b0, 79.8519413\u00b0",
+     "durationMinutesOffsetFromStartTime": "177"
+    },
+    {
+     "point": "12.0379326\u00b0, 79.8423270\u00b0",
+     "durationMinutesOffsetFromStartTime": "180"
+    },
+    {
+     "point": "12.0243109\u00b0, 79.8286328\u00b0",
+     "durationMinutesOffsetFromStartTime": "182"
+    },
+    {
+     "point": "12.0071975\u00b0, 79.8230732\u00b0",
+     "durationMinutesOffsetFromStartTime": "184"
+    },
+    {
+     "point": "11.9958648\u00b0, 79.8261441\u00b0",
+     "durationMinutesOffsetFromStartTime": "186"
+    },
+    {
+     "point": "11.9814348\u00b0, 79.8226588\u00b0",
+     "durationMinutesOffsetFromStartTime": "188"
+    },
+    {
+     "point": "11.9676996\u00b0, 79.8184463\u00b0",
+     "durationMinutesOffsetFromStartTime": "191"
+    },
+    {
+     "point": "11.9544608\u00b0, 79.8137000\u00b0",
+     "durationMinutesOffsetFromStartTime": "193"
+    },
+    {
+     "point": "11.9416000\u00b0, 79.8083000\u00b0",
+     "durationMinutesOffsetFromStartTime": "195"
+    }
+   ]
+  },
+  {
+   "startTime": "2025-01-25T09:30:00+05:30",
+   "endTime": "2025-01-26T13:30:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "visit": {
+    "hierarchyLevel": 0,
+    "probability": 0.75,
+    "topCandidate": {
+     "placeId": "ChIJ_sample_pondy",
+     "semanticType": "Inferred",
+     "probability": 0.98,
+     "placeLocation": {
+      "latLng": "11.9416000\u00b0, 79.8083000\u00b0"
+     }
+    }
+   }
+  },
+  {
+   "startTime": "2025-01-26T13:30:00+05:30",
+   "endTime": "2025-01-26T17:00:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "activity": {
+    "start": {
+     "latLng": "11.9416000\u00b0, 79.8083000\u00b0"
+    },
+    "end": {
+     "latLng": "13.0067000\u00b0, 80.2206000\u00b0"
+    },
+    "distanceMeters": 126610.8,
+    "topCandidate": {
+     "type": "IN_PASSENGER_VEHICLE",
+     "probability": 0.87
+    }
+   },
+   "timelinePath": [
+    {
+     "point": "11.9416000\u00b0, 79.8083000\u00b0",
+     "durationMinutesOffsetFromStartTime": "0"
+    },
+    {
+     "point": "11.9545060\u00b0, 79.8115903\u00b0",
+     "durationMinutesOffsetFromStartTime": "2"
+    },
+    {
+     "point": "11.9674255\u00b0, 79.8183513\u00b0",
+     "durationMinutesOffsetFromStartTime": "5"
+    },
+    {
+     "point": "11.9813865\u00b0, 79.8228426\u00b0",
+     "durationMinutesOffsetFromStartTime": "7"
+    },
+    {
+     "point": "11.9945400\u00b0, 79.8275819\u00b0",
+     "durationMinutesOffsetFromStartTime": "9"
+    },
+    {
+     "point": "12.0062977\u00b0, 79.8383926\u00b0",
+     "durationMinutesOffsetFromStartTime": "12"
+    },
+    {
+     "point": "12.0196271\u00b0, 79.8291218\u00b0",
+     "durationMinutesOffsetFromStartTime": "14"
+    },
+    {
+     "point": "12.0344569\u00b0, 79.8482293\u00b0",
+     "durationMinutesOffsetFromStartTime": "17"
+    },
+    {
+     "point": "12.0478047\u00b0, 79.8525222\u00b0",
+     "durationMinutesOffsetFromStartTime": "19"
+    },
+    {
+     "point": "12.0589608\u00b0, 79.8452535\u00b0",
+     "durationMinutesOffsetFromStartTime": "21"
+    },
+    {
+     "point": "12.0704038\u00b0, 79.8429674\u00b0",
+     "durationMinutesOffsetFromStartTime": "24"
+    },
+    {
+     "point": "12.0809938\u00b0, 79.8604747\u00b0",
+     "durationMinutesOffsetFromStartTime": "26"
+    },
+    {
+     "point": "12.0961327\u00b0, 79.8684576\u00b0",
+     "durationMinutesOffsetFromStartTime": "28"
+    },
+    {
+     "point": "12.1100983\u00b0, 79.8855006\u00b0",
+     "durationMinutesOffsetFromStartTime": "31"
+    },
+    {
+     "point": "12.1204729\u00b0, 79.8662189\u00b0",
+     "durationMinutesOffsetFromStartTime": "33"
+    },
+    {
+     "point": "12.1449904\u00b0, 79.8997430\u00b0",
+     "durationMinutesOffsetFromStartTime": "35"
+    },
+    {
+     "point": "12.1531006\u00b0, 79.8958095\u00b0",
+     "durationMinutesOffsetFromStartTime": "38"
+    },
+    {
+     "point": "12.1564461\u00b0, 79.8635602\u00b0",
+     "durationMinutesOffsetFromStartTime": "40"
+    },
+    {
+     "point": "12.1841980\u00b0, 79.8965459\u00b0",
+     "durationMinutesOffsetFromStartTime": "42"
+    },
+    {
+     "point": "12.1956473\u00b0, 79.8846358\u00b0",
+     "durationMinutesOffsetFromStartTime": "45"
+    },
+    {
+     "point": "12.2010905\u00b0, 79.9270488\u00b0",
+     "durationMinutesOffsetFromStartTime": "47"
+    },
+    {
+     "point": "12.2242996\u00b0, 79.8769977\u00b0",
+     "durationMinutesOffsetFromStartTime": "50"
+    },
+    {
+     "point": "12.2248662\u00b0, 79.9150221\u00b0",
+     "durationMinutesOffsetFromStartTime": "52"
+    },
+    {
+     "point": "12.2514217\u00b0, 79.9385600\u00b0",
+     "durationMinutesOffsetFromStartTime": "54"
+    },
+    {
+     "point": "12.2515911\u00b0, 79.8937077\u00b0",
+     "durationMinutesOffsetFromStartTime": "57"
+    },
+    {
+     "point": "12.2604082\u00b0, 79.9404472\u00b0",
+     "durationMinutesOffsetFromStartTime": "59"
+    },
+    {
+     "point": "12.2802275\u00b0, 79.9083049\u00b0",
+     "durationMinutesOffsetFromStartTime": "61"
+    },
+    {
+     "point": "12.2835360\u00b0, 79.9238371\u00b0",
+     "durationMinutesOffsetFromStartTime": "64"
+    },
+    {
+     "point": "12.3062637\u00b0, 79.9335367\u00b0",
+     "durationMinutesOffsetFromStartTime": "66"
+    },
+    {
+     "point": "12.3178241\u00b0, 79.9029834\u00b0",
+     "durationMinutesOffsetFromStartTime": "68"
+    },
+    {
+     "point": "12.3380301\u00b0, 79.9232195\u00b0",
+     "durationMinutesOffsetFromStartTime": "71"
+    },
+    {
+     "point": "12.3352932\u00b0, 79.9094694\u00b0",
+     "durationMinutesOffsetFromStartTime": "73"
+    },
+    {
+     "point": "12.3490270\u00b0, 79.9482599\u00b0",
+     "durationMinutesOffsetFromStartTime": "76"
+    },
+    {
+     "point": "12.3605652\u00b0, 79.9923939\u00b0",
+     "durationMinutesOffsetFromStartTime": "78"
+    },
+    {
+     "point": "12.3912048\u00b0, 79.9710525\u00b0",
+     "durationMinutesOffsetFromStartTime": "80"
+    },
+    {
+     "point": "12.3803743\u00b0, 80.0066804\u00b0",
+     "durationMinutesOffsetFromStartTime": "83"
+    },
+    {
+     "point": "12.3998939\u00b0, 80.0107139\u00b0",
+     "durationMinutesOffsetFromStartTime": "85"
+    },
+    {
+     "point": "12.4213984\u00b0, 79.9613416\u00b0",
+     "durationMinutesOffsetFromStartTime": "87"
+    },
+    {
+     "point": "12.4176431\u00b0, 79.9516966\u00b0",
+     "durationMinutesOffsetFromStartTime": "90"
+    },
+    {
+     "point": "12.4322649\u00b0, 80.0090855\u00b0",
+     "durationMinutesOffsetFromStartTime": "92"
+    },
+    {
+     "point": "12.4513535\u00b0, 80.0183629\u00b0",
+     "durationMinutesOffsetFromStartTime": "94"
+    },
+    {
+     "point": "12.4686547\u00b0, 80.0442138\u00b0",
+     "durationMinutesOffsetFromStartTime": "97"
+    },
+    {
+     "point": "12.4745073\u00b0, 80.0125601\u00b0",
+     "durationMinutesOffsetFromStartTime": "99"
+    },
+    {
+     "point": "12.4791738\u00b0, 79.9663812\u00b0",
+     "durationMinutesOffsetFromStartTime": "101"
+    },
+    {
+     "point": "12.4982756\u00b0, 80.0079448\u00b0",
+     "durationMinutesOffsetFromStartTime": "104"
+    },
+    {
+     "point": "12.5043779\u00b0, 79.9952475\u00b0",
+     "durationMinutesOffsetFromStartTime": "106"
+    },
+    {
+     "point": "12.5182573\u00b0, 80.0548142\u00b0",
+     "durationMinutesOffsetFromStartTime": "109"
+    },
+    {
+     "point": "12.5361981\u00b0, 80.0563293\u00b0",
+     "durationMinutesOffsetFromStartTime": "111"
+    },
+    {
+     "point": "12.5370297\u00b0, 79.9940140\u00b0",
+     "durationMinutesOffsetFromStartTime": "113"
+    },
+    {
+     "point": "12.5676761\u00b0, 80.0276752\u00b0",
+     "durationMinutesOffsetFromStartTime": "116"
+    },
+    {
+     "point": "12.5605307\u00b0, 80.0458748\u00b0",
+     "durationMinutesOffsetFromStartTime": "118"
+    },
+    {
+     "point": "12.5725036\u00b0, 80.0568812\u00b0",
+     "durationMinutesOffsetFromStartTime": "120"
+    },
+    {
+     "point": "12.6030929\u00b0, 80.0590687\u00b0",
+     "durationMinutesOffsetFromStartTime": "123"
+    },
+    {
+     "point": "12.6006800\u00b0, 80.0522827\u00b0",
+     "durationMinutesOffsetFromStartTime": "125"
+    },
+    {
+     "point": "12.6324812\u00b0, 80.0687377\u00b0",
+     "durationMinutesOffsetFromStartTime": "127"
+    },
+    {
+     "point": "12.6431169\u00b0, 80.0192406\u00b0",
+     "durationMinutesOffsetFromStartTime": "130"
+    },
+    {
+     "point": "12.6525087\u00b0, 80.0746525\u00b0",
+     "durationMinutesOffsetFromStartTime": "132"
+    },
+    {
+     "point": "12.6493544\u00b0, 80.0721884\u00b0",
+     "durationMinutesOffsetFromStartTime": "134"
+    },
+    {
+     "point": "12.6605668\u00b0, 80.0902932\u00b0",
+     "durationMinutesOffsetFromStartTime": "137"
+    },
+    {
+     "point": "12.6834597\u00b0, 80.0776366\u00b0",
+     "durationMinutesOffsetFromStartTime": "139"
+    },
+    {
+     "point": "12.6968697\u00b0, 80.0959078\u00b0",
+     "durationMinutesOffsetFromStartTime": "142"
+    },
+    {
+     "point": "12.6947105\u00b0, 80.0931918\u00b0",
+     "durationMinutesOffsetFromStartTime": "144"
+    },
+    {
+     "point": "12.7012889\u00b0, 80.1173890\u00b0",
+     "durationMinutesOffsetFromStartTime": "146"
+    },
+    {
+     "point": "12.7145839\u00b0, 80.1365412\u00b0",
+     "durationMinutesOffsetFromStartTime": "149"
+    },
+    {
+     "point": "12.7372497\u00b0, 80.0748631\u00b0",
+     "durationMinutesOffsetFromStartTime": "151"
+    },
+    {
+     "point": "12.7478785\u00b0, 80.1226045\u00b0",
+     "durationMinutesOffsetFromStartTime": "153"
+    },
+    {
+     "point": "12.7595125\u00b0, 80.1117744\u00b0",
+     "durationMinutesOffsetFromStartTime": "156"
+    },
+    {
+     "point": "12.7648291\u00b0, 80.1278180\u00b0",
+     "durationMinutesOffsetFromStartTime": "158"
+    },
+    {
+     "point": "12.7833148\u00b0, 80.1134593\u00b0",
+     "durationMinutesOffsetFromStartTime": "160"
+    },
+    {
+     "point": "12.7909447\u00b0, 80.1081335\u00b0",
+     "durationMinutesOffsetFromStartTime": "163"
+    },
+    {
+     "point": "12.7925644\u00b0, 80.1314616\u00b0",
+     "durationMinutesOffsetFromStartTime": "165"
+    },
+    {
+     "point": "12.8073202\u00b0, 80.1388466\u00b0",
+     "durationMinutesOffsetFromStartTime": "168"
+    },
+    {
+     "point": "12.8206404\u00b0, 80.1186777\u00b0",
+     "durationMinutesOffsetFromStartTime": "170"
+    },
+    {
+     "point": "12.8318237\u00b0, 80.1409108\u00b0",
+     "durationMinutesOffsetFromStartTime": "172"
+    },
+    {
+     "point": "12.8483333\u00b0, 80.1357244\u00b0",
+     "durationMinutesOffsetFromStartTime": "175"
+    },
+    {
+     "point": "12.8617479\u00b0, 80.1564088\u00b0",
+     "durationMinutesOffsetFromStartTime": "177"
+    },
+    {
+     "point": "12.8636434\u00b0, 80.1536023\u00b0",
+     "durationMinutesOffsetFromStartTime": "179"
+    },
+    {
+     "point": "12.8715018\u00b0, 80.1577993\u00b0",
+     "durationMinutesOffsetFromStartTime": "182"
+    },
+    {
+     "point": "12.8835561\u00b0, 80.1549196\u00b0",
+     "durationMinutesOffsetFromStartTime": "184"
+    },
+    {
+     "point": "12.9035964\u00b0, 80.1842183\u00b0",
+     "durationMinutesOffsetFromStartTime": "186"
+    },
+    {
+     "point": "12.9113443\u00b0, 80.1772191\u00b0",
+     "durationMinutesOffsetFromStartTime": "189"
+    },
+    {
+     "point": "12.9223273\u00b0, 80.1927831\u00b0",
+     "durationMinutesOffsetFromStartTime": "191"
+    },
+    {
+     "point": "12.9328904\u00b0, 80.1943879\u00b0",
+     "durationMinutesOffsetFromStartTime": "193"
+    },
+    {
+     "point": "12.9397256\u00b0, 80.1892291\u00b0",
+     "durationMinutesOffsetFromStartTime": "196"
+    },
+    {
+     "point": "12.9551827\u00b0, 80.2046877\u00b0",
+     "durationMinutesOffsetFromStartTime": "198"
+    },
+    {
+     "point": "12.9637419\u00b0, 80.2086359\u00b0",
+     "durationMinutesOffsetFromStartTime": "201"
+    },
+    {
+     "point": "12.9737011\u00b0, 80.2107756\u00b0",
+     "durationMinutesOffsetFromStartTime": "203"
+    },
+    {
+     "point": "12.9842022\u00b0, 80.2097641\u00b0",
+     "durationMinutesOffsetFromStartTime": "205"
+    },
+    {
+     "point": "12.9962545\u00b0, 80.2154578\u00b0",
+     "durationMinutesOffsetFromStartTime": "208"
+    },
+    {
+     "point": "13.0067000\u00b0, 80.2206000\u00b0",
+     "durationMinutesOffsetFromStartTime": "210"
+    }
+   ]
+  },
+  {
+   "startTime": "2025-01-26T17:00:00+05:30",
+   "endTime": "2025-01-27T03:00:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "visit": {
+    "hierarchyLevel": 0,
+    "probability": 0.9,
+    "topCandidate": {
+     "placeId": "ChIJ_sample_home_adyar",
+     "semanticType": "Home",
+     "probability": 0.97,
+     "placeLocation": {
+      "latLng": "13.0067000\u00b0, 80.2206000\u00b0"
+     }
+    }
+   }
+  },
+  {
+   "startTime": "2025-02-06T05:30:00+05:30",
+   "endTime": "2025-02-06T06:08:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "activity": {
+    "start": {
+     "latLng": "13.0067000\u00b0, 80.2206000\u00b0"
+    },
+    "end": {
+     "latLng": "12.9941000\u00b0, 80.1709000\u00b0"
+    },
+    "distanceMeters": 5564.0,
+    "topCandidate": {
+     "type": "IN_PASSENGER_VEHICLE",
+     "probability": 0.81
+    }
+   },
+   "timelinePath": [
+    {
+     "point": "13.0067000\u00b0, 80.2206000\u00b0",
+     "durationMinutesOffsetFromStartTime": "0"
+    },
+    {
+     "point": "13.0069314\u00b0, 80.2170792\u00b0",
+     "durationMinutesOffsetFromStartTime": "2"
+    },
+    {
+     "point": "13.0068003\u00b0, 80.2156762\u00b0",
+     "durationMinutesOffsetFromStartTime": "4"
+    },
+    {
+     "point": "13.0063017\u00b0, 80.2097469\u00b0",
+     "durationMinutesOffsetFromStartTime": "6"
+    },
+    {
+     "point": "13.0078462\u00b0, 80.2135786\u00b0",
+     "durationMinutesOffsetFromStartTime": "8"
+    },
+    {
+     "point": "13.0084643\u00b0, 80.2033588\u00b0",
+     "durationMinutesOffsetFromStartTime": "10"
+    },
+    {
+     "point": "13.0069313\u00b0, 80.2014770\u00b0",
+     "durationMinutesOffsetFromStartTime": "12"
+    },
+    {
+     "point": "13.0051198\u00b0, 80.2054059\u00b0",
+     "durationMinutesOffsetFromStartTime": "14"
+    },
+    {
+     "point": "13.0053603\u00b0, 80.2022843\u00b0",
+     "durationMinutesOffsetFromStartTime": "16"
+    },
+    {
+     "point": "13.0071111\u00b0, 80.1934473\u00b0",
+     "durationMinutesOffsetFromStartTime": "18"
+    },
+    {
+     "point": "13.0065492\u00b0, 80.1951066\u00b0",
+     "durationMinutesOffsetFromStartTime": "20"
+    },
+    {
+     "point": "13.0068229\u00b0, 80.1995515\u00b0",
+     "durationMinutesOffsetFromStartTime": "22"
+    },
+    {
+     "point": "13.0055840\u00b0, 80.1961314\u00b0",
+     "durationMinutesOffsetFromStartTime": "24"
+    },
+    {
+     "point": "13.0036550\u00b0, 80.1863802\u00b0",
+     "durationMinutesOffsetFromStartTime": "26"
+    },
+    {
+     "point": "13.0025234\u00b0, 80.1805651\u00b0",
+     "durationMinutesOffsetFromStartTime": "28"
+    },
+    {
+     "point": "13.0006557\u00b0, 80.1861960\u00b0",
+     "durationMinutesOffsetFromStartTime": "30"
+    },
+    {
+     "point": "12.9998212\u00b0, 80.1788882\u00b0",
+     "durationMinutesOffsetFromStartTime": "32"
+    },
+    {
+     "point": "12.9966292\u00b0, 80.1764003\u00b0",
+     "durationMinutesOffsetFromStartTime": "34"
+    },
+    {
+     "point": "12.9953980\u00b0, 80.1732691\u00b0",
+     "durationMinutesOffsetFromStartTime": "36"
+    },
+    {
+     "point": "12.9941000\u00b0, 80.1709000\u00b0",
+     "durationMinutesOffsetFromStartTime": "38"
+    }
+   ]
+  },
+  {
+   "startTime": "2025-02-06T06:08:00+05:30",
+   "endTime": "2025-02-06T07:43:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "visit": {
+    "hierarchyLevel": 0,
+    "probability": 0.78,
+    "topCandidate": {
+     "placeId": "ChIJ_sample_maa",
+     "semanticType": "Airport",
+     "probability": 0.65,
+     "placeLocation": {
+      "latLng": "12.9941000\u00b0, 80.1709000\u00b0"
+     }
+    }
+   }
+  },
+  {
+   "startTime": "2025-02-06T07:43:00+05:30",
+   "endTime": "2025-02-06T08:43:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "activity": {
+    "start": {
+     "latLng": "12.9941000\u00b0, 80.1709000\u00b0"
+    },
+    "end": {
+     "latLng": "12.9716000\u00b0, 77.5946000\u00b0"
+    },
+    "distanceMeters": 279158.9,
+    "topCandidate": {
+     "type": "FLYING",
+     "probability": 0.94
+    }
+   },
+   "timelinePath": [
+    {
+     "point": "12.9941000\u00b0, 80.1709000\u00b0",
+     "durationMinutesOffsetFromStartTime": "0"
+    },
+    {
+     "point": "12.9932700\u00b0, 79.9727091\u00b0",
+     "durationMinutesOffsetFromStartTime": "5"
+    },
+    {
+     "point": "12.9922898\u00b0, 79.7745197\u00b0",
+     "durationMinutesOffsetFromStartTime": "9"
+    },
+    {
+     "point": "12.9911594\u00b0, 79.5763320\u00b0",
+     "durationMinutesOffsetFromStartTime": "14"
+    },
+    {
+     "point": "12.9898788\u00b0, 79.3781462\u00b0",
+     "durationMinutesOffsetFromStartTime": "18"
+    },
+    {
+     "point": "12.9884481\u00b0, 79.1799626\u00b0",
+     "durationMinutesOffsetFromStartTime": "23"
+    },
+    {
+     "point": "12.9868673\u00b0, 78.9817813\u00b0",
+     "durationMinutesOffsetFromStartTime": "28"
+    },
+    {
+     "point": "12.9851364\u00b0, 78.7836027\u00b0",
+     "durationMinutesOffsetFromStartTime": "32"
+    },
+    {
+     "point": "12.9832554\u00b0, 78.5854270\u00b0",
+     "durationMinutesOffsetFromStartTime": "37"
+    },
+    {
+     "point": "12.9812243\u00b0, 78.3872544\u00b0",
+     "durationMinutesOffsetFromStartTime": "42"
+    },
+    {
+     "point": "12.9790432\u00b0, 78.1890852\u00b0",
+     "durationMinutesOffsetFromStartTime": "46"
+    },
+    {
+     "point": "12.9767121\u00b0, 77.9909195\u00b0",
+     "durationMinutesOffsetFromStartTime": "51"
+    },
+    {
+     "point": "12.9742310\u00b0, 77.7927577\u00b0",
+     "durationMinutesOffsetFromStartTime": "55"
+    },
+    {
+     "point": "12.9716000\u00b0, 77.5946000\u00b0",
+     "durationMinutesOffsetFromStartTime": "60"
+    }
+   ]
+  },
+  {
+   "startTime": "2025-02-06T08:43:00+05:30",
+   "endTime": "2025-02-07T21:23:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "visit": {
+    "hierarchyLevel": 0,
+    "probability": 0.85,
+    "topCandidate": {
+     "placeId": "ChIJ_sample_blr",
+     "semanticType": "Inferred",
+     "probability": 0.78,
+     "placeLocation": {
+      "latLng": "12.9716000\u00b0, 77.5946000\u00b0"
+     }
+    }
+   }
+  },
+  {
+   "startTime": "2025-02-07T21:23:00+05:30",
+   "endTime": "2025-02-07T22:28:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "activity": {
+    "start": {
+     "latLng": "12.9716000\u00b0, 77.5946000\u00b0"
+    },
+    "end": {
+     "latLng": "12.9941000\u00b0, 80.1709000\u00b0"
+    },
+    "distanceMeters": 279158.9,
+    "topCandidate": {
+     "type": "FLYING",
+     "probability": 0.86
+    }
+   },
+   "timelinePath": [
+    {
+     "point": "12.9716000\u00b0, 77.5946000\u00b0",
+     "durationMinutesOffsetFromStartTime": "0"
+    },
+    {
+     "point": "12.9742310\u00b0, 77.7927577\u00b0",
+     "durationMinutesOffsetFromStartTime": "5"
+    },
+    {
+     "point": "12.9767121\u00b0, 77.9909195\u00b0",
+     "durationMinutesOffsetFromStartTime": "10"
+    },
+    {
+     "point": "12.9790432\u00b0, 78.1890852\u00b0",
+     "durationMinutesOffsetFromStartTime": "15"
+    },
+    {
+     "point": "12.9812243\u00b0, 78.3872544\u00b0",
+     "durationMinutesOffsetFromStartTime": "20"
+    },
+    {
+     "point": "12.9832554\u00b0, 78.5854270\u00b0",
+     "durationMinutesOffsetFromStartTime": "25"
+    },
+    {
+     "point": "12.9851364\u00b0, 78.7836027\u00b0",
+     "durationMinutesOffsetFromStartTime": "30"
+    },
+    {
+     "point": "12.9868673\u00b0, 78.9817813\u00b0",
+     "durationMinutesOffsetFromStartTime": "35"
+    },
+    {
+     "point": "12.9884481\u00b0, 79.1799626\u00b0",
+     "durationMinutesOffsetFromStartTime": "40"
+    },
+    {
+     "point": "12.9898788\u00b0, 79.3781462\u00b0",
+     "durationMinutesOffsetFromStartTime": "45"
+    },
+    {
+     "point": "12.9911594\u00b0, 79.5763320\u00b0",
+     "durationMinutesOffsetFromStartTime": "50"
+    },
+    {
+     "point": "12.9922898\u00b0, 79.7745197\u00b0",
+     "durationMinutesOffsetFromStartTime": "55"
+    },
+    {
+     "point": "12.9932700\u00b0, 79.9727091\u00b0",
+     "durationMinutesOffsetFromStartTime": "60"
+    },
+    {
+     "point": "12.9941000\u00b0, 80.1709000\u00b0",
+     "durationMinutesOffsetFromStartTime": "65"
+    }
+   ]
+  },
+  {
+   "startTime": "2025-02-07T22:28:00+05:30",
+   "endTime": "2025-02-08T13:28:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "visit": {
+    "hierarchyLevel": 0,
+    "probability": 0.77,
+    "topCandidate": {
+     "placeId": "ChIJ_sample_home_adyar",
+     "semanticType": "Home",
+     "probability": 0.66,
+     "placeLocation": {
+      "latLng": "13.0067000\u00b0, 80.2206000\u00b0"
+     }
+    }
+   }
+  },
+  {
+   "startTime": "2025-03-08T05:50:00+05:30",
+   "endTime": "2025-03-08T12:50:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "activity": {
+    "start": {
+     "latLng": "13.0067000\u00b0, 80.2206000\u00b0"
+    },
+    "end": {
+     "latLng": "11.0168000\u00b0, 76.9558000\u00b0"
+    },
+    "distanceMeters": 418360.9,
+    "topCandidate": {
+     "type": "IN_PASSENGER_VEHICLE",
+     "probability": 0.69
+    }
+   },
+   "timelinePath": [
+    {
+     "point": "13.0067000\u00b0, 80.2206000\u00b0",
+     "durationMinutesOffsetFromStartTime": "0"
+    },
+    {
+     "point": "12.9939572\u00b0, 80.1956559\u00b0",
+     "durationMinutesOffsetFromStartTime": "3"
+    },
+    {
+     "point": "12.9806168\u00b0, 80.1756530\u00b0",
+     "durationMinutesOffsetFromStartTime": "6"
+    },
+    {
+     "point": "12.9678729\u00b0, 80.1478029\u00b0",
+     "durationMinutesOffsetFromStartTime": "9"
+    },
+    {
+     "point": "12.9545524\u00b0, 80.1245069\u00b0",
+     "durationMinutesOffsetFromStartTime": "12"
+    },
+    {
+     "point": "12.9405591\u00b0, 80.1013767\u00b0",
+     "durationMinutesOffsetFromStartTime": "15"
+    },
+    {
+     "point": "12.9300746\u00b0, 80.0789418\u00b0",
+     "durationMinutesOffsetFromStartTime": "18"
+    },
+    {
+     "point": "12.9123383\u00b0, 80.0492138\u00b0",
+     "durationMinutesOffsetFromStartTime": "21"
+    },
+    {
+     "point": "12.9002126\u00b0, 80.0192607\u00b0",
+     "durationMinutesOffsetFromStartTime": "24"
+    },
+    {
+     "point": "12.8913321\u00b0, 79.9960154\u00b0",
+     "durationMinutesOffsetFromStartTime": "27"
+    },
+    {
+     "point": "12.8780703\u00b0, 79.9909281\u00b0",
+     "durationMinutesOffsetFromStartTime": "30"
+    },
+    {
+     "point": "12.8581993\u00b0, 79.9748661\u00b0",
+     "durationMinutesOffsetFromStartTime": "33"
+    },
+    {
+     "point": "12.8443806\u00b0, 79.9311809\u00b0",
+     "durationMinutesOffsetFromStartTime": "36"
+    },
+    {
+     "point": "12.8402889\u00b0, 79.8954254\u00b0",
+     "durationMinutesOffsetFromStartTime": "39"
+    },
+    {
+     "point": "12.8295885\u00b0, 79.8888466\u00b0",
+     "durationMinutesOffsetFromStartTime": "42"
+    },
+    {
+     "point": "12.8161583\u00b0, 79.8623958\u00b0",
+     "durationMinutesOffsetFromStartTime": "45"
+    },
+    {
+     "point": "12.7939271\u00b0, 79.8565369\u00b0",
+     "durationMinutesOffsetFromStartTime": "48"
+    },
+    {
+     "point": "12.7870714\u00b0, 79.8210359\u00b0",
+     "durationMinutesOffsetFromStartTime": "51"
+    },
+    {
+     "point": "12.7717902\u00b0, 79.7908880\u00b0",
+     "durationMinutesOffsetFromStartTime": "54"
+    },
+    {
+     "point": "12.7646094\u00b0, 79.7935863\u00b0",
+     "durationMinutesOffsetFromStartTime": "57"
+    },
+    {
+     "point": "12.7513804\u00b0, 79.7618268\u00b0",
+     "durationMinutesOffsetFromStartTime": "60"
+    },
+    {
+     "point": "12.7342194\u00b0, 79.7544057\u00b0",
+     "durationMinutesOffsetFromStartTime": "63"
+    },
+    {
+     "point": "12.7237207\u00b0, 79.7155233\u00b0",
+     "durationMinutesOffsetFromStartTime": "66"
+    },
+    {
+     "point": "12.7070678\u00b0, 79.6844215\u00b0",
+     "durationMinutesOffsetFromStartTime": "69"
+    },
+    {
+     "point": "12.6911475\u00b0, 79.6229536\u00b0",
+     "durationMinutesOffsetFromStartTime": "73"
+    },
+    {
+     "point": "12.6792617\u00b0, 79.6615695\u00b0",
+     "durationMinutesOffsetFromStartTime": "76"
+    },
+    {
+     "point": "12.6547898\u00b0, 79.5696192\u00b0",
+     "durationMinutesOffsetFromStartTime": "79"
+    },
+    {
+     "point": "12.6615542\u00b0, 79.5744481\u00b0",
+     "durationMinutesOffsetFromStartTime": "82"
+    },
+    {
+     "point": "12.6373904\u00b0, 79.5182739\u00b0",
+     "durationMinutesOffsetFromStartTime": "85"
+    },
+    {
+     "point": "12.6238303\u00b0, 79.5544648\u00b0",
+     "durationMinutesOffsetFromStartTime": "88"
+    },
+    {
+     "point": "12.5989736\u00b0, 79.5135779\u00b0",
+     "durationMinutesOffsetFromStartTime": "91"
+    },
+    {
+     "point": "12.5917012\u00b0, 79.4474525\u00b0",
+     "durationMinutesOffsetFromStartTime": "94"
+    },
+    {
+     "point": "12.5832805\u00b0, 79.4715289\u00b0",
+     "durationMinutesOffsetFromStartTime": "97"
+    },
+    {
+     "point": "12.5826230\u00b0, 79.4134544\u00b0",
+     "durationMinutesOffsetFromStartTime": "100"
+    },
+    {
+     "point": "12.5659344\u00b0, 79.3799365\u00b0",
+     "durationMinutesOffsetFromStartTime": "103"
+    },
+    {
+     "point": "12.5500113\u00b0, 79.4106521\u00b0",
+     "durationMinutesOffsetFromStartTime": "106"
+    },
+    {
+     "point": "12.5207905\u00b0, 79.3398473\u00b0",
+     "durationMinutesOffsetFromStartTime": "109"
+    },
+    {
+     "point": "12.5265219\u00b0, 79.3533316\u00b0",
+     "durationMinutesOffsetFromStartTime": "112"
+    },
+    {
+     "point": "12.4940354\u00b0, 79.3564778\u00b0",
+     "durationMinutesOffsetFromStartTime": "115"
+    },
+    {
+     "point": "12.4861383\u00b0, 79.2849020\u00b0",
+     "durationMinutesOffsetFromStartTime": "118"
+    },
+    {
+     "point": "12.4611430\u00b0, 79.2841676\u00b0",
+     "durationMinutesOffsetFromStartTime": "121"
+    },
+    {
+     "point": "12.4742417\u00b0, 79.2863569\u00b0",
+     "durationMinutesOffsetFromStartTime": "124"
+    },
+    {
+     "point": "12.4645091\u00b0, 79.2627083\u00b0",
+     "durationMinutesOffsetFromStartTime": "127"
+    },
+    {
+     "point": "12.4477518\u00b0, 79.1927973\u00b0",
+     "durationMinutesOffsetFromStartTime": "130"
+    },
+    {
+     "point": "12.4309888\u00b0, 79.2091770\u00b0",
+     "durationMinutesOffsetFromStartTime": "133"
+    },
+    {
+     "point": "12.4233801\u00b0, 79.1906522\u00b0",
+     "durationMinutesOffsetFromStartTime": "136"
+    },
+    {
+     "point": "12.4090418\u00b0, 79.1879646\u00b0",
+     "durationMinutesOffsetFromStartTime": "139"
+    },
+    {
+     "point": "12.3707688\u00b0, 79.1328798\u00b0",
+     "durationMinutesOffsetFromStartTime": "142"
+    },
+    {
+     "point": "12.3761888\u00b0, 79.0866511\u00b0",
+     "durationMinutesOffsetFromStartTime": "145"
+    },
+    {
+     "point": "12.3376379\u00b0, 79.0338212\u00b0",
+     "durationMinutesOffsetFromStartTime": "148"
+    },
+    {
+     "point": "12.3221723\u00b0, 79.0930823\u00b0",
+     "durationMinutesOffsetFromStartTime": "151"
+    },
+    {
+     "point": "12.3224219\u00b0, 78.9791246\u00b0",
+     "durationMinutesOffsetFromStartTime": "154"
+    },
+    {
+     "point": "12.3076361\u00b0, 78.9360651\u00b0",
+     "durationMinutesOffsetFromStartTime": "157"
+    },
+    {
+     "point": "12.2945989\u00b0, 78.9402201\u00b0",
+     "durationMinutesOffsetFromStartTime": "160"
+    },
+    {
+     "point": "12.2808562\u00b0, 78.9177382\u00b0",
+     "durationMinutesOffsetFromStartTime": "163"
+    },
+    {
+     "point": "12.2663939\u00b0, 78.8637360\u00b0",
+     "durationMinutesOffsetFromStartTime": "166"
+    },
+    {
+     "point": "12.2528430\u00b0, 78.9431989\u00b0",
+     "durationMinutesOffsetFromStartTime": "169"
+    },
+    {
+     "point": "12.2295208\u00b0, 78.8520646\u00b0",
+     "durationMinutesOffsetFromStartTime": "172"
+    },
+    {
+     "point": "12.2484843\u00b0, 78.8066643\u00b0",
+     "durationMinutesOffsetFromStartTime": "175"
+    },
+    {
+     "point": "12.2093373\u00b0, 78.8640609\u00b0",
+     "durationMinutesOffsetFromStartTime": "178"
+    },
+    {
+     "point": "12.1800823\u00b0, 78.7404816\u00b0",
+     "durationMinutesOffsetFromStartTime": "181"
+    },
+    {
+     "point": "12.1725769\u00b0, 78.8348886\u00b0",
+     "durationMinutesOffsetFromStartTime": "184"
+    },
+    {
+     "point": "12.1866544\u00b0, 78.7320096\u00b0",
+     "durationMinutesOffsetFromStartTime": "187"
+    },
+    {
+     "point": "12.1481458\u00b0, 78.7088534\u00b0",
+     "durationMinutesOffsetFromStartTime": "190"
+    },
+    {
+     "point": "12.1240336\u00b0, 78.7127450\u00b0",
+     "durationMinutesOffsetFromStartTime": "193"
+    },
+    {
+     "point": "12.1288297\u00b0, 78.7127004\u00b0",
+     "durationMinutesOffsetFromStartTime": "196"
+    },
+    {
+     "point": "12.1024561\u00b0, 78.6536614\u00b0",
+     "durationMinutesOffsetFromStartTime": "199"
+    },
+    {
+     "point": "12.0868598\u00b0, 78.6003284\u00b0",
+     "durationMinutesOffsetFromStartTime": "202"
+    },
+    {
+     "point": "12.1056045\u00b0, 78.6237181\u00b0",
+     "durationMinutesOffsetFromStartTime": "205"
+    },
+    {
+     "point": "12.0667537\u00b0, 78.5973081\u00b0",
+     "durationMinutesOffsetFromStartTime": "208"
+    },
+    {
+     "point": "12.0615327\u00b0, 78.5487203\u00b0",
+     "durationMinutesOffsetFromStartTime": "212"
+    },
+    {
+     "point": "12.0312733\u00b0, 78.5075923\u00b0",
+     "durationMinutesOffsetFromStartTime": "215"
+    },
+    {
+     "point": "12.0270225\u00b0, 78.4854793\u00b0",
+     "durationMinutesOffsetFromStartTime": "218"
+    },
+    {
+     "point": "12.0049707\u00b0, 78.4454398\u00b0",
+     "durationMinutesOffsetFromStartTime": "221"
+    },
+    {
+     "point": "11.9804050\u00b0, 78.4451729\u00b0",
+     "durationMinutesOffsetFromStartTime": "224"
+    },
+    {
+     "point": "11.9702777\u00b0, 78.4594140\u00b0",
+     "durationMinutesOffsetFromStartTime": "227"
+    },
+    {
+     "point": "11.9742472\u00b0, 78.3833330\u00b0",
+     "durationMinutesOffsetFromStartTime": "230"
+    },
+    {
+     "point": "11.9691080\u00b0, 78.3993135\u00b0",
+     "durationMinutesOffsetFromStartTime": "233"
+    },
+    {
+     "point": "11.9288554\u00b0, 78.3412217\u00b0",
+     "durationMinutesOffsetFromStartTime": "236"
+    },
+    {
+     "point": "11.9165676\u00b0, 78.4150707\u00b0",
+     "durationMinutesOffsetFromStartTime": "239"
+    },
+    {
+     "point": "11.8988993\u00b0, 78.3274525\u00b0",
+     "durationMinutesOffsetFromStartTime": "242"
+    },
+    {
+     "point": "11.9170474\u00b0, 78.2851092\u00b0",
+     "durationMinutesOffsetFromStartTime": "245"
+    },
+    {
+     "point": "11.8807003\u00b0, 78.3550182\u00b0",
+     "durationMinutesOffsetFromStartTime": "248"
+    },
+    {
+     "point": "11.8713807\u00b0, 78.2225667\u00b0",
+     "durationMinutesOffsetFromStartTime": "251"
+    },
+    {
+     "point": "11.8494481\u00b0, 78.1783713\u00b0",
+     "durationMinutesOffsetFromStartTime": "254"
+    },
+    {
+     "point": "11.8342716\u00b0, 78.1537980\u00b0",
+     "durationMinutesOffsetFromStartTime": "257"
+    },
+    {
+     "point": "11.8201878\u00b0, 78.2192602\u00b0",
+     "durationMinutesOffsetFromStartTime": "260"
+    },
+    {
+     "point": "11.7979913\u00b0, 78.1122483\u00b0",
+     "durationMinutesOffsetFromStartTime": "263"
+    },
+    {
+     "point": "11.7812184\u00b0, 78.1466200\u00b0",
+     "durationMinutesOffsetFromStartTime": "266"
+    },
+    {
+     "point": "11.7687150\u00b0, 78.1068277\u00b0",
+     "durationMinutesOffsetFromStartTime": "269"
+    },
+    {
+     "point": "11.7747198\u00b0, 78.1333582\u00b0",
+     "durationMinutesOffsetFromStartTime": "272"
+    },
+    {
+     "point": "11.7565180\u00b0, 78.0298811\u00b0",
+     "durationMinutesOffsetFromStartTime": "275"
+    },
+    {
+     "point": "11.7539200\u00b0, 78.1081912\u00b0",
+     "durationMinutesOffsetFromStartTime": "278"
+    },
+    {
+     "point": "11.7225052\u00b0, 78.0804112\u00b0",
+     "durationMinutesOffsetFromStartTime": "281"
+    },
+    {
+     "point": "11.6964106\u00b0, 78.0099721\u00b0",
+     "durationMinutesOffsetFromStartTime": "284"
+    },
+    {
+     "point": "11.6933257\u00b0, 77.9574065\u00b0",
+     "durationMinutesOffsetFromStartTime": "287"
+    },
+    {
+     "point": "11.6813723\u00b0, 77.9163219\u00b0",
+     "durationMinutesOffsetFromStartTime": "290"
+    },
+    {
+     "point": "11.6709324\u00b0, 77.9066375\u00b0",
+     "durationMinutesOffsetFromStartTime": "293"
+    },
+    {
+     "point": "11.6469367\u00b0, 77.8644964\u00b0",
+     "durationMinutesOffsetFromStartTime": "296"
+    },
+    {
+     "point": "11.6459101\u00b0, 77.9011914\u00b0",
+     "durationMinutesOffsetFromStartTime": "299"
+    },
+    {
+     "point": "11.6080412\u00b0, 77.9057017\u00b0",
+     "durationMinutesOffsetFromStartTime": "302"
+    },
+    {
+     "point": "11.5982973\u00b0, 77.8509951\u00b0",
+     "durationMinutesOffsetFromStartTime": "305"
+    },
+    {
+     "point": "11.5783262\u00b0, 77.8248798\u00b0",
+     "durationMinutesOffsetFromStartTime": "308"
+    },
+    {
+     "point": "11.5778305\u00b0, 77.7874495\u00b0",
+     "durationMinutesOffsetFromStartTime": "311"
+    },
+    {
+     "point": "11.5430660\u00b0, 77.7391821\u00b0",
+     "durationMinutesOffsetFromStartTime": "314"
+    },
+    {
+     "point": "11.5396064\u00b0, 77.7896717\u00b0",
+     "durationMinutesOffsetFromStartTime": "317"
+    },
+    {
+     "point": "11.5163564\u00b0, 77.7466662\u00b0",
+     "durationMinutesOffsetFromStartTime": "320"
+    },
+    {
+     "point": "11.5217599\u00b0, 77.7209351\u00b0",
+     "durationMinutesOffsetFromStartTime": "323"
+    },
+    {
+     "point": "11.4831817\u00b0, 77.6540416\u00b0",
+     "durationMinutesOffsetFromStartTime": "326"
+    },
+    {
+     "point": "11.4686545\u00b0, 77.6484087\u00b0",
+     "durationMinutesOffsetFromStartTime": "329"
+    },
+    {
+     "point": "11.4562768\u00b0, 77.6723871\u00b0",
+     "durationMinutesOffsetFromStartTime": "332"
+    },
+    {
+     "point": "11.4498034\u00b0, 77.6361404\u00b0",
+     "durationMinutesOffsetFromStartTime": "335"
+    },
+    {
+     "point": "11.4336338\u00b0, 77.5625407\u00b0",
+     "durationMinutesOffsetFromStartTime": "338"
+    },
+    {
+     "point": "11.4092038\u00b0, 77.5524364\u00b0",
+     "durationMinutesOffsetFromStartTime": "341"
+    },
+    {
+     "point": "11.3965486\u00b0, 77.5646221\u00b0",
+     "durationMinutesOffsetFromStartTime": "344"
+    },
+    {
+     "point": "11.3972150\u00b0, 77.5183844\u00b0",
+     "durationMinutesOffsetFromStartTime": "347"
+    },
+    {
+     "point": "11.3760453\u00b0, 77.4979022\u00b0",
+     "durationMinutesOffsetFromStartTime": "351"
+    },
+    {
+     "point": "11.3537324\u00b0, 77.4365570\u00b0",
+     "durationMinutesOffsetFromStartTime": "354"
+    },
+    {
+     "point": "11.3504201\u00b0, 77.4289343\u00b0",
+     "durationMinutesOffsetFromStartTime": "357"
+    },
+    {
+     "point": "11.3314735\u00b0, 77.4303186\u00b0",
+     "durationMinutesOffsetFromStartTime": "360"
+    },
+    {
+     "point": "11.3027281\u00b0, 77.3864437\u00b0",
+     "durationMinutesOffsetFromStartTime": "363"
+    },
+    {
+     "point": "11.3030695\u00b0, 77.3550882\u00b0",
+     "durationMinutesOffsetFromStartTime": "366"
+    },
+    {
+     "point": "11.2737619\u00b0, 77.3315476\u00b0",
+     "durationMinutesOffsetFromStartTime": "369"
+    },
+    {
+     "point": "11.2666344\u00b0, 77.3462143\u00b0",
+     "durationMinutesOffsetFromStartTime": "372"
+    },
+    {
+     "point": "11.2534049\u00b0, 77.3007824\u00b0",
+     "durationMinutesOffsetFromStartTime": "375"
+    },
+    {
+     "point": "11.2376804\u00b0, 77.2763908\u00b0",
+     "durationMinutesOffsetFromStartTime": "378"
+    },
+    {
+     "point": "11.2203548\u00b0, 77.2583374\u00b0",
+     "durationMinutesOffsetFromStartTime": "381"
+    },
+    {
+     "point": "11.2006671\u00b0, 77.2501161\u00b0",
+     "durationMinutesOffsetFromStartTime": "384"
+    },
+    {
+     "point": "11.1855015\u00b0, 77.2107813\u00b0",
+     "durationMinutesOffsetFromStartTime": "387"
+    },
+    {
+     "point": "11.1745897\u00b0, 77.1815691\u00b0",
+     "durationMinutesOffsetFromStartTime": "390"
+    },
+    {
+     "point": "11.1526055\u00b0, 77.1793608\u00b0",
+     "durationMinutesOffsetFromStartTime": "393"
+    },
+    {
+     "point": "11.1421547\u00b0, 77.1381918\u00b0",
+     "durationMinutesOffsetFromStartTime": "396"
+    },
+    {
+     "point": "11.1260984\u00b0, 77.1099571\u00b0",
+     "durationMinutesOffsetFromStartTime": "399"
+    },
+    {
+     "point": "11.1127343\u00b0, 77.0871039\u00b0",
+     "durationMinutesOffsetFromStartTime": "402"
+    },
+    {
+     "point": "11.0929528\u00b0, 77.0649431\u00b0",
+     "durationMinutesOffsetFromStartTime": "405"
+    },
+    {
+     "point": "11.0788832\u00b0, 77.0513097\u00b0",
+     "durationMinutesOffsetFromStartTime": "408"
+    },
+    {
+     "point": "11.0620377\u00b0, 77.0249156\u00b0",
+     "durationMinutesOffsetFromStartTime": "411"
+    },
+    {
+     "point": "11.0475751\u00b0, 77.0024039\u00b0",
+     "durationMinutesOffsetFromStartTime": "414"
+    },
+    {
+     "point": "11.0321290\u00b0, 76.9797869\u00b0",
+     "durationMinutesOffsetFromStartTime": "417"
+    },
+    {
+     "point": "11.0168000\u00b0, 76.9558000\u00b0",
+     "durationMinutesOffsetFromStartTime": "420"
+    }
+   ]
+  },
+  {
+   "startTime": "2025-03-08T12:50:00+05:30",
+   "endTime": "2025-03-10T08:10:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "visit": {
+    "hierarchyLevel": 0,
+    "probability": 0.82,
+    "topCandidate": {
+     "placeId": "ChIJ_sample_cbe",
+     "semanticType": "Inferred",
+     "probability": 0.9,
+     "placeLocation": {
+      "latLng": "11.0168000\u00b0, 76.9558000\u00b0"
+     }
+    }
+   }
+  },
+  {
+   "startTime": "2025-03-10T08:10:00+05:30",
+   "endTime": "2025-03-10T15:35:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "activity": {
+    "start": {
+     "latLng": "11.0168000\u00b0, 76.9558000\u00b0"
+    },
+    "end": {
+     "latLng": "13.0067000\u00b0, 80.2206000\u00b0"
+    },
+    "distanceMeters": 418360.9,
+    "topCandidate": {
+     "type": "IN_PASSENGER_VEHICLE",
+     "probability": 0.62
+    }
+   },
+   "timelinePath": [
+    {
+     "point": "11.0168000\u00b0, 76.9558000\u00b0",
+     "durationMinutesOffsetFromStartTime": "0"
+    },
+    {
+     "point": "11.0326043\u00b0, 76.9804010\u00b0",
+     "durationMinutesOffsetFromStartTime": "3"
+    },
+    {
+     "point": "11.0484399\u00b0, 77.0050808\u00b0",
+     "durationMinutesOffsetFromStartTime": "6"
+    },
+    {
+     "point": "11.0640925\u00b0, 77.0216330\u00b0",
+     "durationMinutesOffsetFromStartTime": "10"
+    },
+    {
+     "point": "11.0784553\u00b0, 77.0506757\u00b0",
+     "durationMinutesOffsetFromStartTime": "13"
+    },
+    {
+     "point": "11.0956437\u00b0, 77.0673345\u00b0",
+     "durationMinutesOffsetFromStartTime": "16"
+    },
+    {
+     "point": "11.1085274\u00b0, 77.0999642\u00b0",
+     "durationMinutesOffsetFromStartTime": "19"
+    },
+    {
+     "point": "11.1227859\u00b0, 77.1119460\u00b0",
+     "durationMinutesOffsetFromStartTime": "22"
+    },
+    {
+     "point": "11.1430428\u00b0, 77.1405103\u00b0",
+     "durationMinutesOffsetFromStartTime": "26"
+    },
+    {
+     "point": "11.1543832\u00b0, 77.1569996\u00b0",
+     "durationMinutesOffsetFromStartTime": "29"
+    },
+    {
+     "point": "11.1752225\u00b0, 77.1811106\u00b0",
+     "durationMinutesOffsetFromStartTime": "32"
+    },
+    {
+     "point": "11.1895169\u00b0, 77.2144159\u00b0",
+     "durationMinutesOffsetFromStartTime": "35"
+    },
+    {
+     "point": "11.1990246\u00b0, 77.2286422\u00b0",
+     "durationMinutesOffsetFromStartTime": "38"
+    },
+    {
+     "point": "11.2132014\u00b0, 77.2527844\u00b0",
+     "durationMinutesOffsetFromStartTime": "42"
+    },
+    {
+     "point": "11.2328245\u00b0, 77.2780864\u00b0",
+     "durationMinutesOffsetFromStartTime": "45"
+    },
+    {
+     "point": "11.2443750\u00b0, 77.3036703\u00b0",
+     "durationMinutesOffsetFromStartTime": "48"
+    },
+    {
+     "point": "11.2701275\u00b0, 77.3427884\u00b0",
+     "durationMinutesOffsetFromStartTime": "51"
+    },
+    {
+     "point": "11.2844869\u00b0, 77.3314460\u00b0",
+     "durationMinutesOffsetFromStartTime": "54"
+    },
+    {
+     "point": "11.2869704\u00b0, 77.3631227\u00b0",
+     "durationMinutesOffsetFromStartTime": "58"
+    },
+    {
+     "point": "11.3030236\u00b0, 77.4236626\u00b0",
+     "durationMinutesOffsetFromStartTime": "61"
+    },
+    {
+     "point": "11.3210423\u00b0, 77.4262352\u00b0",
+     "durationMinutesOffsetFromStartTime": "64"
+    },
+    {
+     "point": "11.3403712\u00b0, 77.4190522\u00b0",
+     "durationMinutesOffsetFromStartTime": "67"
+    },
+    {
+     "point": "11.3572025\u00b0, 77.4424138\u00b0",
+     "durationMinutesOffsetFromStartTime": "70"
+    },
+    {
+     "point": "11.3724160\u00b0, 77.4891994\u00b0",
+     "durationMinutesOffsetFromStartTime": "74"
+    },
+    {
+     "point": "11.3868488\u00b0, 77.5233579\u00b0",
+     "durationMinutesOffsetFromStartTime": "77"
+    },
+    {
+     "point": "11.4121590\u00b0, 77.5478249\u00b0",
+     "durationMinutesOffsetFromStartTime": "80"
+    },
+    {
+     "point": "11.4170022\u00b0, 77.5468335\u00b0",
+     "durationMinutesOffsetFromStartTime": "83"
+    },
+    {
+     "point": "11.4275020\u00b0, 77.5816441\u00b0",
+     "durationMinutesOffsetFromStartTime": "86"
+    },
+    {
+     "point": "11.4535861\u00b0, 77.5763451\u00b0",
+     "durationMinutesOffsetFromStartTime": "90"
+    },
+    {
+     "point": "11.4510308\u00b0, 77.5958239\u00b0",
+     "durationMinutesOffsetFromStartTime": "93"
+    },
+    {
+     "point": "11.4741905\u00b0, 77.6801953\u00b0",
+     "durationMinutesOffsetFromStartTime": "96"
+    },
+    {
+     "point": "11.4858698\u00b0, 77.6688818\u00b0",
+     "durationMinutesOffsetFromStartTime": "99"
+    },
+    {
+     "point": "11.5200464\u00b0, 77.7297582\u00b0",
+     "durationMinutesOffsetFromStartTime": "102"
+    },
+    {
+     "point": "11.5194259\u00b0, 77.6886671\u00b0",
+     "durationMinutesOffsetFromStartTime": "106"
+    },
+    {
+     "point": "11.5340279\u00b0, 77.7207179\u00b0",
+     "durationMinutesOffsetFromStartTime": "109"
+    },
+    {
+     "point": "11.5624131\u00b0, 77.7447155\u00b0",
+     "durationMinutesOffsetFromStartTime": "112"
+    },
+    {
+     "point": "11.5819756\u00b0, 77.8172709\u00b0",
+     "durationMinutesOffsetFromStartTime": "115"
+    },
+    {
+     "point": "11.5705743\u00b0, 77.8383220\u00b0",
+     "durationMinutesOffsetFromStartTime": "118"
+    },
+    {
+     "point": "11.5887685\u00b0, 77.8415618\u00b0",
+     "durationMinutesOffsetFromStartTime": "122"
+    },
+    {
+     "point": "11.6191506\u00b0, 77.9124697\u00b0",
+     "durationMinutesOffsetFromStartTime": "125"
+    },
+    {
+     "point": "11.6356762\u00b0, 77.9200968\u00b0",
+     "durationMinutesOffsetFromStartTime": "128"
+    },
+    {
+     "point": "11.6330852\u00b0, 77.8933301\u00b0",
+     "durationMinutesOffsetFromStartTime": "131"
+    },
+    {
+     "point": "11.6587828\u00b0, 77.9793004\u00b0",
+     "durationMinutesOffsetFromStartTime": "134"
+    },
+    {
+     "point": "11.6899395\u00b0, 77.9891397\u00b0",
+     "durationMinutesOffsetFromStartTime": "138"
+    },
+    {
+     "point": "11.6891263\u00b0, 77.9731163\u00b0",
+     "durationMinutesOffsetFromStartTime": "141"
+    },
+    {
+     "point": "11.7148779\u00b0, 78.0270911\u00b0",
+     "durationMinutesOffsetFromStartTime": "144"
+    },
+    {
+     "point": "11.7161871\u00b0, 78.0539611\u00b0",
+     "durationMinutesOffsetFromStartTime": "147"
+    },
+    {
+     "point": "11.7417270\u00b0, 78.0552461\u00b0",
+     "durationMinutesOffsetFromStartTime": "150"
+    },
+    {
+     "point": "11.7647404\u00b0, 78.0755839\u00b0",
+     "durationMinutesOffsetFromStartTime": "154"
+    },
+    {
+     "point": "11.7651668\u00b0, 78.1553525\u00b0",
+     "durationMinutesOffsetFromStartTime": "157"
+    },
+    {
+     "point": "11.7689963\u00b0, 78.1053275\u00b0",
+     "durationMinutesOffsetFromStartTime": "160"
+    },
+    {
+     "point": "11.7965157\u00b0, 78.2051415\u00b0",
+     "durationMinutesOffsetFromStartTime": "163"
+    },
+    {
+     "point": "11.8048641\u00b0, 78.1711251\u00b0",
+     "durationMinutesOffsetFromStartTime": "166"
+    },
+    {
+     "point": "11.8104411\u00b0, 78.2237694\u00b0",
+     "durationMinutesOffsetFromStartTime": "170"
+    },
+    {
+     "point": "11.8443203\u00b0, 78.2722181\u00b0",
+     "durationMinutesOffsetFromStartTime": "173"
+    },
+    {
+     "point": "11.8365599\u00b0, 78.2006519\u00b0",
+     "durationMinutesOffsetFromStartTime": "176"
+    },
+    {
+     "point": "11.8803447\u00b0, 78.2292737\u00b0",
+     "durationMinutesOffsetFromStartTime": "179"
+    },
+    {
+     "point": "11.8742992\u00b0, 78.2423632\u00b0",
+     "durationMinutesOffsetFromStartTime": "182"
+    },
+    {
+     "point": "11.9070882\u00b0, 78.3379810\u00b0",
+     "durationMinutesOffsetFromStartTime": "186"
+    },
+    {
+     "point": "11.8981350\u00b0, 78.3789236\u00b0",
+     "durationMinutesOffsetFromStartTime": "189"
+    },
+    {
+     "point": "11.9151232\u00b0, 78.4187057\u00b0",
+     "durationMinutesOffsetFromStartTime": "192"
+    },
+    {
+     "point": "11.9296961\u00b0, 78.4167340\u00b0",
+     "durationMinutesOffsetFromStartTime": "195"
+    },
+    {
+     "point": "11.9494272\u00b0, 78.4275757\u00b0",
+     "durationMinutesOffsetFromStartTime": "198"
+    },
+    {
+     "point": "11.9572645\u00b0, 78.4252746\u00b0",
+     "durationMinutesOffsetFromStartTime": "202"
+    },
+    {
+     "point": "11.9913321\u00b0, 78.3914180\u00b0",
+     "durationMinutesOffsetFromStartTime": "205"
+    },
+    {
+     "point": "11.9856909\u00b0, 78.4845970\u00b0",
+     "durationMinutesOffsetFromStartTime": "208"
+    },
+    {
+     "point": "12.0297171\u00b0, 78.5017717\u00b0",
+     "durationMinutesOffsetFromStartTime": "211"
+    },
+    {
+     "point": "12.0414202\u00b0, 78.4664984\u00b0",
+     "durationMinutesOffsetFromStartTime": "214"
+    },
+    {
+     "point": "12.0253620\u00b0, 78.5398954\u00b0",
+     "durationMinutesOffsetFromStartTime": "218"
+    },
+    {
+     "point": "12.0487794\u00b0, 78.5401475\u00b0",
+     "durationMinutesOffsetFromStartTime": "221"
+    },
+    {
+     "point": "12.0884325\u00b0, 78.5667974\u00b0",
+     "durationMinutesOffsetFromStartTime": "224"
+    },
+    {
+     "point": "12.0724358\u00b0, 78.5745403\u00b0",
+     "durationMinutesOffsetFromStartTime": "227"
+    },
+    {
+     "point": "12.1098164\u00b0, 78.6455370\u00b0",
+     "durationMinutesOffsetFromStartTime": "231"
+    },
+    {
+     "point": "12.0989927\u00b0, 78.7040218\u00b0",
+     "durationMinutesOffsetFromStartTime": "234"
+    },
+    {
+     "point": "12.1311414\u00b0, 78.7042209\u00b0",
+     "durationMinutesOffsetFromStartTime": "237"
+    },
+    {
+     "point": "12.1417669\u00b0, 78.7629179\u00b0",
+     "durationMinutesOffsetFromStartTime": "240"
+    },
+    {
+     "point": "12.1636697\u00b0, 78.6868896\u00b0",
+     "durationMinutesOffsetFromStartTime": "243"
+    },
+    {
+     "point": "12.1710289\u00b0, 78.7248843\u00b0",
+     "durationMinutesOffsetFromStartTime": "247"
+    },
+    {
+     "point": "12.1891081\u00b0, 78.7672796\u00b0",
+     "durationMinutesOffsetFromStartTime": "250"
+    },
+    {
+     "point": "12.2045249\u00b0, 78.8407230\u00b0",
+     "durationMinutesOffsetFromStartTime": "253"
+    },
+    {
+     "point": "12.1921547\u00b0, 78.8673862\u00b0",
+     "durationMinutesOffsetFromStartTime": "256"
+    },
+    {
+     "point": "12.2420843\u00b0, 78.8971016\u00b0",
+     "durationMinutesOffsetFromStartTime": "259"
+    },
+    {
+     "point": "12.2576063\u00b0, 78.9054571\u00b0",
+     "durationMinutesOffsetFromStartTime": "263"
+    },
+    {
+     "point": "12.2710950\u00b0, 78.9421841\u00b0",
+     "durationMinutesOffsetFromStartTime": "266"
+    },
+    {
+     "point": "12.2658463\u00b0, 78.9365325\u00b0",
+     "durationMinutesOffsetFromStartTime": "269"
+    },
+    {
+     "point": "12.2979238\u00b0, 78.9067917\u00b0",
+     "durationMinutesOffsetFromStartTime": "272"
+    },
+    {
+     "point": "12.2888404\u00b0, 79.0200120\u00b0",
+     "durationMinutesOffsetFromStartTime": "275"
+    },
+    {
+     "point": "12.3166209\u00b0, 78.9715095\u00b0",
+     "durationMinutesOffsetFromStartTime": "279"
+    },
+    {
+     "point": "12.3151768\u00b0, 79.0134365\u00b0",
+     "durationMinutesOffsetFromStartTime": "282"
+    },
+    {
+     "point": "12.3289539\u00b0, 79.0634456\u00b0",
+     "durationMinutesOffsetFromStartTime": "285"
+    },
+    {
+     "point": "12.3609406\u00b0, 79.0467251\u00b0",
+     "durationMinutesOffsetFromStartTime": "288"
+    },
+    {
+     "point": "12.3565792\u00b0, 79.0912699\u00b0",
+     "durationMinutesOffsetFromStartTime": "291"
+    },
+    {
+     "point": "12.3690436\u00b0, 79.1329027\u00b0",
+     "durationMinutesOffsetFromStartTime": "295"
+    },
+    {
+     "point": "12.3860917\u00b0, 79.1614534\u00b0",
+     "durationMinutesOffsetFromStartTime": "298"
+    },
+    {
+     "point": "12.3977172\u00b0, 79.1959391\u00b0",
+     "durationMinutesOffsetFromStartTime": "301"
+    },
+    {
+     "point": "12.4251412\u00b0, 79.1667426\u00b0",
+     "durationMinutesOffsetFromStartTime": "304"
+    },
+    {
+     "point": "12.4478371\u00b0, 79.1743169\u00b0",
+     "durationMinutesOffsetFromStartTime": "307"
+    },
+    {
+     "point": "12.4401002\u00b0, 79.2237829\u00b0",
+     "durationMinutesOffsetFromStartTime": "311"
+    },
+    {
+     "point": "12.4551061\u00b0, 79.3004229\u00b0",
+     "durationMinutesOffsetFromStartTime": "314"
+    },
+    {
+     "point": "12.4589776\u00b0, 79.2677198\u00b0",
+     "durationMinutesOffsetFromStartTime": "317"
+    },
+    {
+     "point": "12.4825308\u00b0, 79.2964185\u00b0",
+     "durationMinutesOffsetFromStartTime": "320"
+    },
+    {
+     "point": "12.4948665\u00b0, 79.3167605\u00b0",
+     "durationMinutesOffsetFromStartTime": "323"
+    },
+    {
+     "point": "12.5282070\u00b0, 79.3162793\u00b0",
+     "durationMinutesOffsetFromStartTime": "327"
+    },
+    {
+     "point": "12.5305332\u00b0, 79.3694432\u00b0",
+     "durationMinutesOffsetFromStartTime": "330"
+    },
+    {
+     "point": "12.5376737\u00b0, 79.3479238\u00b0",
+     "durationMinutesOffsetFromStartTime": "333"
+    },
+    {
+     "point": "12.5617059\u00b0, 79.4209701\u00b0",
+     "durationMinutesOffsetFromStartTime": "336"
+    },
+    {
+     "point": "12.5633713\u00b0, 79.4614795\u00b0",
+     "durationMinutesOffsetFromStartTime": "339"
+    },
+    {
+     "point": "12.5856605\u00b0, 79.4221064\u00b0",
+     "durationMinutesOffsetFromStartTime": "343"
+    },
+    {
+     "point": "12.5957716\u00b0, 79.4535914\u00b0",
+     "durationMinutesOffsetFromStartTime": "346"
+    },
+    {
+     "point": "12.6093454\u00b0, 79.4837638\u00b0",
+     "durationMinutesOffsetFromStartTime": "349"
+    },
+    {
+     "point": "12.6210000\u00b0, 79.5618101\u00b0",
+     "durationMinutesOffsetFromStartTime": "352"
+    },
+    {
+     "point": "12.6316566\u00b0, 79.5945958\u00b0",
+     "durationMinutesOffsetFromStartTime": "355"
+    },
+    {
+     "point": "12.6445156\u00b0, 79.6021494\u00b0",
+     "durationMinutesOffsetFromStartTime": "359"
+    },
+    {
+     "point": "12.6548269\u00b0, 79.6177478\u00b0",
+     "durationMinutesOffsetFromStartTime": "362"
+    },
+    {
+     "point": "12.6841818\u00b0, 79.6264612\u00b0",
+     "durationMinutesOffsetFromStartTime": "365"
+    },
+    {
+     "point": "12.6917105\u00b0, 79.6786165\u00b0",
+     "durationMinutesOffsetFromStartTime": "368"
+    },
+    {
+     "point": "12.7002455\u00b0, 79.6828455\u00b0",
+     "durationMinutesOffsetFromStartTime": "371"
+    },
+    {
+     "point": "12.7155609\u00b0, 79.6843960\u00b0",
+     "durationMinutesOffsetFromStartTime": "375"
+    },
+    {
+     "point": "12.7212090\u00b0, 79.7132662\u00b0",
+     "durationMinutesOffsetFromStartTime": "378"
+    },
+    {
+     "point": "12.7510939\u00b0, 79.7756012\u00b0",
+     "durationMinutesOffsetFromStartTime": "381"
+    },
+    {
+     "point": "12.7505953\u00b0, 79.7583202\u00b0",
+     "durationMinutesOffsetFromStartTime": "384"
+    },
+    {
+     "point": "12.7661529\u00b0, 79.8074034\u00b0",
+     "durationMinutesOffsetFromStartTime": "387"
+    },
+    {
+     "point": "12.7831476\u00b0, 79.8411785\u00b0",
+     "durationMinutesOffsetFromStartTime": "391"
+    },
+    {
+     "point": "12.7946221\u00b0, 79.8623264\u00b0",
+     "durationMinutesOffsetFromStartTime": "394"
+    },
+    {
+     "point": "12.8033603\u00b0, 79.8695855\u00b0",
+     "durationMinutesOffsetFromStartTime": "397"
+    },
+    {
+     "point": "12.8196861\u00b0, 79.9082108\u00b0",
+     "durationMinutesOffsetFromStartTime": "400"
+    },
+    {
+     "point": "12.8369965\u00b0, 79.9310986\u00b0",
+     "durationMinutesOffsetFromStartTime": "403"
+    },
+    {
+     "point": "12.8446773\u00b0, 79.9488024\u00b0",
+     "durationMinutesOffsetFromStartTime": "407"
+    },
+    {
+     "point": "12.8613642\u00b0, 79.9457075\u00b0",
+     "durationMinutesOffsetFromStartTime": "410"
+    },
+    {
+     "point": "12.8758603\u00b0, 79.9809283\u00b0",
+     "durationMinutesOffsetFromStartTime": "413"
+    },
+    {
+     "point": "12.8891948\u00b0, 80.0165878\u00b0",
+     "durationMinutesOffsetFromStartTime": "416"
+    },
+    {
+     "point": "12.9040700\u00b0, 80.0277082\u00b0",
+     "durationMinutesOffsetFromStartTime": "419"
+    },
+    {
+     "point": "12.9172218\u00b0, 80.0632361\u00b0",
+     "durationMinutesOffsetFromStartTime": "423"
+    },
+    {
+     "point": "12.9303193\u00b0, 80.0749974\u00b0",
+     "durationMinutesOffsetFromStartTime": "426"
+    },
+    {
+     "point": "12.9411144\u00b0, 80.1036326\u00b0",
+     "durationMinutesOffsetFromStartTime": "429"
+    },
+    {
+     "point": "12.9530892\u00b0, 80.1216338\u00b0",
+     "durationMinutesOffsetFromStartTime": "432"
+    },
+    {
+     "point": "12.9659889\u00b0, 80.1479833\u00b0",
+     "durationMinutesOffsetFromStartTime": "435"
+    },
+    {
+     "point": "12.9804234\u00b0, 80.1707264\u00b0",
+     "durationMinutesOffsetFromStartTime": "439"
+    },
+    {
+     "point": "12.9939270\u00b0, 80.1981972\u00b0",
+     "durationMinutesOffsetFromStartTime": "442"
+    },
+    {
+     "point": "13.0067000\u00b0, 80.2206000\u00b0",
+     "durationMinutesOffsetFromStartTime": "445"
+    }
+   ]
+  },
+  {
+   "startTime": "2025-03-10T15:35:00+05:30",
+   "endTime": "2025-03-11T11:35:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "visit": {
+    "hierarchyLevel": 0,
+    "probability": 0.76,
+    "topCandidate": {
+     "placeId": "ChIJ_sample_home_adyar",
+     "semanticType": "Home",
+     "probability": 0.83,
+     "placeLocation": {
+      "latLng": "13.0067000\u00b0, 80.2206000\u00b0"
+     }
+    }
+   }
+  },
+  {
+   "startTime": "2025-05-02T01:10:00+05:30",
+   "endTime": "2025-05-02T01:40:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "activity": {
+    "start": {
+     "latLng": "13.0067000\u00b0, 80.2206000\u00b0"
+    },
+    "end": {
+     "latLng": "12.9941000\u00b0, 80.1709000\u00b0"
+    },
+    "distanceMeters": 5564.0,
+    "topCandidate": {
+     "type": "IN_PASSENGER_VEHICLE",
+     "probability": 0.61
+    }
+   },
+   "timelinePath": [
+    {
+     "point": "13.0067000\u00b0, 80.2206000\u00b0",
+     "durationMinutesOffsetFromStartTime": "0"
+    },
+    {
+     "point": "13.0066094\u00b0, 80.2172816\u00b0",
+     "durationMinutesOffsetFromStartTime": "2"
+    },
+    {
+     "point": "13.0068409\u00b0, 80.2150446\u00b0",
+     "durationMinutesOffsetFromStartTime": "4"
+    },
+    {
+     "point": "13.0070174\u00b0, 80.2099338\u00b0",
+     "durationMinutesOffsetFromStartTime": "5"
+    },
+    {
+     "point": "13.0067434\u00b0, 80.2075383\u00b0",
+     "durationMinutesOffsetFromStartTime": "7"
+    },
+    {
+     "point": "13.0056259\u00b0, 80.2106368\u00b0",
+     "durationMinutesOffsetFromStartTime": "9"
+    },
+    {
+     "point": "13.0056067\u00b0, 80.2082738\u00b0",
+     "durationMinutesOffsetFromStartTime": "11"
+    },
+    {
+     "point": "13.0045977\u00b0, 80.2026377\u00b0",
+     "durationMinutesOffsetFromStartTime": "12"
+    },
+    {
+     "point": "13.0058381\u00b0, 80.1992975\u00b0",
+     "durationMinutesOffsetFromStartTime": "14"
+    },
+    {
+     "point": "13.0025838\u00b0, 80.1975715\u00b0",
+     "durationMinutesOffsetFromStartTime": "16"
+    },
+    {
+     "point": "13.0040615\u00b0, 80.1940667\u00b0",
+     "durationMinutesOffsetFromStartTime": "18"
+    },
+    {
+     "point": "13.0026096\u00b0, 80.1882278\u00b0",
+     "durationMinutesOffsetFromStartTime": "19"
+    },
+    {
+     "point": "13.0023270\u00b0, 80.1871605\u00b0",
+     "durationMinutesOffsetFromStartTime": "21"
+    },
+    {
+     "point": "13.0010614\u00b0, 80.1838838\u00b0",
+     "durationMinutesOffsetFromStartTime": "23"
+    },
+    {
+     "point": "12.9990367\u00b0, 80.1780970\u00b0",
+     "durationMinutesOffsetFromStartTime": "25"
+    },
+    {
+     "point": "12.9965294\u00b0, 80.1774771\u00b0",
+     "durationMinutesOffsetFromStartTime": "26"
+    },
+    {
+     "point": "12.9958335\u00b0, 80.1732357\u00b0",
+     "durationMinutesOffsetFromStartTime": "28"
+    },
+    {
+     "point": "12.9941000\u00b0, 80.1709000\u00b0",
+     "durationMinutesOffsetFromStartTime": "30"
+    }
+   ]
+  },
+  {
+   "startTime": "2025-05-02T01:40:00+05:30",
+   "endTime": "2025-05-02T03:50:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "visit": {
+    "hierarchyLevel": 0,
+    "probability": 0.98,
+    "topCandidate": {
+     "placeId": "ChIJ_sample_maa",
+     "semanticType": "Airport",
+     "probability": 0.87,
+     "placeLocation": {
+      "latLng": "12.9941000\u00b0, 80.1709000\u00b0"
+     }
+    }
+   }
+  },
+  {
+   "startTime": "2025-05-02T03:50:00+05:30",
+   "endTime": "2025-05-02T08:15:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "activity": {
+    "start": {
+     "latLng": "12.9941000\u00b0, 80.1709000\u00b0"
+    },
+    "end": {
+     "latLng": "25.2532000\u00b0, 55.3657000\u00b0"
+    },
+    "distanceMeters": 2932984.5,
+    "topCandidate": {
+     "type": "FLYING",
+     "probability": 0.82
+    }
+   },
+   "timelinePath": [
+    {
+     "point": "12.9941000\u00b0, 80.1709000\u00b0",
+     "durationMinutesOffsetFromStartTime": "0"
+    },
+    {
+     "point": "13.3452239\u00b0, 79.5772401\u00b0",
+     "durationMinutesOffsetFromStartTime": "7"
+    },
+    {
+     "point": "13.6949623\u00b0, 78.9818551\u00b0",
+     "durationMinutesOffsetFromStartTime": "14"
+    },
+    {
+     "point": "14.0432733\u00b0, 78.3846998\u00b0",
+     "durationMinutesOffsetFromStartTime": "20"
+    },
+    {
+     "point": "14.3901148\u00b0, 77.7857296\u00b0",
+     "durationMinutesOffsetFromStartTime": "27"
+    },
+    {
+     "point": "14.7354444\u00b0, 77.1849000\u00b0",
+     "durationMinutesOffsetFromStartTime": "34"
+    },
+    {
+     "point": "15.0792191\u00b0, 76.5821668\u00b0",
+     "durationMinutesOffsetFromStartTime": "41"
+    },
+    {
+     "point": "15.4213960\u00b0, 75.9774862\u00b0",
+     "durationMinutesOffsetFromStartTime": "48"
+    },
+    {
+     "point": "15.7619316\u00b0, 75.3708149\u00b0",
+     "durationMinutesOffsetFromStartTime": "54"
+    },
+    {
+     "point": "16.1007823\u00b0, 74.7621098\u00b0",
+     "durationMinutesOffsetFromStartTime": "61"
+    },
+    {
+     "point": "16.4379040\u00b0, 74.1513282\u00b0",
+     "durationMinutesOffsetFromStartTime": "68"
+    },
+    {
+     "point": "16.7732525\u00b0, 73.5384280\u00b0",
+     "durationMinutesOffsetFromStartTime": "75"
+    },
+    {
+     "point": "17.1067830\u00b0, 72.9233674\u00b0",
+     "durationMinutesOffsetFromStartTime": "82"
+    },
+    {
+     "point": "17.4384506\u00b0, 72.3061051\u00b0",
+     "durationMinutesOffsetFromStartTime": "88"
+    },
+    {
+     "point": "17.7682101\u00b0, 71.6866005\u00b0",
+     "durationMinutesOffsetFromStartTime": "95"
+    },
+    {
+     "point": "18.0960158\u00b0, 71.0648134\u00b0",
+     "durationMinutesOffsetFromStartTime": "102"
+    },
+    {
+     "point": "18.4218219\u00b0, 70.4407040\u00b0",
+     "durationMinutesOffsetFromStartTime": "109"
+    },
+    {
+     "point": "18.7455820\u00b0, 69.8142335\u00b0",
+     "durationMinutesOffsetFromStartTime": "116"
+    },
+    {
+     "point": "19.0672495\u00b0, 69.1853635\u00b0",
+     "durationMinutesOffsetFromStartTime": "122"
+    },
+    {
+     "point": "19.3867777\u00b0, 68.5540563\u00b0",
+     "durationMinutesOffsetFromStartTime": "129"
+    },
+    {
+     "point": "19.7041193\u00b0, 67.9202750\u00b0",
+     "durationMinutesOffsetFromStartTime": "136"
+    },
+    {
+     "point": "20.0192268\u00b0, 67.2839832\u00b0",
+     "durationMinutesOffsetFromStartTime": "143"
+    },
+    {
+     "point": "20.3320523\u00b0, 66.6451456\u00b0",
+     "durationMinutesOffsetFromStartTime": "149"
+    },
+    {
+     "point": "20.6425477\u00b0, 66.0037276\u00b0",
+     "durationMinutesOffsetFromStartTime": "156"
+    },
+    {
+     "point": "20.9506646\u00b0, 65.3596954\u00b0",
+     "durationMinutesOffsetFromStartTime": "163"
+    },
+    {
+     "point": "21.2563541\u00b0, 64.7130161\u00b0",
+     "durationMinutesOffsetFromStartTime": "170"
+    },
+    {
+     "point": "21.5595674\u00b0, 64.0636579\u00b0",
+     "durationMinutesOffsetFromStartTime": "177"
+    },
+    {
+     "point": "21.8602550\u00b0, 63.4115898\u00b0",
+     "durationMinutesOffsetFromStartTime": "183"
+    },
+    {
+     "point": "22.1583673\u00b0, 62.7567819\u00b0",
+     "durationMinutesOffsetFromStartTime": "190"
+    },
+    {
+     "point": "22.4538545\u00b0, 62.0992055\u00b0",
+     "durationMinutesOffsetFromStartTime": "197"
+    },
+    {
+     "point": "22.7466665\u00b0, 61.4388329\u00b0",
+     "durationMinutesOffsetFromStartTime": "204"
+    },
+    {
+     "point": "23.0367528\u00b0, 60.7756376\u00b0",
+     "durationMinutesOffsetFromStartTime": "211"
+    },
+    {
+     "point": "23.3240628\u00b0, 60.1095942\u00b0",
+     "durationMinutesOffsetFromStartTime": "217"
+    },
+    {
+     "point": "23.6085457\u00b0, 59.4406788\u00b0",
+     "durationMinutesOffsetFromStartTime": "224"
+    },
+    {
+     "point": "23.8901504\u00b0, 58.7688686\u00b0",
+     "durationMinutesOffsetFromStartTime": "231"
+    },
+    {
+     "point": "24.1688256\u00b0, 58.0941423\u00b0",
+     "durationMinutesOffsetFromStartTime": "238"
+    },
+    {
+     "point": "24.4445199\u00b0, 57.4164800\u00b0",
+     "durationMinutesOffsetFromStartTime": "245"
+    },
+    {
+     "point": "24.7171816\u00b0, 56.7358632\u00b0",
+     "durationMinutesOffsetFromStartTime": "251"
+    },
+    {
+     "point": "24.9867589\u00b0, 56.0522750\u00b0",
+     "durationMinutesOffsetFromStartTime": "258"
+    },
+    {
+     "point": "25.2532000\u00b0, 55.3657000\u00b0",
+     "durationMinutesOffsetFromStartTime": "265"
+    }
+   ]
+  },
+  {
+   "startTime": "2025-05-02T08:15:00+05:30",
+   "endTime": "2025-05-02T09:45:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "visit": {
+    "hierarchyLevel": 0,
+    "probability": 0.82,
+    "topCandidate": {
+     "placeId": "ChIJ_sample_dxb",
+     "semanticType": "Airport",
+     "probability": 0.96,
+     "placeLocation": {
+      "latLng": "25.2532000\u00b0, 55.3657000\u00b0"
+     }
+    }
+   }
+  },
+  {
+   "startTime": "2025-05-02T09:45:00+05:30",
+   "endTime": "2025-05-02T10:20:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "activity": {
+    "start": {
+     "latLng": "25.2532000\u00b0, 55.3657000\u00b0"
+    },
+    "end": {
+     "latLng": "25.1972000\u00b0, 55.2744000\u00b0"
+    },
+    "distanceMeters": 11096.0,
+    "topCandidate": {
+     "type": "IN_PASSENGER_VEHICLE",
+     "probability": 0.57
+    }
+   },
+   "timelinePath": [
+    {
+     "point": "25.2532000\u00b0, 55.3657000\u00b0",
+     "durationMinutesOffsetFromStartTime": "0"
+    },
+    {
+     "point": "25.2521689\u00b0, 55.3629270\u00b0",
+     "durationMinutesOffsetFromStartTime": "2"
+    },
+    {
+     "point": "25.2502008\u00b0, 55.3580932\u00b0",
+     "durationMinutesOffsetFromStartTime": "3"
+    },
+    {
+     "point": "25.2487844\u00b0, 55.3523119\u00b0",
+     "durationMinutesOffsetFromStartTime": "5"
+    },
+    {
+     "point": "25.2463656\u00b0, 55.3468048\u00b0",
+     "durationMinutesOffsetFromStartTime": "7"
+    },
+    {
+     "point": "25.2456750\u00b0, 55.3489519\u00b0",
+     "durationMinutesOffsetFromStartTime": "8"
+    },
+    {
+     "point": "25.2429933\u00b0, 55.3309954\u00b0",
+     "durationMinutesOffsetFromStartTime": "10"
+    },
+    {
+     "point": "25.2448361\u00b0, 55.3325782\u00b0",
+     "durationMinutesOffsetFromStartTime": "12"
+    },
+    {
+     "point": "25.2376848\u00b0, 55.3213165\u00b0",
+     "durationMinutesOffsetFromStartTime": "13"
+    },
+    {
+     "point": "25.2374680\u00b0, 55.3348965\u00b0",
+     "durationMinutesOffsetFromStartTime": "15"
+    },
+    {
+     "point": "25.2333409\u00b0, 55.3297927\u00b0",
+     "durationMinutesOffsetFromStartTime": "17"
+    },
+    {
+     "point": "25.2345716\u00b0, 55.3164548\u00b0",
+     "durationMinutesOffsetFromStartTime": "18"
+    },
+    {
+     "point": "25.2325681\u00b0, 55.3118735\u00b0",
+     "durationMinutesOffsetFromStartTime": "20"
+    },
+    {
+     "point": "25.2243626\u00b0, 55.3040301\u00b0",
+     "durationMinutesOffsetFromStartTime": "22"
+    },
+    {
+     "point": "25.2228500\u00b0, 55.3106229\u00b0",
+     "durationMinutesOffsetFromStartTime": "23"
+    },
+    {
+     "point": "25.2176393\u00b0, 55.3035110\u00b0",
+     "durationMinutesOffsetFromStartTime": "25"
+    },
+    {
+     "point": "25.2183695\u00b0, 55.3015362\u00b0",
+     "durationMinutesOffsetFromStartTime": "27"
+    },
+    {
+     "point": "25.2126264\u00b0, 55.2918335\u00b0",
+     "durationMinutesOffsetFromStartTime": "28"
+    },
+    {
+     "point": "25.2076839\u00b0, 55.2845037\u00b0",
+     "durationMinutesOffsetFromStartTime": "30"
+    },
+    {
+     "point": "25.2045008\u00b0, 55.2834944\u00b0",
+     "durationMinutesOffsetFromStartTime": "32"
+    },
+    {
+     "point": "25.2008137\u00b0, 55.2776886\u00b0",
+     "durationMinutesOffsetFromStartTime": "33"
+    },
+    {
+     "point": "25.1972000\u00b0, 55.2744000\u00b0",
+     "durationMinutesOffsetFromStartTime": "35"
+    }
+   ]
+  },
+  {
+   "startTime": "2025-05-02T10:20:00+05:30",
+   "endTime": "2025-05-04T14:00:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "visit": {
+    "hierarchyLevel": 0,
+    "probability": 0.84,
+    "topCandidate": {
+     "placeId": "ChIJ_sample_burj",
+     "semanticType": "Inferred",
+     "probability": 0.96,
+     "placeLocation": {
+      "latLng": "25.1972000\u00b0, 55.2744000\u00b0"
+     }
+    }
+   }
+  },
+  {
+   "startTime": "2025-05-04T14:00:00+05:30",
+   "endTime": "2025-05-04T14:40:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "activity": {
+    "start": {
+     "latLng": "25.1972000\u00b0, 55.2744000\u00b0"
+    },
+    "end": {
+     "latLng": "25.2532000\u00b0, 55.3657000\u00b0"
+    },
+    "distanceMeters": 11096.0,
+    "topCandidate": {
+     "type": "IN_PASSENGER_VEHICLE",
+     "probability": 0.62
+    }
+   },
+   "timelinePath": [
+    {
+     "point": "25.1972000\u00b0, 55.2744000\u00b0",
+     "durationMinutesOffsetFromStartTime": "0"
+    },
+    {
+     "point": "25.2012263\u00b0, 55.2791145\u00b0",
+     "durationMinutesOffsetFromStartTime": "2"
+    },
+    {
+     "point": "25.2039751\u00b0, 55.2799752\u00b0",
+     "durationMinutesOffsetFromStartTime": "4"
+    },
+    {
+     "point": "25.2082399\u00b0, 55.2861831\u00b0",
+     "durationMinutesOffsetFromStartTime": "6"
+    },
+    {
+     "point": "25.2126721\u00b0, 55.2879749\u00b0",
+     "durationMinutesOffsetFromStartTime": "8"
+    },
+    {
+     "point": "25.2162955\u00b0, 55.2992968\u00b0",
+     "durationMinutesOffsetFromStartTime": "10"
+    },
+    {
+     "point": "25.2182419\u00b0, 55.3033130\u00b0",
+     "durationMinutesOffsetFromStartTime": "11"
+    },
+    {
+     "point": "25.2224126\u00b0, 55.3127082\u00b0",
+     "durationMinutesOffsetFromStartTime": "13"
+    },
+    {
+     "point": "25.2257332\u00b0, 55.3052066\u00b0",
+     "durationMinutesOffsetFromStartTime": "15"
+    },
+    {
+     "point": "25.2283023\u00b0, 55.3232600\u00b0",
+     "durationMinutesOffsetFromStartTime": "17"
+    },
+    {
+     "point": "25.2298636\u00b0, 55.3148452\u00b0",
+     "durationMinutesOffsetFromStartTime": "19"
+    },
+    {
+     "point": "25.2365355\u00b0, 55.3185817\u00b0",
+     "durationMinutesOffsetFromStartTime": "21"
+    },
+    {
+     "point": "25.2405722\u00b0, 55.3218864\u00b0",
+     "durationMinutesOffsetFromStartTime": "23"
+    },
+    {
+     "point": "25.2428468\u00b0, 55.3414240\u00b0",
+     "durationMinutesOffsetFromStartTime": "25"
+    },
+    {
+     "point": "25.2424124\u00b0, 55.3343242\u00b0",
+     "durationMinutesOffsetFromStartTime": "27"
+    },
+    {
+     "point": "25.2410425\u00b0, 55.3433811\u00b0",
+     "durationMinutesOffsetFromStartTime": "29"
+    },
+    {
+     "point": "25.2431684\u00b0, 55.3482130\u00b0",
+     "durationMinutesOffsetFromStartTime": "30"
+    },
+    {
+     "point": "25.2473102\u00b0, 55.3499452\u00b0",
+     "durationMinutesOffsetFromStartTime": "32"
+    },
+    {
+     "point": "25.2499013\u00b0, 55.3492233\u00b0",
+     "durationMinutesOffsetFromStartTime": "34"
+    },
+    {
+     "point": "25.2512137\u00b0, 55.3556865\u00b0",
+     "durationMinutesOffsetFromStartTime": "36"
+    },
+    {
+     "point": "25.2517188\u00b0, 55.3618160\u00b0",
+     "durationMinutesOffsetFromStartTime": "38"
+    },
+    {
+     "point": "25.2532000\u00b0, 55.3657000\u00b0",
+     "durationMinutesOffsetFromStartTime": "40"
+    }
+   ]
+  },
+  {
+   "startTime": "2025-05-04T14:40:00+05:30",
+   "endTime": "2025-05-04T17:00:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "visit": {
+    "hierarchyLevel": 0,
+    "probability": 0.75,
+    "topCandidate": {
+     "placeId": "ChIJ_sample_dxb",
+     "semanticType": "Airport",
+     "probability": 0.9,
+     "placeLocation": {
+      "latLng": "25.2532000\u00b0, 55.3657000\u00b0"
+     }
+    }
+   }
+  },
+  {
+   "startTime": "2025-05-04T17:00:00+05:30",
+   "endTime": "2025-05-05T00:25:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "activity": {
+    "start": {
+     "latLng": "25.2532000\u00b0, 55.3657000\u00b0"
+    },
+    "end": {
+     "latLng": "51.4700000\u00b0, -0.4543000\u00b0"
+    },
+    "distanceMeters": 5497456.5,
+    "topCandidate": {
+     "type": "FLYING",
+     "probability": 0.56
+    }
+   },
+   "timelinePath": [
+    {
+     "point": "25.2532000\u00b0, 55.3657000\u00b0",
+     "durationMinutesOffsetFromStartTime": "0"
+    },
+    {
+     "point": "25.9243111\u00b0, 54.6751963\u00b0",
+     "durationMinutesOffsetFromStartTime": "8"
+    },
+    {
+     "point": "26.5921129\u00b0, 53.9768039\u00b0",
+     "durationMinutesOffsetFromStartTime": "16"
+    },
+    {
+     "point": "27.2564672\u00b0, 53.2702352\u00b0",
+     "durationMinutesOffsetFromStartTime": "25"
+    },
+    {
+     "point": "27.9172316\u00b0, 52.5551972\u00b0",
+     "durationMinutesOffsetFromStartTime": "33"
+    },
+    {
+     "point": "28.5742589\u00b0, 51.8313917\u00b0",
+     "durationMinutesOffsetFromStartTime": "41"
+    },
+    {
+     "point": "29.2273974\u00b0, 51.0985153\u00b0",
+     "durationMinutesOffsetFromStartTime": "49"
+    },
+    {
+     "point": "29.8764902\u00b0, 50.3562594\u00b0",
+     "durationMinutesOffsetFromStartTime": "58"
+    },
+    {
+     "point": "30.5213754\u00b0, 49.6043104\u00b0",
+     "durationMinutesOffsetFromStartTime": "66"
+    },
+    {
+     "point": "31.1618856\u00b0, 48.8423496\u00b0",
+     "durationMinutesOffsetFromStartTime": "74"
+    },
+    {
+     "point": "31.7978481\u00b0, 48.0700538\u00b0",
+     "durationMinutesOffsetFromStartTime": "82"
+    },
+    {
+     "point": "32.4290843\u00b0, 47.2870953\u00b0",
+     "durationMinutesOffsetFromStartTime": "91"
+    },
+    {
+     "point": "33.0554095\u00b0, 46.4931418\u00b0",
+     "durationMinutesOffsetFromStartTime": "99"
+    },
+    {
+     "point": "33.6766332\u00b0, 45.6878577\u00b0",
+     "durationMinutesOffsetFromStartTime": "107"
+    },
+    {
+     "point": "34.2925585\u00b0, 44.8709035\u00b0",
+     "durationMinutesOffsetFromStartTime": "115"
+    },
+    {
+     "point": "34.9029817\u00b0, 44.0419368\u00b0",
+     "durationMinutesOffsetFromStartTime": "124"
+    },
+    {
+     "point": "35.5076927\u00b0, 43.2006127\u00b0",
+     "durationMinutesOffsetFromStartTime": "132"
+    },
+    {
+     "point": "36.1064745\u00b0, 42.3465846\u00b0",
+     "durationMinutesOffsetFromStartTime": "140"
+    },
+    {
+     "point": "36.6991029\u00b0, 41.4795046\u00b0",
+     "durationMinutesOffsetFromStartTime": "148"
+    },
+    {
+     "point": "37.2853465\u00b0, 40.5990246\u00b0",
+     "durationMinutesOffsetFromStartTime": "157"
+    },
+    {
+     "point": "37.8649667\u00b0, 39.7047969\u00b0",
+     "durationMinutesOffsetFromStartTime": "165"
+    },
+    {
+     "point": "38.4377172\u00b0, 38.7964756\u00b0",
+     "durationMinutesOffsetFromStartTime": "173"
+    },
+    {
+     "point": "39.0033442\u00b0, 37.8737175\u00b0",
+     "durationMinutesOffsetFromStartTime": "181"
+    },
+    {
+     "point": "39.5615863\u00b0, 36.9361832\u00b0",
+     "durationMinutesOffsetFromStartTime": "190"
+    },
+    {
+     "point": "40.1121740\u00b0, 35.9835389\u00b0",
+     "durationMinutesOffsetFromStartTime": "198"
+    },
+    {
+     "point": "40.6548303\u00b0, 35.0154577\u00b0",
+     "durationMinutesOffsetFromStartTime": "206"
+    },
+    {
+     "point": "41.1892701\u00b0, 34.0316211\u00b0",
+     "durationMinutesOffsetFromStartTime": "214"
+    },
+    {
+     "point": "41.7152007\u00b0, 33.0317210\u00b0",
+     "durationMinutesOffsetFromStartTime": "222"
+    },
+    {
+     "point": "42.2323215\u00b0, 32.0154617\u00b0",
+     "durationMinutesOffsetFromStartTime": "231"
+    },
+    {
+     "point": "42.7403243\u00b0, 30.9825620\u00b0",
+     "durationMinutesOffsetFromStartTime": "239"
+    },
+    {
+     "point": "43.2388934\u00b0, 29.9327573\u00b0",
+     "durationMinutesOffsetFromStartTime": "247"
+    },
+    {
+     "point": "43.7277058\u00b0, 28.8658022\u00b0",
+     "durationMinutesOffsetFromStartTime": "255"
+    },
+    {
+     "point": "44.2064314\u00b0, 27.7814728\u00b0",
+     "durationMinutesOffsetFromStartTime": "264"
+    },
+    {
+     "point": "44.6747336\u00b0, 26.6795700\u00b0",
+     "durationMinutesOffsetFromStartTime": "272"
+    },
+    {
+     "point": "45.1322694\u00b0, 25.5599216\u00b0",
+     "durationMinutesOffsetFromStartTime": "280"
+    },
+    {
+     "point": "45.5786900\u00b0, 24.4223858\u00b0",
+     "durationMinutesOffsetFromStartTime": "288"
+    },
+    {
+     "point": "46.0136414\u00b0, 23.2668540\u00b0",
+     "durationMinutesOffsetFromStartTime": "297"
+    },
+    {
+     "point": "46.4367648\u00b0, 22.0932540\u00b0",
+     "durationMinutesOffsetFromStartTime": "305"
+    },
+    {
+     "point": "46.8476977\u00b0, 20.9015532\u00b0",
+     "durationMinutesOffsetFromStartTime": "313"
+    },
+    {
+     "point": "47.2460744\u00b0, 19.6917620\u00b0",
+     "durationMinutesOffsetFromStartTime": "321"
+    },
+    {
+     "point": "47.6315272\u00b0, 18.4639368\u00b0",
+     "durationMinutesOffsetFromStartTime": "330"
+    },
+    {
+     "point": "48.0036872\u00b0, 17.2181832\u00b0",
+     "durationMinutesOffsetFromStartTime": "338"
+    },
+    {
+     "point": "48.3621852\u00b0, 15.9546590\u00b0",
+     "durationMinutesOffsetFromStartTime": "346"
+    },
+    {
+     "point": "48.7066534\u00b0, 14.6735774\u00b0",
+     "durationMinutesOffsetFromStartTime": "354"
+    },
+    {
+     "point": "49.0367263\u00b0, 13.3752096\u00b0",
+     "durationMinutesOffsetFromStartTime": "363"
+    },
+    {
+     "point": "49.3520422\u00b0, 12.0598872\u00b0",
+     "durationMinutesOffsetFromStartTime": "371"
+    },
+    {
+     "point": "49.6522448\u00b0, 10.7280043\u00b0",
+     "durationMinutesOffsetFromStartTime": "379"
+    },
+    {
+     "point": "49.9369843\u00b0, 9.3800195\u00b0",
+     "durationMinutesOffsetFromStartTime": "387"
+    },
+    {
+     "point": "50.2059194\u00b0, 8.0164572\u00b0",
+     "durationMinutesOffsetFromStartTime": "396"
+    },
+    {
+     "point": "50.4587188\u00b0, 6.6379083\u00b0",
+     "durationMinutesOffsetFromStartTime": "404"
+    },
+    {
+     "point": "50.6950630\u00b0, 5.2450307\u00b0",
+     "durationMinutesOffsetFromStartTime": "412"
+    },
+    {
+     "point": "50.9146458\u00b0, 3.8385491\u00b0",
+     "durationMinutesOffsetFromStartTime": "420"
+    },
+    {
+     "point": "51.1171759\u00b0, 2.4192535\u00b0",
+     "durationMinutesOffsetFromStartTime": "429"
+    },
+    {
+     "point": "51.3023793\u00b0, 0.9879985\u00b0",
+     "durationMinutesOffsetFromStartTime": "437"
+    },
+    {
+     "point": "51.4700000\u00b0, -0.4543000\u00b0",
+     "durationMinutesOffsetFromStartTime": "445"
+    }
+   ]
+  },
+  {
+   "startTime": "2025-05-05T00:25:00+05:30",
+   "endTime": "2025-05-05T01:40:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "visit": {
+    "hierarchyLevel": 0,
+    "probability": 0.78,
+    "topCandidate": {
+     "placeId": "ChIJ_sample_lhr",
+     "semanticType": "Airport",
+     "probability": 0.74,
+     "placeLocation": {
+      "latLng": "51.4700000\u00b0, -0.4543000\u00b0"
+     }
+    }
+   }
+  },
+  {
+   "startTime": "2025-05-05T01:40:00+05:30",
+   "endTime": "2025-05-05T02:42:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "activity": {
+    "start": {
+     "latLng": "51.4700000\u00b0, -0.4543000\u00b0"
+    },
+    "end": {
+     "latLng": "51.5072000\u00b0, -0.1276000\u00b0"
+    },
+    "distanceMeters": 22995.1,
+    "topCandidate": {
+     "type": "IN_SUBWAY",
+     "probability": 0.56
+    }
+   },
+   "timelinePath": [
+    {
+     "point": "51.4700000\u00b0, -0.4543000\u00b0",
+     "durationMinutesOffsetFromStartTime": "0"
+    },
+    {
+     "point": "51.4721578\u00b0, -0.4434495\u00b0",
+     "durationMinutesOffsetFromStartTime": "2"
+    },
+    {
+     "point": "51.4743139\u00b0, -0.4312632\u00b0",
+     "durationMinutesOffsetFromStartTime": "4"
+    },
+    {
+     "point": "51.4784741\u00b0, -0.4182944\u00b0",
+     "durationMinutesOffsetFromStartTime": "6"
+    },
+    {
+     "point": "51.4784080\u00b0, -0.4129550\u00b0",
+     "durationMinutesOffsetFromStartTime": "9"
+    },
+    {
+     "point": "51.4837897\u00b0, -0.3946830\u00b0",
+     "durationMinutesOffsetFromStartTime": "11"
+    },
+    {
+     "point": "51.4824878\u00b0, -0.3907641\u00b0",
+     "durationMinutesOffsetFromStartTime": "13"
+    },
+    {
+     "point": "51.4842746\u00b0, -0.3747404\u00b0",
+     "durationMinutesOffsetFromStartTime": "15"
+    },
+    {
+     "point": "51.4892757\u00b0, -0.3714364\u00b0",
+     "durationMinutesOffsetFromStartTime": "17"
+    },
+    {
+     "point": "51.4920264\u00b0, -0.3517427\u00b0",
+     "durationMinutesOffsetFromStartTime": "19"
+    },
+    {
+     "point": "51.4931462\u00b0, -0.3544399\u00b0",
+     "durationMinutesOffsetFromStartTime": "21"
+    },
+    {
+     "point": "51.4901836\u00b0, -0.3216797\u00b0",
+     "durationMinutesOffsetFromStartTime": "24"
+    },
+    {
+     "point": "51.4915342\u00b0, -0.3261388\u00b0",
+     "durationMinutesOffsetFromStartTime": "26"
+    },
+    {
+     "point": "51.4992525\u00b0, -0.3084210\u00b0",
+     "durationMinutesOffsetFromStartTime": "28"
+    },
+    {
+     "point": "51.4941612\u00b0, -0.2951007\u00b0",
+     "durationMinutesOffsetFromStartTime": "30"
+    },
+    {
+     "point": "51.4963056\u00b0, -0.2937769\u00b0",
+     "durationMinutesOffsetFromStartTime": "32"
+    },
+    {
+     "point": "51.5032624\u00b0, -0.2627994\u00b0",
+     "durationMinutesOffsetFromStartTime": "34"
+    },
+    {
+     "point": "51.5037426\u00b0, -0.2623982\u00b0",
+     "durationMinutesOffsetFromStartTime": "36"
+    },
+    {
+     "point": "51.5032443\u00b0, -0.2410945\u00b0",
+     "durationMinutesOffsetFromStartTime": "38"
+    },
+    {
+     "point": "51.5034083\u00b0, -0.2534313\u00b0",
+     "durationMinutesOffsetFromStartTime": "41"
+    },
+    {
+     "point": "51.5012736\u00b0, -0.2231907\u00b0",
+     "durationMinutesOffsetFromStartTime": "43"
+    },
+    {
+     "point": "51.5044788\u00b0, -0.2275833\u00b0",
+     "durationMinutesOffsetFromStartTime": "45"
+    },
+    {
+     "point": "51.5042549\u00b0, -0.2107036\u00b0",
+     "durationMinutesOffsetFromStartTime": "47"
+    },
+    {
+     "point": "51.5058264\u00b0, -0.1912108\u00b0",
+     "durationMinutesOffsetFromStartTime": "49"
+    },
+    {
+     "point": "51.5046591\u00b0, -0.1787302\u00b0",
+     "durationMinutesOffsetFromStartTime": "51"
+    },
+    {
+     "point": "51.5059692\u00b0, -0.1756233\u00b0",
+     "durationMinutesOffsetFromStartTime": "53"
+    },
+    {
+     "point": "51.5075631\u00b0, -0.1584834\u00b0",
+     "durationMinutesOffsetFromStartTime": "56"
+    },
+    {
+     "point": "51.5077917\u00b0, -0.1473940\u00b0",
+     "durationMinutesOffsetFromStartTime": "58"
+    },
+    {
+     "point": "51.5069945\u00b0, -0.1397818\u00b0",
+     "durationMinutesOffsetFromStartTime": "60"
+    },
+    {
+     "point": "51.5072000\u00b0, -0.1276000\u00b0",
+     "durationMinutesOffsetFromStartTime": "62"
+    }
+   ]
+  },
+  {
+   "startTime": "2025-05-05T02:42:00+05:30",
+   "endTime": "2025-05-06T12:02:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "visit": {
+    "hierarchyLevel": 0,
+    "probability": 0.75,
+    "topCandidate": {
+     "placeId": "ChIJ_sample_london",
+     "semanticType": "Inferred",
+     "probability": 0.67,
+     "placeLocation": {
+      "latLng": "51.5072000\u00b0, -0.1276000\u00b0"
+     }
+    }
+   }
+  },
+  {
+   "startTime": "2025-05-06T12:02:00+05:30",
+   "endTime": "2025-05-06T14:37:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "activity": {
+    "start": {
+     "latLng": "51.5072000\u00b0, -0.1276000\u00b0"
+    },
+    "end": {
+     "latLng": "48.8566000\u00b0, 2.3522000\u00b0"
+    },
+    "distanceMeters": 343530.3,
+    "topCandidate": {
+     "type": "IN_TRAIN",
+     "probability": 0.85
+    }
+   },
+   "timelinePath": [
+    {
+     "point": "51.5072000\u00b0, -0.1276000\u00b0",
+     "durationMinutesOffsetFromStartTime": "0"
+    },
+    {
+     "point": "51.4631659\u00b0, -0.0825849\u00b0",
+     "durationMinutesOffsetFromStartTime": "3"
+    },
+    {
+     "point": "51.4201839\u00b0, -0.0396164\u00b0",
+     "durationMinutesOffsetFromStartTime": "5"
+    },
+    {
+     "point": "51.3758205\u00b0, 0.0077179\u00b0",
+     "durationMinutesOffsetFromStartTime": "8"
+    },
+    {
+     "point": "51.3318090\u00b0, 0.0487720\u00b0",
+     "durationMinutesOffsetFromStartTime": "11"
+    },
+    {
+     "point": "51.2889362\u00b0, 0.0956743\u00b0",
+     "durationMinutesOffsetFromStartTime": "13"
+    },
+    {
+     "point": "51.2438503\u00b0, 0.1374569\u00b0",
+     "durationMinutesOffsetFromStartTime": "16"
+    },
+    {
+     "point": "51.1998022\u00b0, 0.1856176\u00b0",
+     "durationMinutesOffsetFromStartTime": "18"
+    },
+    {
+     "point": "51.1561516\u00b0, 0.2274419\u00b0",
+     "durationMinutesOffsetFromStartTime": "21"
+    },
+    {
+     "point": "51.1145219\u00b0, 0.2753940\u00b0",
+     "durationMinutesOffsetFromStartTime": "24"
+    },
+    {
+     "point": "51.0663669\u00b0, 0.3023838\u00b0",
+     "durationMinutesOffsetFromStartTime": "26"
+    },
+    {
+     "point": "51.0221366\u00b0, 0.3468041\u00b0",
+     "durationMinutesOffsetFromStartTime": "29"
+    },
+    {
+     "point": "50.9779527\u00b0, 0.3953320\u00b0",
+     "durationMinutesOffsetFromStartTime": "32"
+    },
+    {
+     "point": "50.9372093\u00b0, 0.4394146\u00b0",
+     "durationMinutesOffsetFromStartTime": "34"
+    },
+    {
+     "point": "50.8930486\u00b0, 0.4986718\u00b0",
+     "durationMinutesOffsetFromStartTime": "37"
+    },
+    {
+     "point": "50.8491807\u00b0, 0.5296142\u00b0",
+     "durationMinutesOffsetFromStartTime": "39"
+    },
+    {
+     "point": "50.8056781\u00b0, 0.5825614\u00b0",
+     "durationMinutesOffsetFromStartTime": "42"
+    },
+    {
+     "point": "50.7628027\u00b0, 0.6047380\u00b0",
+     "durationMinutesOffsetFromStartTime": "45"
+    },
+    {
+     "point": "50.7108431\u00b0, 0.6613787\u00b0",
+     "durationMinutesOffsetFromStartTime": "47"
+    },
+    {
+     "point": "50.6718611\u00b0, 0.7018783\u00b0",
+     "durationMinutesOffsetFromStartTime": "50"
+    },
+    {
+     "point": "50.6281972\u00b0, 0.7458616\u00b0",
+     "durationMinutesOffsetFromStartTime": "53"
+    },
+    {
+     "point": "50.5796638\u00b0, 0.7845596\u00b0",
+     "durationMinutesOffsetFromStartTime": "55"
+    },
+    {
+     "point": "50.5373974\u00b0, 0.8259721\u00b0",
+     "durationMinutesOffsetFromStartTime": "58"
+    },
+    {
+     "point": "50.4943764\u00b0, 0.8560048\u00b0",
+     "durationMinutesOffsetFromStartTime": "60"
+    },
+    {
+     "point": "50.4526518\u00b0, 0.9168086\u00b0",
+     "durationMinutesOffsetFromStartTime": "63"
+    },
+    {
+     "point": "50.4022324\u00b0, 0.9466915\u00b0",
+     "durationMinutesOffsetFromStartTime": "66"
+    },
+    {
+     "point": "50.3554011\u00b0, 1.0119217\u00b0",
+     "durationMinutesOffsetFromStartTime": "68"
+    },
+    {
+     "point": "50.3185427\u00b0, 1.0321389\u00b0",
+     "durationMinutesOffsetFromStartTime": "71"
+    },
+    {
+     "point": "50.2659515\u00b0, 1.0709043\u00b0",
+     "durationMinutesOffsetFromStartTime": "74"
+    },
+    {
+     "point": "50.2281147\u00b0, 1.1080411\u00b0",
+     "durationMinutesOffsetFromStartTime": "76"
+    },
+    {
+     "point": "50.1839833\u00b0, 1.1574384\u00b0",
+     "durationMinutesOffsetFromStartTime": "79"
+    },
+    {
+     "point": "50.1350933\u00b0, 1.2293260\u00b0",
+     "durationMinutesOffsetFromStartTime": "81"
+    },
+    {
+     "point": "50.0886559\u00b0, 1.2501764\u00b0",
+     "durationMinutesOffsetFromStartTime": "84"
+    },
+    {
+     "point": "50.0495288\u00b0, 1.3063368\u00b0",
+     "durationMinutesOffsetFromStartTime": "87"
+    },
+    {
+     "point": "50.0018834\u00b0, 1.3456815\u00b0",
+     "durationMinutesOffsetFromStartTime": "89"
+    },
+    {
+     "point": "49.9546737\u00b0, 1.3693422\u00b0",
+     "durationMinutesOffsetFromStartTime": "92"
+    },
+    {
+     "point": "49.9117748\u00b0, 1.4268567\u00b0",
+     "durationMinutesOffsetFromStartTime": "95"
+    },
+    {
+     "point": "49.8691618\u00b0, 1.4447412\u00b0",
+     "durationMinutesOffsetFromStartTime": "97"
+    },
+    {
+     "point": "49.8152855\u00b0, 1.5071125\u00b0",
+     "durationMinutesOffsetFromStartTime": "100"
+    },
+    {
+     "point": "49.7739350\u00b0, 1.5267909\u00b0",
+     "durationMinutesOffsetFromStartTime": "102"
+    },
+    {
+     "point": "49.7314633\u00b0, 1.5807211\u00b0",
+     "durationMinutesOffsetFromStartTime": "105"
+    },
+    {
+     "point": "49.6780830\u00b0, 1.6169141\u00b0",
+     "durationMinutesOffsetFromStartTime": "108"
+    },
+    {
+     "point": "49.6413578\u00b0, 1.6744863\u00b0",
+     "durationMinutesOffsetFromStartTime": "110"
+    },
+    {
+     "point": "49.5939651\u00b0, 1.7123193\u00b0",
+     "durationMinutesOffsetFromStartTime": "113"
+    },
+    {
+     "point": "49.5452200\u00b0, 1.7342626\u00b0",
+     "durationMinutesOffsetFromStartTime": "116"
+    },
+    {
+     "point": "49.5033963\u00b0, 1.7932277\u00b0",
+     "durationMinutesOffsetFromStartTime": "118"
+    },
+    {
+     "point": "49.4568494\u00b0, 1.8376100\u00b0",
+     "durationMinutesOffsetFromStartTime": "121"
+    },
+    {
+     "point": "49.4086911\u00b0, 1.8707515\u00b0",
+     "durationMinutesOffsetFromStartTime": "123"
+    },
+    {
+     "point": "49.3644691\u00b0, 1.9062930\u00b0",
+     "durationMinutesOffsetFromStartTime": "126"
+    },
+    {
+     "point": "49.3147570\u00b0, 1.9589098\u00b0",
+     "durationMinutesOffsetFromStartTime": "129"
+    },
+    {
+     "point": "49.2712472\u00b0, 1.9881010\u00b0",
+     "durationMinutesOffsetFromStartTime": "131"
+    },
+    {
+     "point": "49.2233522\u00b0, 2.0271249\u00b0",
+     "durationMinutesOffsetFromStartTime": "134"
+    },
+    {
+     "point": "49.1788427\u00b0, 2.0663292\u00b0",
+     "durationMinutesOffsetFromStartTime": "137"
+    },
+    {
+     "point": "49.1332344\u00b0, 2.1077982\u00b0",
+     "durationMinutesOffsetFromStartTime": "139"
+    },
+    {
+     "point": "49.0877676\u00b0, 2.1555922\u00b0",
+     "durationMinutesOffsetFromStartTime": "142"
+    },
+    {
+     "point": "49.0402521\u00b0, 2.1914062\u00b0",
+     "durationMinutesOffsetFromStartTime": "144"
+    },
+    {
+     "point": "48.9940531\u00b0, 2.2310817\u00b0",
+     "durationMinutesOffsetFromStartTime": "147"
+    },
+    {
+     "point": "48.9491331\u00b0, 2.2723874\u00b0",
+     "durationMinutesOffsetFromStartTime": "150"
+    },
+    {
+     "point": "48.9026989\u00b0, 2.3115156\u00b0",
+     "durationMinutesOffsetFromStartTime": "152"
+    },
+    {
+     "point": "48.8566000\u00b0, 2.3522000\u00b0",
+     "durationMinutesOffsetFromStartTime": "155"
+    }
+   ]
+  },
+  {
+   "startTime": "2025-05-06T14:37:00+05:30",
+   "endTime": "2025-05-08T13:17:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "visit": {
+    "hierarchyLevel": 0,
+    "probability": 0.89,
+    "topCandidate": {
+     "placeId": "ChIJ_sample_paris",
+     "semanticType": "Inferred",
+     "probability": 0.7,
+     "placeLocation": {
+      "latLng": "48.8566000\u00b0, 2.3522000\u00b0"
+     }
+    }
+   }
+  },
+  {
+   "startTime": "2025-05-08T13:17:00+05:30",
+   "endTime": "2025-05-08T15:47:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "activity": {
+    "start": {
+     "latLng": "48.8566000\u00b0, 2.3522000\u00b0"
+    },
+    "end": {
+     "latLng": "51.5072000\u00b0, -0.1276000\u00b0"
+    },
+    "distanceMeters": 343530.3,
+    "topCandidate": {
+     "type": "IN_TRAIN",
+     "probability": 0.8
+    }
+   },
+   "timelinePath": [
+    {
+     "point": "48.8566000\u00b0, 2.3522000\u00b0",
+     "durationMinutesOffsetFromStartTime": "0"
+    },
+    {
+     "point": "48.9028136\u00b0, 2.3117504\u00b0",
+     "durationMinutesOffsetFromStartTime": "3"
+    },
+    {
+     "point": "48.9487652\u00b0, 2.2732951\u00b0",
+     "durationMinutesOffsetFromStartTime": "5"
+    },
+    {
+     "point": "48.9954660\u00b0, 2.2334029\u00b0",
+     "durationMinutesOffsetFromStartTime": "8"
+    },
+    {
+     "point": "49.0420087\u00b0, 2.1883648\u00b0",
+     "durationMinutesOffsetFromStartTime": "10"
+    },
+    {
+     "point": "49.0856458\u00b0, 2.1531815\u00b0",
+     "durationMinutesOffsetFromStartTime": "13"
+    },
+    {
+     "point": "49.1323905\u00b0, 2.1127522\u00b0",
+     "durationMinutesOffsetFromStartTime": "15"
+    },
+    {
+     "point": "49.1776689\u00b0, 2.0773069\u00b0",
+     "durationMinutesOffsetFromStartTime": "18"
+    },
+    {
+     "point": "49.2239438\u00b0, 2.0235663\u00b0",
+     "durationMinutesOffsetFromStartTime": "20"
+    },
+    {
+     "point": "49.2714078\u00b0, 1.9998440\u00b0",
+     "durationMinutesOffsetFromStartTime": "23"
+    },
+    {
+     "point": "49.3163195\u00b0, 1.9446832\u00b0",
+     "durationMinutesOffsetFromStartTime": "25"
+    },
+    {
+     "point": "49.3645818\u00b0, 1.9137664\u00b0",
+     "durationMinutesOffsetFromStartTime": "28"
+    },
+    {
+     "point": "49.4074692\u00b0, 1.8734489\u00b0",
+     "durationMinutesOffsetFromStartTime": "31"
+    },
+    {
+     "point": "49.4540313\u00b0, 1.8377167\u00b0",
+     "durationMinutesOffsetFromStartTime": "33"
+    },
+    {
+     "point": "49.4969409\u00b0, 1.7933497\u00b0",
+     "durationMinutesOffsetFromStartTime": "36"
+    },
+    {
+     "point": "49.5456786\u00b0, 1.7607639\u00b0",
+     "durationMinutesOffsetFromStartTime": "38"
+    },
+    {
+     "point": "49.5867813\u00b0, 1.7170507\u00b0",
+     "durationMinutesOffsetFromStartTime": "41"
+    },
+    {
+     "point": "49.6331416\u00b0, 1.6656253\u00b0",
+     "durationMinutesOffsetFromStartTime": "43"
+    },
+    {
+     "point": "49.6804110\u00b0, 1.6285887\u00b0",
+     "durationMinutesOffsetFromStartTime": "46"
+    },
+    {
+     "point": "49.7311253\u00b0, 1.5767732\u00b0",
+     "durationMinutesOffsetFromStartTime": "48"
+    },
+    {
+     "point": "49.7717552\u00b0, 1.5507603\u00b0",
+     "durationMinutesOffsetFromStartTime": "51"
+    },
+    {
+     "point": "49.8179119\u00b0, 1.5123117\u00b0",
+     "durationMinutesOffsetFromStartTime": "53"
+    },
+    {
+     "point": "49.8648134\u00b0, 1.4497563\u00b0",
+     "durationMinutesOffsetFromStartTime": "56"
+    },
+    {
+     "point": "49.9049642\u00b0, 1.4265642\u00b0",
+     "durationMinutesOffsetFromStartTime": "58"
+    },
+    {
+     "point": "49.9570989\u00b0, 1.3873289\u00b0",
+     "durationMinutesOffsetFromStartTime": "61"
+    },
+    {
+     "point": "50.0001809\u00b0, 1.3525083\u00b0",
+     "durationMinutesOffsetFromStartTime": "64"
+    },
+    {
+     "point": "50.0444565\u00b0, 1.3088059\u00b0",
+     "durationMinutesOffsetFromStartTime": "66"
+    },
+    {
+     "point": "50.0909707\u00b0, 1.2504846\u00b0",
+     "durationMinutesOffsetFromStartTime": "69"
+    },
+    {
+     "point": "50.1351682\u00b0, 1.2053446\u00b0",
+     "durationMinutesOffsetFromStartTime": "71"
+    },
+    {
+     "point": "50.1802715\u00b0, 1.1768409\u00b0",
+     "durationMinutesOffsetFromStartTime": "74"
+    },
+    {
+     "point": "50.2210755\u00b0, 1.1325757\u00b0",
+     "durationMinutesOffsetFromStartTime": "76"
+    },
+    {
+     "point": "50.2745812\u00b0, 1.0920826\u00b0",
+     "durationMinutesOffsetFromStartTime": "79"
+    },
+    {
+     "point": "50.3117997\u00b0, 1.0400744\u00b0",
+     "durationMinutesOffsetFromStartTime": "81"
+    },
+    {
+     "point": "50.3552646\u00b0, 1.0012729\u00b0",
+     "durationMinutesOffsetFromStartTime": "84"
+    },
+    {
+     "point": "50.4026758\u00b0, 0.9497302\u00b0",
+     "durationMinutesOffsetFromStartTime": "86"
+    },
+    {
+     "point": "50.4514603\u00b0, 0.9112392\u00b0",
+     "durationMinutesOffsetFromStartTime": "89"
+    },
+    {
+     "point": "50.4978444\u00b0, 0.8534188\u00b0",
+     "durationMinutesOffsetFromStartTime": "92"
+    },
+    {
+     "point": "50.5381803\u00b0, 0.8134624\u00b0",
+     "durationMinutesOffsetFromStartTime": "94"
+    },
+    {
+     "point": "50.5820512\u00b0, 0.7995486\u00b0",
+     "durationMinutesOffsetFromStartTime": "97"
+    },
+    {
+     "point": "50.6302216\u00b0, 0.7557117\u00b0",
+     "durationMinutesOffsetFromStartTime": "99"
+    },
+    {
+     "point": "50.6692505\u00b0, 0.7145287\u00b0",
+     "durationMinutesOffsetFromStartTime": "102"
+    },
+    {
+     "point": "50.7179223\u00b0, 0.6591189\u00b0",
+     "durationMinutesOffsetFromStartTime": "104"
+    },
+    {
+     "point": "50.7591511\u00b0, 0.6156987\u00b0",
+     "durationMinutesOffsetFromStartTime": "107"
+    },
+    {
+     "point": "50.8062806\u00b0, 0.5648234\u00b0",
+     "durationMinutesOffsetFromStartTime": "109"
+    },
+    {
+     "point": "50.8517554\u00b0, 0.5213173\u00b0",
+     "durationMinutesOffsetFromStartTime": "112"
+    },
+    {
+     "point": "50.8959080\u00b0, 0.4985634\u00b0",
+     "durationMinutesOffsetFromStartTime": "114"
+    },
+    {
+     "point": "50.9392357\u00b0, 0.4486385\u00b0",
+     "durationMinutesOffsetFromStartTime": "117"
+    },
+    {
+     "point": "50.9823426\u00b0, 0.4038924\u00b0",
+     "durationMinutesOffsetFromStartTime": "119"
+    },
+    {
+     "point": "51.0254707\u00b0, 0.3670276\u00b0",
+     "durationMinutesOffsetFromStartTime": "122"
+    },
+    {
+     "point": "51.0703915\u00b0, 0.3107458\u00b0",
+     "durationMinutesOffsetFromStartTime": "125"
+    },
+    {
+     "point": "51.1122575\u00b0, 0.2707377\u00b0",
+     "durationMinutesOffsetFromStartTime": "127"
+    },
+    {
+     "point": "51.1583417\u00b0, 0.2319458\u00b0",
+     "durationMinutesOffsetFromStartTime": "130"
+    },
+    {
+     "point": "51.2012077\u00b0, 0.1856158\u00b0",
+     "durationMinutesOffsetFromStartTime": "132"
+    },
+    {
+     "point": "51.2456555\u00b0, 0.1340975\u00b0",
+     "durationMinutesOffsetFromStartTime": "135"
+    },
+    {
+     "point": "51.2886374\u00b0, 0.0946923\u00b0",
+     "durationMinutesOffsetFromStartTime": "137"
+    },
+    {
+     "point": "51.3330933\u00b0, 0.0460915\u00b0",
+     "durationMinutesOffsetFromStartTime": "140"
+    },
+    {
+     "point": "51.3763790\u00b0, 0.0048072\u00b0",
+     "durationMinutesOffsetFromStartTime": "142"
+    },
+    {
+     "point": "51.4203247\u00b0, -0.0395208\u00b0",
+     "durationMinutesOffsetFromStartTime": "145"
+    },
+    {
+     "point": "51.4634757\u00b0, -0.0834783\u00b0",
+     "durationMinutesOffsetFromStartTime": "147"
+    },
+    {
+     "point": "51.5072000\u00b0, -0.1276000\u00b0",
+     "durationMinutesOffsetFromStartTime": "150"
+    }
+   ]
+  },
+  {
+   "startTime": "2025-05-08T15:47:00+05:30",
+   "endTime": "2025-05-09T16:47:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "visit": {
+    "hierarchyLevel": 0,
+    "probability": 0.94,
+    "topCandidate": {
+     "placeId": "ChIJ_sample_london",
+     "semanticType": "Inferred",
+     "probability": 0.89,
+     "placeLocation": {
+      "latLng": "51.5072000\u00b0, -0.1276000\u00b0"
+     }
+    }
+   }
+  },
+  {
+   "startTime": "2025-05-09T16:47:00+05:30",
+   "endTime": "2025-05-09T17:45:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "activity": {
+    "start": {
+     "latLng": "51.5072000\u00b0, -0.1276000\u00b0"
+    },
+    "end": {
+     "latLng": "51.4700000\u00b0, -0.4543000\u00b0"
+    },
+    "distanceMeters": 22995.1,
+    "topCandidate": {
+     "type": "IN_SUBWAY",
+     "probability": 0.64
+    }
+   },
+   "timelinePath": [
+    {
+     "point": "51.5072000\u00b0, -0.1276000\u00b0",
+     "durationMinutesOffsetFromStartTime": "0"
+    },
+    {
+     "point": "51.5072269\u00b0, -0.1390754\u00b0",
+     "durationMinutesOffsetFromStartTime": "2"
+    },
+    {
+     "point": "51.5070624\u00b0, -0.1525044\u00b0",
+     "durationMinutesOffsetFromStartTime": "4"
+    },
+    {
+     "point": "51.5076233\u00b0, -0.1588823\u00b0",
+     "durationMinutesOffsetFromStartTime": "6"
+    },
+    {
+     "point": "51.5083108\u00b0, -0.1731066\u00b0",
+     "durationMinutesOffsetFromStartTime": "8"
+    },
+    {
+     "point": "51.5047127\u00b0, -0.1863937\u00b0",
+     "durationMinutesOffsetFromStartTime": "10"
+    },
+    {
+     "point": "51.5065421\u00b0, -0.1930387\u00b0",
+     "durationMinutesOffsetFromStartTime": "12"
+    },
+    {
+     "point": "51.5027484\u00b0, -0.2056426\u00b0",
+     "durationMinutesOffsetFromStartTime": "14"
+    },
+    {
+     "point": "51.5040300\u00b0, -0.2160672\u00b0",
+     "durationMinutesOffsetFromStartTime": "16"
+    },
+    {
+     "point": "51.5018886\u00b0, -0.2251456\u00b0",
+     "durationMinutesOffsetFromStartTime": "18"
+    },
+    {
+     "point": "51.5051539\u00b0, -0.2379196\u00b0",
+     "durationMinutesOffsetFromStartTime": "20"
+    },
+    {
+     "point": "51.4996355\u00b0, -0.2587933\u00b0",
+     "durationMinutesOffsetFromStartTime": "22"
+    },
+    {
+     "point": "51.4995154\u00b0, -0.2689907\u00b0",
+     "durationMinutesOffsetFromStartTime": "24"
+    },
+    {
+     "point": "51.4995982\u00b0, -0.2862751\u00b0",
+     "durationMinutesOffsetFromStartTime": "26"
+    },
+    {
+     "point": "51.4977949\u00b0, -0.2760515\u00b0",
+     "durationMinutesOffsetFromStartTime": "28"
+    },
+    {
+     "point": "51.5010823\u00b0, -0.2849620\u00b0",
+     "durationMinutesOffsetFromStartTime": "30"
+    },
+    {
+     "point": "51.5015208\u00b0, -0.3196510\u00b0",
+     "durationMinutesOffsetFromStartTime": "32"
+    },
+    {
+     "point": "51.4997429\u00b0, -0.3267444\u00b0",
+     "durationMinutesOffsetFromStartTime": "34"
+    },
+    {
+     "point": "51.4919803\u00b0, -0.3215173\u00b0",
+     "durationMinutesOffsetFromStartTime": "36"
+    },
+    {
+     "point": "51.4948327\u00b0, -0.3542183\u00b0",
+     "durationMinutesOffsetFromStartTime": "38"
+    },
+    {
+     "point": "51.4889495\u00b0, -0.3532845\u00b0",
+     "durationMinutesOffsetFromStartTime": "40"
+    },
+    {
+     "point": "51.4890162\u00b0, -0.3674349\u00b0",
+     "durationMinutesOffsetFromStartTime": "42"
+    },
+    {
+     "point": "51.4875382\u00b0, -0.3834338\u00b0",
+     "durationMinutesOffsetFromStartTime": "44"
+    },
+    {
+     "point": "51.4856739\u00b0, -0.3906672\u00b0",
+     "durationMinutesOffsetFromStartTime": "46"
+    },
+    {
+     "point": "51.4835674\u00b0, -0.3944480\u00b0",
+     "durationMinutesOffsetFromStartTime": "48"
+    },
+    {
+     "point": "51.4808977\u00b0, -0.4109297\u00b0",
+     "durationMinutesOffsetFromStartTime": "50"
+    },
+    {
+     "point": "51.4767010\u00b0, -0.4252622\u00b0",
+     "durationMinutesOffsetFromStartTime": "52"
+    },
+    {
+     "point": "51.4748169\u00b0, -0.4336595\u00b0",
+     "durationMinutesOffsetFromStartTime": "54"
+    },
+    {
+     "point": "51.4728165\u00b0, -0.4446393\u00b0",
+     "durationMinutesOffsetFromStartTime": "56"
+    },
+    {
+     "point": "51.4700000\u00b0, -0.4543000\u00b0",
+     "durationMinutesOffsetFromStartTime": "58"
+    }
+   ]
+  },
+  {
+   "startTime": "2025-05-09T17:45:00+05:30",
+   "endTime": "2025-05-09T19:45:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "visit": {
+    "hierarchyLevel": 0,
+    "probability": 0.84,
+    "topCandidate": {
+     "placeId": "ChIJ_sample_lhr",
+     "semanticType": "Airport",
+     "probability": 0.95,
+     "placeLocation": {
+      "latLng": "51.4700000\u00b0, -0.4543000\u00b0"
+     }
+    }
+   }
+  },
+  {
+   "startTime": "2025-05-09T19:45:00+05:30",
+   "endTime": "2025-05-10T06:05:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "activity": {
+    "start": {
+     "latLng": "51.4700000\u00b0, -0.4543000\u00b0"
+    },
+    "end": {
+     "latLng": "12.9941000\u00b0, 80.1709000\u00b0"
+    },
+    "distanceMeters": 8234198.4,
+    "topCandidate": {
+     "type": "FLYING",
+     "probability": 0.56
+    }
+   },
+   "timelinePath": [
+    {
+     "point": "51.4700000\u00b0, -0.4543000\u00b0",
+     "durationMinutesOffsetFromStartTime": "0"
+    },
+    {
+     "point": "51.4751247\u00b0, 1.2686824\u00b0",
+     "durationMinutesOffsetFromStartTime": "9"
+    },
+    {
+     "point": "51.4550051\u00b0, 2.9910985\u00b0",
+     "durationMinutesOffsetFromStartTime": "18"
+    },
+    {
+     "point": "51.4096815\u00b0, 4.7110475\u00b0",
+     "durationMinutesOffsetFromStartTime": "27"
+    },
+    {
+     "point": "51.3392446\u00b0, 6.4266481\u00b0",
+     "durationMinutesOffsetFromStartTime": "36"
+    },
+    {
+     "point": "51.2438345\u00b0, 8.1360536\u00b0",
+     "durationMinutesOffsetFromStartTime": "45"
+    },
+    {
+     "point": "51.1236394\u00b0, 9.8374661\u00b0",
+     "durationMinutesOffsetFromStartTime": "54"
+    },
+    {
+     "point": "50.9788937\u00b0, 11.5291493\u00b0",
+     "durationMinutesOffsetFromStartTime": "63"
+    },
+    {
+     "point": "50.8098761\u00b0, 13.2094411\u00b0",
+     "durationMinutesOffsetFromStartTime": "72"
+    },
+    {
+     "point": "50.6169065\u00b0, 14.8767641\u00b0",
+     "durationMinutesOffsetFromStartTime": "81"
+    },
+    {
+     "point": "50.4003440\u00b0, 16.5296346\u00b0",
+     "durationMinutesOffsetFromStartTime": "90"
+    },
+    {
+     "point": "50.1605831\u00b0, 18.1666707\u00b0",
+     "durationMinutesOffsetFromStartTime": "99"
+    },
+    {
+     "point": "49.8980507\u00b0, 19.7865979\u00b0",
+     "durationMinutesOffsetFromStartTime": "108"
+    },
+    {
+     "point": "49.6132030\u00b0, 21.3882537\u00b0",
+     "durationMinutesOffsetFromStartTime": "117"
+    },
+    {
+     "point": "49.3065214\u00b0, 22.9705907\u00b0",
+     "durationMinutesOffsetFromStartTime": "126"
+    },
+    {
+     "point": "48.9785097\u00b0, 24.5326772\u00b0",
+     "durationMinutesOffsetFromStartTime": "135"
+    },
+    {
+     "point": "48.6296903\u00b0, 26.0736976\u00b0",
+     "durationMinutesOffsetFromStartTime": "144"
+    },
+    {
+     "point": "48.2606011\u00b0, 27.5929507\u00b0",
+     "durationMinutesOffsetFromStartTime": "153"
+    },
+    {
+     "point": "47.8717917\u00b0, 29.0898473\u00b0",
+     "durationMinutesOffsetFromStartTime": "162"
+    },
+    {
+     "point": "47.4638211\u00b0, 30.5639063\u00b0",
+     "durationMinutesOffsetFromStartTime": "171"
+    },
+    {
+     "point": "47.0372541\u00b0, 32.0147507\u00b0",
+     "durationMinutesOffsetFromStartTime": "180"
+    },
+    {
+     "point": "46.5926590\u00b0, 33.4421020\u00b0",
+     "durationMinutesOffsetFromStartTime": "189"
+    },
+    {
+     "point": "46.1306048\u00b0, 34.8457750\u00b0",
+     "durationMinutesOffsetFromStartTime": "198"
+    },
+    {
+     "point": "45.6516592\u00b0, 36.2256713\u00b0",
+     "durationMinutesOffsetFromStartTime": "207"
+    },
+    {
+     "point": "45.1563862\u00b0, 37.5817736\u00b0",
+     "durationMinutesOffsetFromStartTime": "216"
+    },
+    {
+     "point": "44.6453445\u00b0, 38.9141387\u00b0",
+     "durationMinutesOffsetFromStartTime": "225"
+    },
+    {
+     "point": "44.1190856\u00b0, 40.2228917\u00b0",
+     "durationMinutesOffsetFromStartTime": "234"
+    },
+    {
+     "point": "43.5781528\u00b0, 41.5082189\u00b0",
+     "durationMinutesOffsetFromStartTime": "243"
+    },
+    {
+     "point": "43.0230793\u00b0, 42.7703625\u00b0",
+     "durationMinutesOffsetFromStartTime": "252"
+    },
+    {
+     "point": "42.4543879\u00b0, 44.0096136\u00b0",
+     "durationMinutesOffsetFromStartTime": "261"
+    },
+    {
+     "point": "41.8725896\u00b0, 45.2263074\u00b0",
+     "durationMinutesOffsetFromStartTime": "270"
+    },
+    {
+     "point": "41.2781831\u00b0, 46.4208170\u00b0",
+     "durationMinutesOffsetFromStartTime": "279"
+    },
+    {
+     "point": "40.6716544\u00b0, 47.5935489\u00b0",
+     "durationMinutesOffsetFromStartTime": "288"
+    },
+    {
+     "point": "40.0534759\u00b0, 48.7449377\u00b0",
+     "durationMinutesOffsetFromStartTime": "297"
+    },
+    {
+     "point": "39.4241067\u00b0, 49.8754419\u00b0",
+     "durationMinutesOffsetFromStartTime": "306"
+    },
+    {
+     "point": "38.7839921\u00b0, 50.9855400\u00b0",
+     "durationMinutesOffsetFromStartTime": "314"
+    },
+    {
+     "point": "38.1335637\u00b0, 52.0757264\u00b0",
+     "durationMinutesOffsetFromStartTime": "323"
+    },
+    {
+     "point": "37.4732390\u00b0, 53.1465081\u00b0",
+     "durationMinutesOffsetFromStartTime": "332"
+    },
+    {
+     "point": "36.8034220\u00b0, 54.1984019\u00b0",
+     "durationMinutesOffsetFromStartTime": "341"
+    },
+    {
+     "point": "36.1245032\u00b0, 55.2319313\u00b0",
+     "durationMinutesOffsetFromStartTime": "350"
+    },
+    {
+     "point": "35.4368594\u00b0, 56.2476244\u00b0",
+     "durationMinutesOffsetFromStartTime": "359"
+    },
+    {
+     "point": "34.7408546\u00b0, 57.2460111\u00b0",
+     "durationMinutesOffsetFromStartTime": "368"
+    },
+    {
+     "point": "34.0368399\u00b0, 58.2276220\u00b0",
+     "durationMinutesOffsetFromStartTime": "377"
+    },
+    {
+     "point": "33.3251536\u00b0, 59.1929860\u00b0",
+     "durationMinutesOffsetFromStartTime": "386"
+    },
+    {
+     "point": "32.6061223\u00b0, 60.1426292\u00b0",
+     "durationMinutesOffsetFromStartTime": "395"
+    },
+    {
+     "point": "31.8800604\u00b0, 61.0770736\u00b0",
+     "durationMinutesOffsetFromStartTime": "404"
+    },
+    {
+     "point": "31.1472710\u00b0, 61.9968361\u00b0",
+     "durationMinutesOffsetFromStartTime": "413"
+    },
+    {
+     "point": "30.4080462\u00b0, 62.9024272\u00b0",
+     "durationMinutesOffsetFromStartTime": "422"
+    },
+    {
+     "point": "29.6626675\u00b0, 63.7943507\u00b0",
+     "durationMinutesOffsetFromStartTime": "431"
+    },
+    {
+     "point": "28.9114060\u00b0, 64.6731031\u00b0",
+     "durationMinutesOffsetFromStartTime": "440"
+    },
+    {
+     "point": "28.1545230\u00b0, 65.5391726\u00b0",
+     "durationMinutesOffsetFromStartTime": "449"
+    },
+    {
+     "point": "27.3922704\u00b0, 66.3930394\u00b0",
+     "durationMinutesOffsetFromStartTime": "458"
+    },
+    {
+     "point": "26.6248912\u00b0, 67.2351746\u00b0",
+     "durationMinutesOffsetFromStartTime": "467"
+    },
+    {
+     "point": "25.8526194\u00b0, 68.0660411\u00b0",
+     "durationMinutesOffsetFromStartTime": "476"
+    },
+    {
+     "point": "25.0756811\u00b0, 68.8860923\u00b0",
+     "durationMinutesOffsetFromStartTime": "485"
+    },
+    {
+     "point": "24.2942943\u00b0, 69.6957729\u00b0",
+     "durationMinutesOffsetFromStartTime": "494"
+    },
+    {
+     "point": "23.5086694\u00b0, 70.4955187\u00b0",
+     "durationMinutesOffsetFromStartTime": "503"
+    },
+    {
+     "point": "22.7190099\u00b0, 71.2857564\u00b0",
+     "durationMinutesOffsetFromStartTime": "512"
+    },
+    {
+     "point": "21.9255123\u00b0, 72.0669039\u00b0",
+     "durationMinutesOffsetFromStartTime": "521"
+    },
+    {
+     "point": "21.1283666\u00b0, 72.8393707\u00b0",
+     "durationMinutesOffsetFromStartTime": "530"
+    },
+    {
+     "point": "20.3277569\u00b0, 73.6035575\u00b0",
+     "durationMinutesOffsetFromStartTime": "539"
+    },
+    {
+     "point": "19.5238612\u00b0, 74.3598569\u00b0",
+     "durationMinutesOffsetFromStartTime": "548"
+    },
+    {
+     "point": "18.7168522\u00b0, 75.1086536\u00b0",
+     "durationMinutesOffsetFromStartTime": "557"
+    },
+    {
+     "point": "17.9068974\u00b0, 75.8503244\u00b0",
+     "durationMinutesOffsetFromStartTime": "566"
+    },
+    {
+     "point": "17.0941593\u00b0, 76.5852385\u00b0",
+     "durationMinutesOffsetFromStartTime": "575"
+    },
+    {
+     "point": "16.2787957\u00b0, 77.3137582\u00b0",
+     "durationMinutesOffsetFromStartTime": "584"
+    },
+    {
+     "point": "15.4609604\u00b0, 78.0362387\u00b0",
+     "durationMinutesOffsetFromStartTime": "593"
+    },
+    {
+     "point": "14.6408028\u00b0, 78.7530285\u00b0",
+     "durationMinutesOffsetFromStartTime": "602"
+    },
+    {
+     "point": "13.8184686\u00b0, 79.4644702\u00b0",
+     "durationMinutesOffsetFromStartTime": "611"
+    },
+    {
+     "point": "12.9941000\u00b0, 80.1709000\u00b0",
+     "durationMinutesOffsetFromStartTime": "620"
+    }
+   ]
+  },
+  {
+   "startTime": "2025-05-10T06:05:00+05:30",
+   "endTime": "2025-05-11T05:25:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "visit": {
+    "hierarchyLevel": 0,
+    "probability": 0.92,
+    "topCandidate": {
+     "placeId": "ChIJ_sample_home_adyar",
+     "semanticType": "Home",
+     "probability": 0.65,
+     "placeLocation": {
+      "latLng": "13.0067000\u00b0, 80.2206000\u00b0"
+     }
+    }
+   }
+  },
+  {
+   "startTime": "2025-08-19T03:00:00+05:30",
+   "endTime": "2025-08-19T03:33:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "activity": {
+    "start": {
+     "latLng": "13.0067000\u00b0, 80.2206000\u00b0"
+    },
+    "end": {
+     "latLng": "12.9941000\u00b0, 80.1709000\u00b0"
+    },
+    "distanceMeters": 5564.0,
+    "topCandidate": {
+     "type": "IN_PASSENGER_VEHICLE",
+     "probability": 0.58
+    }
+   },
+   "timelinePath": [
+    {
+     "point": "13.0067000\u00b0, 80.2206000\u00b0",
+     "durationMinutesOffsetFromStartTime": "0"
+    },
+    {
+     "point": "13.0065311\u00b0, 80.2171677\u00b0",
+     "durationMinutesOffsetFromStartTime": "2"
+    },
+    {
+     "point": "13.0071699\u00b0, 80.2143488\u00b0",
+     "durationMinutesOffsetFromStartTime": "4"
+    },
+    {
+     "point": "13.0063654\u00b0, 80.2090837\u00b0",
+     "durationMinutesOffsetFromStartTime": "6"
+    },
+    {
+     "point": "13.0058459\u00b0, 80.2084803\u00b0",
+     "durationMinutesOffsetFromStartTime": "8"
+    },
+    {
+     "point": "13.0074738\u00b0, 80.2072441\u00b0",
+     "durationMinutesOffsetFromStartTime": "10"
+    },
+    {
+     "point": "13.0044458\u00b0, 80.2005231\u00b0",
+     "durationMinutesOffsetFromStartTime": "12"
+    },
+    {
+     "point": "13.0048116\u00b0, 80.1979635\u00b0",
+     "durationMinutesOffsetFromStartTime": "14"
+    },
+    {
+     "point": "13.0039929\u00b0, 80.1997585\u00b0",
+     "durationMinutesOffsetFromStartTime": "16"
+    },
+    {
+     "point": "13.0028355\u00b0, 80.1959929\u00b0",
+     "durationMinutesOffsetFromStartTime": "17"
+    },
+    {
+     "point": "13.0027477\u00b0, 80.1904525\u00b0",
+     "durationMinutesOffsetFromStartTime": "19"
+    },
+    {
+     "point": "13.0034366\u00b0, 80.1850840\u00b0",
+     "durationMinutesOffsetFromStartTime": "21"
+    },
+    {
+     "point": "13.0023167\u00b0, 80.1814758\u00b0",
+     "durationMinutesOffsetFromStartTime": "23"
+    },
+    {
+     "point": "12.9993057\u00b0, 80.1805404\u00b0",
+     "durationMinutesOffsetFromStartTime": "25"
+    },
+    {
+     "point": "12.9985931\u00b0, 80.1789559\u00b0",
+     "durationMinutesOffsetFromStartTime": "27"
+    },
+    {
+     "point": "12.9970571\u00b0, 80.1758093\u00b0",
+     "durationMinutesOffsetFromStartTime": "29"
+    },
+    {
+     "point": "12.9953405\u00b0, 80.1733576\u00b0",
+     "durationMinutesOffsetFromStartTime": "31"
+    },
+    {
+     "point": "12.9941000\u00b0, 80.1709000\u00b0",
+     "durationMinutesOffsetFromStartTime": "33"
+    }
+   ]
+  },
+  {
+   "startTime": "2025-08-19T03:33:00+05:30",
+   "endTime": "2025-08-19T05:23:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "visit": {
+    "hierarchyLevel": 0,
+    "probability": 0.8,
+    "topCandidate": {
+     "placeId": "ChIJ_sample_maa",
+     "semanticType": "Airport",
+     "probability": 0.86,
+     "placeLocation": {
+      "latLng": "12.9941000\u00b0, 80.1709000\u00b0"
+     }
+    }
+   }
+  },
+  {
+   "startTime": "2025-08-19T05:23:00+05:30",
+   "endTime": "2025-08-19T09:58:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "activity": {
+    "start": {
+     "latLng": "12.9941000\u00b0, 80.1709000\u00b0"
+    },
+    "end": {
+     "latLng": "1.3644000\u00b0, 103.9915000\u00b0"
+    },
+    "distanceMeters": 2924375.5,
+    "topCandidate": {
+     "type": "FLYING",
+     "probability": 0.63
+    }
+   },
+   "timelinePath": [
+    {
+     "point": "12.9941000\u00b0, 80.1709000\u00b0",
+     "durationMinutesOffsetFromStartTime": "0"
+    },
+    {
+     "point": "12.7292914\u00b0, 80.7701763\u00b0",
+     "durationMinutesOffsetFromStartTime": "7"
+    },
+    {
+     "point": "12.4631384\u00b0, 81.3681993\u00b0",
+     "durationMinutesOffsetFromStartTime": "13"
+    },
+    {
+     "point": "12.1956728\u00b0, 81.9649927\u00b0",
+     "durationMinutesOffsetFromStartTime": "20"
+    },
+    {
+     "point": "11.9269262\u00b0, 82.5605802\u00b0",
+     "durationMinutesOffsetFromStartTime": "27"
+    },
+    {
+     "point": "11.6569303\u00b0, 83.1549859\u00b0",
+     "durationMinutesOffsetFromStartTime": "34"
+    },
+    {
+     "point": "11.3857165\u00b0, 83.7482345\u00b0",
+     "durationMinutesOffsetFromStartTime": "40"
+    },
+    {
+     "point": "11.1133162\u00b0, 84.3403506\u00b0",
+     "durationMinutesOffsetFromStartTime": "47"
+    },
+    {
+     "point": "10.8397608\u00b0, 84.9313596\u00b0",
+     "durationMinutesOffsetFromStartTime": "54"
+    },
+    {
+     "point": "10.5650814\u00b0, 85.5212866\u00b0",
+     "durationMinutesOffsetFromStartTime": "60"
+    },
+    {
+     "point": "10.2893091\u00b0, 86.1101576\u00b0",
+     "durationMinutesOffsetFromStartTime": "67"
+    },
+    {
+     "point": "10.0124751\u00b0, 86.6979984\u00b0",
+     "durationMinutesOffsetFromStartTime": "74"
+    },
+    {
+     "point": "9.7346102\u00b0, 87.2848354\u00b0",
+     "durationMinutesOffsetFromStartTime": "80"
+    },
+    {
+     "point": "9.4557453\u00b0, 87.8706949\u00b0",
+     "durationMinutesOffsetFromStartTime": "87"
+    },
+    {
+     "point": "9.1759113\u00b0, 88.4556037\u00b0",
+     "durationMinutesOffsetFromStartTime": "94"
+    },
+    {
+     "point": "8.8951387\u00b0, 89.0395888\u00b0",
+     "durationMinutesOffsetFromStartTime": "101"
+    },
+    {
+     "point": "8.6134582\u00b0, 89.6226774\u00b0",
+     "durationMinutesOffsetFromStartTime": "107"
+    },
+    {
+     "point": "8.3309004\u00b0, 90.2048969\u00b0",
+     "durationMinutesOffsetFromStartTime": "114"
+    },
+    {
+     "point": "8.0474956\u00b0, 90.7862748\u00b0",
+     "durationMinutesOffsetFromStartTime": "121"
+    },
+    {
+     "point": "7.7632742\u00b0, 91.3668389\u00b0",
+     "durationMinutesOffsetFromStartTime": "127"
+    },
+    {
+     "point": "7.4782666\u00b0, 91.9466172\u00b0",
+     "durationMinutesOffsetFromStartTime": "134"
+    },
+    {
+     "point": "7.1925028\u00b0, 92.5256379\u00b0",
+     "durationMinutesOffsetFromStartTime": "141"
+    },
+    {
+     "point": "6.9060132\u00b0, 93.1039293\u00b0",
+     "durationMinutesOffsetFromStartTime": "148"
+    },
+    {
+     "point": "6.6188276\u00b0, 93.6815198\u00b0",
+     "durationMinutesOffsetFromStartTime": "154"
+    },
+    {
+     "point": "6.3309762\u00b0, 94.2584380\u00b0",
+     "durationMinutesOffsetFromStartTime": "161"
+    },
+    {
+     "point": "6.0424889\u00b0, 94.8347127\u00b0",
+     "durationMinutesOffsetFromStartTime": "168"
+    },
+    {
+     "point": "5.7533954\u00b0, 95.4103729\u00b0",
+     "durationMinutesOffsetFromStartTime": "174"
+    },
+    {
+     "point": "5.4637256\u00b0, 95.9854474\u00b0",
+     "durationMinutesOffsetFromStartTime": "181"
+    },
+    {
+     "point": "5.1735093\u00b0, 96.5599656\u00b0",
+     "durationMinutesOffsetFromStartTime": "188"
+    },
+    {
+     "point": "4.8827762\u00b0, 97.1339565\u00b0",
+     "durationMinutesOffsetFromStartTime": "195"
+    },
+    {
+     "point": "4.5915557\u00b0, 97.7074496\u00b0",
+     "durationMinutesOffsetFromStartTime": "201"
+    },
+    {
+     "point": "4.2998777\u00b0, 98.2804744\u00b0",
+     "durationMinutesOffsetFromStartTime": "208"
+    },
+    {
+     "point": "4.0077714\u00b0, 98.8530603\u00b0",
+     "durationMinutesOffsetFromStartTime": "215"
+    },
+    {
+     "point": "3.7152665\u00b0, 99.4252370\u00b0",
+     "durationMinutesOffsetFromStartTime": "221"
+    },
+    {
+     "point": "3.4223924\u00b0, 99.9970343\u00b0",
+     "durationMinutesOffsetFromStartTime": "228"
+    },
+    {
+     "point": "3.1291784\u00b0, 100.5684819\u00b0",
+     "durationMinutesOffsetFromStartTime": "235"
+    },
+    {
+     "point": "2.8356540\u00b0, 101.1396097\u00b0",
+     "durationMinutesOffsetFromStartTime": "241"
+    },
+    {
+     "point": "2.5418484\u00b0, 101.7104476\u00b0",
+     "durationMinutesOffsetFromStartTime": "248"
+    },
+    {
+     "point": "2.2477910\u00b0, 102.2810255\u00b0",
+     "durationMinutesOffsetFromStartTime": "255"
+    },
+    {
+     "point": "1.9535109\u00b0, 102.8513735\u00b0",
+     "durationMinutesOffsetFromStartTime": "262"
+    },
+    {
+     "point": "1.6590375\u00b0, 103.4215216\u00b0",
+     "durationMinutesOffsetFromStartTime": "268"
+    },
+    {
+     "point": "1.3644000\u00b0, 103.9915000\u00b0",
+     "durationMinutesOffsetFromStartTime": "275"
+    }
+   ]
+  },
+  {
+   "startTime": "2025-08-19T09:58:00+05:30",
+   "endTime": "2025-08-19T11:08:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "visit": {
+    "hierarchyLevel": 0,
+    "probability": 0.74,
+    "topCandidate": {
+     "placeId": "ChIJ_sample_sin",
+     "semanticType": "Airport",
+     "probability": 0.97,
+     "placeLocation": {
+      "latLng": "1.3644000\u00b0, 103.9915000\u00b0"
+     }
+    }
+   }
+  },
+  {
+   "startTime": "2025-08-19T11:08:00+05:30",
+   "endTime": "2025-08-19T11:38:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "activity": {
+    "start": {
+     "latLng": "1.3644000\u00b0, 103.9915000\u00b0"
+    },
+    "end": {
+     "latLng": "1.2834000\u00b0, 103.8607000\u00b0"
+    },
+    "distanceMeters": 17104.0,
+    "topCandidate": {
+     "type": "IN_SUBWAY",
+     "probability": 0.8
+    }
+   },
+   "timelinePath": [
+    {
+     "point": "1.3644000\u00b0, 103.9915000\u00b0",
+     "durationMinutesOffsetFromStartTime": "0"
+    },
+    {
+     "point": "1.3616947\u00b0, 103.9853821\u00b0",
+     "durationMinutesOffsetFromStartTime": "2"
+    },
+    {
+     "point": "1.3578741\u00b0, 103.9768958\u00b0",
+     "durationMinutesOffsetFromStartTime": "3"
+    },
+    {
+     "point": "1.3548145\u00b0, 103.9690830\u00b0",
+     "durationMinutesOffsetFromStartTime": "5"
+    },
+    {
+     "point": "1.3498413\u00b0, 103.9683514\u00b0",
+     "durationMinutesOffsetFromStartTime": "6"
+    },
+    {
+     "point": "1.3460755\u00b0, 103.9612153\u00b0",
+     "durationMinutesOffsetFromStartTime": "8"
+    },
+    {
+     "point": "1.3426172\u00b0, 103.9471510\u00b0",
+     "durationMinutesOffsetFromStartTime": "9"
+    },
+    {
+     "point": "1.3415278\u00b0, 103.9519003\u00b0",
+     "durationMinutesOffsetFromStartTime": "11"
+    },
+    {
+     "point": "1.3359704\u00b0, 103.9268134\u00b0",
+     "durationMinutesOffsetFromStartTime": "13"
+    },
+    {
+     "point": "1.3344729\u00b0, 103.9288384\u00b0",
+     "durationMinutesOffsetFromStartTime": "14"
+    },
+    {
+     "point": "1.3317080\u00b0, 103.9269165\u00b0",
+     "durationMinutesOffsetFromStartTime": "16"
+    },
+    {
+     "point": "1.3267552\u00b0, 103.9252748\u00b0",
+     "durationMinutesOffsetFromStartTime": "17"
+    },
+    {
+     "point": "1.3194391\u00b0, 103.9165715\u00b0",
+     "durationMinutesOffsetFromStartTime": "19"
+    },
+    {
+     "point": "1.3126838\u00b0, 103.9042508\u00b0",
+     "durationMinutesOffsetFromStartTime": "21"
+    },
+    {
+     "point": "1.3084119\u00b0, 103.8997252\u00b0",
+     "durationMinutesOffsetFromStartTime": "22"
+    },
+    {
+     "point": "1.3039817\u00b0, 103.8926976\u00b0",
+     "durationMinutesOffsetFromStartTime": "24"
+    },
+    {
+     "point": "1.2985031\u00b0, 103.8797257\u00b0",
+     "durationMinutesOffsetFromStartTime": "25"
+    },
+    {
+     "point": "1.2942714\u00b0, 103.8723023\u00b0",
+     "durationMinutesOffsetFromStartTime": "27"
+    },
+    {
+     "point": "1.2889214\u00b0, 103.8672997\u00b0",
+     "durationMinutesOffsetFromStartTime": "28"
+    },
+    {
+     "point": "1.2834000\u00b0, 103.8607000\u00b0",
+     "durationMinutesOffsetFromStartTime": "30"
+    }
+   ]
+  },
+  {
+   "startTime": "2025-08-19T11:38:00+05:30",
+   "endTime": "2025-08-22T09:38:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "visit": {
+    "hierarchyLevel": 0,
+    "probability": 0.84,
+    "topCandidate": {
+     "placeId": "ChIJ_sample_sg",
+     "semanticType": "Inferred",
+     "probability": 0.8,
+     "placeLocation": {
+      "latLng": "1.2834000\u00b0, 103.8607000\u00b0"
+     }
+    }
+   }
+  },
+  {
+   "startTime": "2025-08-22T09:38:00+05:30",
+   "endTime": "2025-08-22T10:10:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "activity": {
+    "start": {
+     "latLng": "1.2834000\u00b0, 103.8607000\u00b0"
+    },
+    "end": {
+     "latLng": "1.3644000\u00b0, 103.9915000\u00b0"
+    },
+    "distanceMeters": 17104.0,
+    "topCandidate": {
+     "type": "IN_SUBWAY",
+     "probability": 0.76
+    }
+   },
+   "timelinePath": [
+    {
+     "point": "1.2834000\u00b0, 103.8607000\u00b0",
+     "durationMinutesOffsetFromStartTime": "0"
+    },
+    {
+     "point": "1.2892967\u00b0, 103.8674371\u00b0",
+     "durationMinutesOffsetFromStartTime": "2"
+    },
+    {
+     "point": "1.2934156\u00b0, 103.8736769\u00b0",
+     "durationMinutesOffsetFromStartTime": "3"
+    },
+    {
+     "point": "1.2996253\u00b0, 103.8798926\u00b0",
+     "durationMinutesOffsetFromStartTime": "5"
+    },
+    {
+     "point": "1.3051326\u00b0, 103.8860069\u00b0",
+     "durationMinutesOffsetFromStartTime": "7"
+    },
+    {
+     "point": "1.3097596\u00b0, 103.8967069\u00b0",
+     "durationMinutesOffsetFromStartTime": "8"
+    },
+    {
+     "point": "1.3152834\u00b0, 103.9069283\u00b0",
+     "durationMinutesOffsetFromStartTime": "10"
+    },
+    {
+     "point": "1.3204952\u00b0, 103.9007596\u00b0",
+     "durationMinutesOffsetFromStartTime": "12"
+    },
+    {
+     "point": "1.3244847\u00b0, 103.9158913\u00b0",
+     "durationMinutesOffsetFromStartTime": "13"
+    },
+    {
+     "point": "1.3302042\u00b0, 103.9277675\u00b0",
+     "durationMinutesOffsetFromStartTime": "15"
+    },
+    {
+     "point": "1.3344726\u00b0, 103.9254933\u00b0",
+     "durationMinutesOffsetFromStartTime": "17"
+    },
+    {
+     "point": "1.3365053\u00b0, 103.9318755\u00b0",
+     "durationMinutesOffsetFromStartTime": "19"
+    },
+    {
+     "point": "1.3413049\u00b0, 103.9453679\u00b0",
+     "durationMinutesOffsetFromStartTime": "20"
+    },
+    {
+     "point": "1.3431962\u00b0, 103.9493805\u00b0",
+     "durationMinutesOffsetFromStartTime": "22"
+    },
+    {
+     "point": "1.3468349\u00b0, 103.9526322\u00b0",
+     "durationMinutesOffsetFromStartTime": "24"
+    },
+    {
+     "point": "1.3518355\u00b0, 103.9592207\u00b0",
+     "durationMinutesOffsetFromStartTime": "25"
+    },
+    {
+     "point": "1.3539969\u00b0, 103.9738022\u00b0",
+     "durationMinutesOffsetFromStartTime": "27"
+    },
+    {
+     "point": "1.3576872\u00b0, 103.9805232\u00b0",
+     "durationMinutesOffsetFromStartTime": "29"
+    },
+    {
+     "point": "1.3614681\u00b0, 103.9834522\u00b0",
+     "durationMinutesOffsetFromStartTime": "30"
+    },
+    {
+     "point": "1.3644000\u00b0, 103.9915000\u00b0",
+     "durationMinutesOffsetFromStartTime": "32"
+    }
+   ]
+  },
+  {
+   "startTime": "2025-08-22T10:10:00+05:30",
+   "endTime": "2025-08-22T14:50:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "activity": {
+    "start": {
+     "latLng": "1.3644000\u00b0, 103.9915000\u00b0"
+    },
+    "end": {
+     "latLng": "12.9941000\u00b0, 80.1709000\u00b0"
+    },
+    "distanceMeters": 2924375.5,
+    "topCandidate": {
+     "type": "FLYING",
+     "probability": 0.61
+    }
+   },
+   "timelinePath": [
+    {
+     "point": "1.3644000\u00b0, 103.9915000\u00b0",
+     "durationMinutesOffsetFromStartTime": "0"
+    },
+    {
+     "point": "1.6590375\u00b0, 103.4215216\u00b0",
+     "durationMinutesOffsetFromStartTime": "7"
+    },
+    {
+     "point": "1.9535109\u00b0, 102.8513735\u00b0",
+     "durationMinutesOffsetFromStartTime": "14"
+    },
+    {
+     "point": "2.2477910\u00b0, 102.2810255\u00b0",
+     "durationMinutesOffsetFromStartTime": "20"
+    },
+    {
+     "point": "2.5418484\u00b0, 101.7104476\u00b0",
+     "durationMinutesOffsetFromStartTime": "27"
+    },
+    {
+     "point": "2.8356540\u00b0, 101.1396097\u00b0",
+     "durationMinutesOffsetFromStartTime": "34"
+    },
+    {
+     "point": "3.1291784\u00b0, 100.5684819\u00b0",
+     "durationMinutesOffsetFromStartTime": "41"
+    },
+    {
+     "point": "3.4223924\u00b0, 99.9970343\u00b0",
+     "durationMinutesOffsetFromStartTime": "48"
+    },
+    {
+     "point": "3.7152665\u00b0, 99.4252370\u00b0",
+     "durationMinutesOffsetFromStartTime": "55"
+    },
+    {
+     "point": "4.0077714\u00b0, 98.8530603\u00b0",
+     "durationMinutesOffsetFromStartTime": "61"
+    },
+    {
+     "point": "4.2998777\u00b0, 98.2804744\u00b0",
+     "durationMinutesOffsetFromStartTime": "68"
+    },
+    {
+     "point": "4.5915557\u00b0, 97.7074496\u00b0",
+     "durationMinutesOffsetFromStartTime": "75"
+    },
+    {
+     "point": "4.8827762\u00b0, 97.1339565\u00b0",
+     "durationMinutesOffsetFromStartTime": "82"
+    },
+    {
+     "point": "5.1735093\u00b0, 96.5599656\u00b0",
+     "durationMinutesOffsetFromStartTime": "89"
+    },
+    {
+     "point": "5.4637256\u00b0, 95.9854474\u00b0",
+     "durationMinutesOffsetFromStartTime": "96"
+    },
+    {
+     "point": "5.7533954\u00b0, 95.4103729\u00b0",
+     "durationMinutesOffsetFromStartTime": "102"
+    },
+    {
+     "point": "6.0424889\u00b0, 94.8347127\u00b0",
+     "durationMinutesOffsetFromStartTime": "109"
+    },
+    {
+     "point": "6.3309762\u00b0, 94.2584380\u00b0",
+     "durationMinutesOffsetFromStartTime": "116"
+    },
+    {
+     "point": "6.6188276\u00b0, 93.6815198\u00b0",
+     "durationMinutesOffsetFromStartTime": "123"
+    },
+    {
+     "point": "6.9060132\u00b0, 93.1039293\u00b0",
+     "durationMinutesOffsetFromStartTime": "130"
+    },
+    {
+     "point": "7.1925028\u00b0, 92.5256379\u00b0",
+     "durationMinutesOffsetFromStartTime": "137"
+    },
+    {
+     "point": "7.4782666\u00b0, 91.9466172\u00b0",
+     "durationMinutesOffsetFromStartTime": "143"
+    },
+    {
+     "point": "7.7632742\u00b0, 91.3668389\u00b0",
+     "durationMinutesOffsetFromStartTime": "150"
+    },
+    {
+     "point": "8.0474956\u00b0, 90.7862748\u00b0",
+     "durationMinutesOffsetFromStartTime": "157"
+    },
+    {
+     "point": "8.3309004\u00b0, 90.2048969\u00b0",
+     "durationMinutesOffsetFromStartTime": "164"
+    },
+    {
+     "point": "8.6134582\u00b0, 89.6226774\u00b0",
+     "durationMinutesOffsetFromStartTime": "171"
+    },
+    {
+     "point": "8.8951387\u00b0, 89.0395888\u00b0",
+     "durationMinutesOffsetFromStartTime": "178"
+    },
+    {
+     "point": "9.1759113\u00b0, 88.4556037\u00b0",
+     "durationMinutesOffsetFromStartTime": "184"
+    },
+    {
+     "point": "9.4557453\u00b0, 87.8706949\u00b0",
+     "durationMinutesOffsetFromStartTime": "191"
+    },
+    {
+     "point": "9.7346102\u00b0, 87.2848354\u00b0",
+     "durationMinutesOffsetFromStartTime": "198"
+    },
+    {
+     "point": "10.0124751\u00b0, 86.6979984\u00b0",
+     "durationMinutesOffsetFromStartTime": "205"
+    },
+    {
+     "point": "10.2893091\u00b0, 86.1101576\u00b0",
+     "durationMinutesOffsetFromStartTime": "212"
+    },
+    {
+     "point": "10.5650814\u00b0, 85.5212866\u00b0",
+     "durationMinutesOffsetFromStartTime": "219"
+    },
+    {
+     "point": "10.8397608\u00b0, 84.9313596\u00b0",
+     "durationMinutesOffsetFromStartTime": "225"
+    },
+    {
+     "point": "11.1133162\u00b0, 84.3403506\u00b0",
+     "durationMinutesOffsetFromStartTime": "232"
+    },
+    {
+     "point": "11.3857165\u00b0, 83.7482345\u00b0",
+     "durationMinutesOffsetFromStartTime": "239"
+    },
+    {
+     "point": "11.6569303\u00b0, 83.1549859\u00b0",
+     "durationMinutesOffsetFromStartTime": "246"
+    },
+    {
+     "point": "11.9269262\u00b0, 82.5605802\u00b0",
+     "durationMinutesOffsetFromStartTime": "253"
+    },
+    {
+     "point": "12.1956728\u00b0, 81.9649927\u00b0",
+     "durationMinutesOffsetFromStartTime": "260"
+    },
+    {
+     "point": "12.4631384\u00b0, 81.3681993\u00b0",
+     "durationMinutesOffsetFromStartTime": "266"
+    },
+    {
+     "point": "12.7292914\u00b0, 80.7701763\u00b0",
+     "durationMinutesOffsetFromStartTime": "273"
+    },
+    {
+     "point": "12.9941000\u00b0, 80.1709000\u00b0",
+     "durationMinutesOffsetFromStartTime": "280"
+    }
+   ]
+  },
+  {
+   "startTime": "2025-08-22T14:50:00+05:30",
+   "endTime": "2025-08-23T07:30:00+05:30",
+   "startTimeTimezoneUtcOffsetMinutes": 330,
+   "endTimeTimezoneUtcOffsetMinutes": 330,
+   "visit": {
+    "hierarchyLevel": 0,
+    "probability": 0.88,
+    "topCandidate": {
+     "placeId": "ChIJ_sample_home_adyar",
+     "semanticType": "Home",
+     "probability": 0.88,
+     "placeLocation": {
+      "latLng": "13.0067000\u00b0, 80.2206000\u00b0"
+     }
+    }
+   }
+  }
+ ],
+ "rawSignals": [],
+ "userLocationProfile": {
+  "frequentPlaces": [
+   {
+    "placeId": "ChIJ_sample_home_adyar",
+    "placeLocation": "13.0067000\u00b0, 80.2206000\u00b0",
+    "label": "HOME"
+   },
+   {
+    "placeId": "ChIJ_sample_office_guvi",
+    "placeLocation": "12.9915000\u00b0, 80.2337000\u00b0",
+    "label": "WORK"
+   }
+  ]
+ }
+}
