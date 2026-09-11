@@ -49,17 +49,20 @@
   .legend div { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--dim); }
   .swatch { width: 14px; height: 3px; border-radius: 2px; flex: none; }
 
-  button { font: inherit; font-size: 12px; color: var(--ink); cursor: pointer;
-    background: rgba(255,255,255,.06); border: 1px solid var(--line);
+  button, .icon-btn { font: inherit; font-size: 12px; color: var(--ink); cursor: pointer;
+    text-decoration: none; background: rgba(255,255,255,.06); border: 1px solid var(--line);
     border-radius: 8px; padding: 7px 12px; transition: background .15s, border-color .15s; }
-  button:hover { background: rgba(255,255,255,.14); }
+  button:hover, .icon-btn:hover { background: rgba(255,255,255,.14); }
   button[aria-pressed="true"] { background: rgba(93,202,165,.18); border-color: rgba(93,202,165,.5); }
   .icon-btn { width: 26px; height: 26px; padding: 0; border-radius: 50%; flex: none;
     font-size: 12px; font-style: italic; font-weight: 500; line-height: 1;
     display: flex; align-items: center; justify-content: center; }
-  .icon-btn svg { width: 14px; height: 14px; display: block; font-style: normal; }
+  .icon-btn svg { width: 14px; height: 14px; flex: none; display: block; font-style: normal; }
   .hud-actions { display: flex; gap: 6px; }
   #hud-toggle { display: none; }
+  #star { color: var(--air); background: rgba(255,183,74,.13); border-color: rgba(255,183,74,.36); }
+  #star:hover { background: rgba(255,183,74,.28); border-color: rgba(255,183,74,.65); }
+  #star svg { width: 13px; height: 13px; }
   #hud-toggle svg { transition: transform .18s; }
   #hud.collapsed #hud-body { display: none; }
   #hud.collapsed .sub { margin-bottom: 0; }
@@ -167,6 +170,14 @@
       <div class="sub" id="range">loading…</div>
     </div>
     <div class="hud-actions">
+      <a class="icon-btn" id="star" href="https://github.com/aruntemme/globe-jamun"
+        target="_blank" rel="noopener noreferrer" title="Star Globe Jamun on GitHub"
+        aria-label="Star Globe Jamun on GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="m12 2.4 2.95 5.98 6.6.96-4.775 4.655 1.127 6.573L12 17.46l-5.902 3.103
+            1.127-6.573L2.45 9.34l6.6-.96z"/>
+        </svg>
+      </a>
       <button class="icon-btn" id="help" aria-label="How to export your Timeline">i</button>
       <button class="icon-btn" id="hud-toggle" aria-label="Show details" aria-expanded="true">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9.5 12 15l6-5.5" fill="none"
