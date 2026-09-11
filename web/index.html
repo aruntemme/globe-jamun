@@ -1036,6 +1036,7 @@ function startTravel() {
   // in behind the traveller. Revealing it with the dash uniforms costs a
   // uniform update per frame; rebuilding the geometry each frame would not.
   trailProgress = 0;
+  updateImagery(0.4);                         // settle on tiles before we start
   world
     .pathsData([{ pts: travelPts, trail: true }])
     .pathColor(() => '#ffd08a')
@@ -1133,8 +1134,11 @@ speedSel.onchange = () => {
   speedSel.dataset.prev = speedSel.value;
 };
 speedSel.dataset.prev = speedSel.value;
-// Any grab of the globe hands control back to you.
-controls.addEventListener('start', stopTravel);
+// Bind to real input, not OrbitControls' "start": that event also fires for
+// camera changes the library makes itself, which stopped playback unbidden.
+for (const ev of ['pointerdown', 'wheel', 'touchstart']) {
+  document.getElementById('globe').addEventListener(ev, stopTravel, { passive: true });
+}
 
 /* ---------- place names ----------------------------------------------------
    Resolved offline against a bundled GeoNames extract. Reverse geocoding these
@@ -1226,18 +1230,23 @@ const BASE_TEXTURE = 'https://cdn.jsdelivr.net/npm/three-globe/example/img/earth
 let tilesOn = false;
 
 function updateImagery(altitude) {
+  if (travelling) return;   // playback drives the camera; don't thrash the tiles
   const attrib = document.getElementById('attrib');
   // Hysteresis, so sitting on the boundary doesn't thrash the tile loader.
-  if (!tilesOn && altitude < 0.55) {
-    tilesOn = true;
-    world.globeTileEngineUrl(TILE_URL);
-    attrib.textContent = 'imagery © Esri';
-    attrib.hidden = false;
-  } else if (tilesOn && altitude > 0.75) {
-    tilesOn = false;
-    world.globeTileEngineUrl(null);
-    world.globeImageUrl(BASE_TEXTURE);   // the tile layer leaves it dimmed otherwise
-    attrib.hidden = true;
+  try {
+    if (!tilesOn && altitude < 0.55) {
+      tilesOn = true;
+      world.globeTileEngineUrl(TILE_URL);
+      attrib.textContent = 'imagery © Esri';
+      attrib.hidden = false;
+    } else if (tilesOn && altitude > 0.75) {
+      tilesOn = false;
+      world.globeTileEngineUrl(null);
+      world.globeImageUrl(BASE_TEXTURE);   // the tile layer leaves it dimmed otherwise
+      attrib.hidden = true;
+    }
+  } catch {
+    // Imagery is a nicety; never let a tile-layer hiccup break the globe.
   }
 }
 world.onZoom(({ altitude }) => updateImagery(altitude));
