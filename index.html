@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Global view — my journey</title>
+<style>
+  :root {
+    --ink: #e8e6e1; --dim: #8d8b86; --line: rgba(232,230,225,.14);
+    --road: #5dcaa5; --rail: #8f87ec; --air: #ffb74a; --panel: rgba(8,11,18,.84);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #05070d; color: var(--ink);
+    font: 400 14px/1.5 ui-sans-serif, system-ui, -apple-system, sans-serif; }
+  #globe { position: fixed; inset: 0; }
+  #planes { position: fixed; inset: 0; pointer-events: none; z-index: 1; overflow: hidden; }
+  .rider { position: absolute; left: 0; top: 0; width: var(--r); height: var(--r);
+    margin: calc(var(--r) / -2) 0 0 calc(var(--r) / -2); will-change: transform; }
+  .rider svg { display: block; width: 100%; height: 100%; }
+  .rider.air { color: var(--air); filter: drop-shadow(0 0 6px rgba(255,183,74,.85)); }
+  .rider.rail { color: var(--rail); filter: drop-shadow(0 0 5px rgba(143,135,236,.9)); }
+  .rider.road { color: var(--road); filter: drop-shadow(0 0 5px rgba(93,202,165,.9)); }
+  .lg { display: inline-block; width: 15px; height: 15px; vertical-align: -3px; }
+  .lg svg { display: block; width: 100%; height: 100%; }
+
+  .panel { position: fixed; z-index: 3; background: var(--panel);
+    border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px;
+    backdrop-filter: blur(12px); }
+  #hud { top: 20px; left: 20px; width: 252px; }
+  .hud-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+  #hud h1 { margin: 0 0 2px; font-size: 15px; font-weight: 500; }
+  #hud .sub { color: var(--dim); font-size: 12px; margin-bottom: 14px; }
+  #source { color: var(--dim); font-size: 11px; margin-top: 12px;
+    border-top: 1px solid var(--line); padding-top: 10px; }
+  #source b { color: var(--ink); font-weight: 500; }
+  .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 8px;
+    border-top: 1px solid var(--line); padding-top: 12px; }
+  .stat b { display: block; font-size: 19px; font-weight: 500; letter-spacing: -.01em; }
+  .stat span { color: var(--dim); font-size: 11px; }
+  .legend { border-top: 1px solid var(--line); margin-top: 12px; padding-top: 12px; display: grid; gap: 7px; }
+  .legend div { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--dim); }
+  .swatch { width: 14px; height: 3px; border-radius: 2px; flex: none; }
+
+  button { font: inherit; font-size: 12px; color: var(--ink); cursor: pointer;
+    background: rgba(255,255,255,.06); border: 1px solid var(--line);
+    border-radius: 8px; padding: 7px 12px; transition: background .15s, border-color .15s; }
+  button:hover { background: rgba(255,255,255,.14); }
+  button[aria-pressed="true"] { background: rgba(93,202,165,.18); border-color: rgba(93,202,165,.5); }
+  .icon-btn { width: 24px; height: 24px; padding: 0; border-radius: 50%; flex: none;
+    font-size: 12px; font-style: italic; font-weight: 500; line-height: 1; }
+  #load { background: rgba(255,183,74,.16); border-color: rgba(255,183,74,.45); }
+  #load:hover { background: rgba(255,183,74,.28); }
+
+  #controls { bottom: 20px; left: 20px; display: flex; flex-wrap: wrap; gap: 8px; padding: 10px 12px; }
+  #info { top: 20px; right: 20px; width: 232px; display: none; }
+  #info h2 { margin: 0 0 10px; font-size: 14px; font-weight: 500; }
+  #info dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; font-size: 12px; }
+  #info dt { color: var(--dim); } #info dd { margin: 0; text-align: right; }
+  #hint { position: fixed; bottom: 22px; right: 20px; z-index: 3; color: var(--dim); font-size: 12px; }
+
+  .pin { width: var(--s); height: var(--s); margin: calc(var(--s) / -2) 0 0 calc(var(--s) / -2);
+    border-radius: 50%; background: #fff; border: 1.5px solid rgba(5,7,13,.75);
+    box-shadow: 0 0 0 2px rgba(255,255,255,.14), 0 0 14px rgba(255,255,255,.45);
+    cursor: pointer; transition: transform .15s, box-shadow .15s; }
+  .pin:hover { transform: scale(1.45); box-shadow: 0 0 0 3px rgba(255,255,255,.22), 0 0 20px rgba(255,255,255,.7); }
+  .pin.home { background: #f0997b; box-shadow: 0 0 0 2px rgba(240,153,123,.22), 0 0 16px rgba(240,153,123,.6); }
+
+  /* Modal + drop states */
+  #scrim { position: fixed; inset: 0; z-index: 10; display: none; background: rgba(3,5,9,.72);
+    backdrop-filter: blur(3px); align-items: center; justify-content: center; padding: 24px; }
+  #scrim[data-open] { display: flex; }
+  #guide { width: min(620px, 100%); max-height: 86vh; overflow: auto; background: #0a0e16;
+    border: 1px solid var(--line); border-radius: 14px; padding: 26px 28px; }
+  #guide h2 { margin: 0 0 4px; font-size: 17px; font-weight: 500; }
+  #guide .lede { color: var(--dim); font-size: 13px; margin: 0 0 22px; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+  @media (max-width: 560px) { .cols { grid-template-columns: 1fr; } }
+  .cols h3 { margin: 0 0 10px; font-size: 13px; font-weight: 500; color: var(--air);
+    border-bottom: 1px solid var(--line); padding-bottom: 8px; }
+  .cols ol { margin: 0; padding-left: 18px; font-size: 13px; color: #cfccc5; }
+  .cols li { margin-bottom: 9px; }
+  .cols b { color: var(--ink); font-weight: 500; }
+  .note { margin-top: 22px; border-top: 1px solid var(--line); padding-top: 16px;
+    font-size: 12.5px; color: var(--dim); }
+  .note p { margin: 0 0 8px; }
+  .guide-actions { display: flex; gap: 8px; margin-top: 20px; }
+
+  #drop { position: fixed; inset: 0; z-index: 9; display: none; align-items: center;
+    justify-content: center; background: rgba(5,7,13,.86);
+    border: 2px dashed rgba(255,183,74,.6); font-size: 16px; color: var(--air); }
+  #drop[data-on] { display: flex; }
+  #progress { position: fixed; inset: 0; z-index: 11; display: none; align-items: center;
+    justify-content: center; background: rgba(3,5,9,.8); backdrop-filter: blur(3px); }
+  #progress[data-on] { display: flex; }
+  .prog-card { text-align: center; }
+  .prog-card .bar { width: 240px; height: 3px; margin: 14px auto 0; border-radius: 2px;
+    background: rgba(255,255,255,.12); overflow: hidden; }
+  .prog-card .bar i { display: block; height: 100%; width: 0; background: var(--air);
+    transition: width .25s; }
+  .err { color: #f09595; font-size: 13px; margin-top: 10px; }
+  @media (max-width: 1080px) { #hint { display: none; } }
+  @media (max-width: 640px) { #hud { width: auto; right: 20px; } #info { display: none !important; }
+    #controls { right: 20px; } }
+</style>
+</head>
+<body>
+<div id="globe"></div>
+<div id="planes"></div>
+
+<div class="panel" id="hud">
+  <div class="hud-top">
+    <div>
+      <h1>Global view</h1>
+      <div class="sub" id="range">loading…</div>
+    </div>
+    <button class="icon-btn" id="help" aria-label="How to export your Timeline">i</button>
+  </div>
+  <div class="stats">
+    <div class="stat"><b id="s-places">–</b><span>places</span></div>
+    <div class="stat"><b id="s-km">–</b><span>km travelled</span></div>
+    <div class="stat"><b id="s-trips">–</b><span>journeys</span></div>
+    <div class="stat"><b id="s-days">–</b><span>days tracked</span></div>
+  </div>
+  <div class="legend">
+    <div><i class="swatch" style="background:var(--air)"></i>
+      <i class="lg" data-icon="air" style="color:var(--air)"></i> flights</div>
+    <div><i class="swatch" style="background:var(--rail)"></i>
+      <i class="lg" data-icon="rail" style="color:var(--rail)"></i> rail &amp; transit</div>
+    <div><i class="swatch" style="background:var(--road)"></i>
+      <i class="lg" data-icon="road" style="color:var(--road)"></i> road &amp; walking</div>
+  </div>
+  <div id="source">showing <b>sample data</b></div>
+</div>
+
+<div class="panel" id="info">
+  <h2 id="i-name"></h2>
+  <dl>
+    <dt>visits</dt><dd id="i-visits"></dd>
+    <dt>time spent</dt><dd id="i-time"></dd>
+    <dt>first seen</dt><dd id="i-first"></dd>
+    <dt>last seen</dt><dd id="i-last"></dd>
+  </dl>
+</div>
+
+<div class="panel" id="controls">
+  <button id="load">Load your Timeline.json</button>
+  <button id="spin" aria-pressed="true">Auto-rotate</button>
+  <button id="trails" aria-pressed="false">GPS trails</button>
+  <button id="reset">Reset view</button>
+</div>
+<div id="hint">drag to rotate · scroll to zoom · click a marker</div>
+<input type="file" id="file" accept=".json,application/json" hidden>
+
+<div id="drop">drop your Timeline.json to load it</div>
+
+<div id="progress"><div class="prog-card">
+  <div id="prog-stage">reading file…</div>
+  <div class="bar"><i id="prog-bar"></i></div>
+</div></div>
+
+<div id="scrim">
+  <div id="guide" role="dialog" aria-modal="true" aria-labelledby="guide-title">
+    <h2 id="guide-title">Getting your Timeline.json</h2>
+    <p class="lede">Since late 2024 Google keeps your Timeline on the phone only — it is
+      no longer in Takeout and there is no web download. The export button lives in the
+      Maps app itself.</p>
+    <div class="cols">
+      <div>
+        <h3>Android</h3>
+        <ol>
+          <li>Open <b>Settings</b> → <b>Location</b></li>
+          <li>Tap <b>Location services</b> → <b>Timeline</b></li>
+          <li>Tap <b>Export Timeline data</b></li>
+          <li>Save it — it lands in <b>Downloads</b> as <b>Timeline.json</b></li>
+          <li>Move it to this computer over USB, Drive or Nearby Share</li>
+        </ol>
+      </div>
+      <div>
+        <h3>iPhone</h3>
+        <ol>
+          <li>Open <b>Google Maps</b>, tap your <b>profile picture</b></li>
+          <li>Tap <b>Your Timeline</b></li>
+          <li>Tap the <b>⋯</b> menu, top right</li>
+          <li>Tap <b>Location &amp; privacy settings</b> → <b>Export Timeline data</b></li>
+          <li>Share it to this computer with <b>AirDrop</b></li>
+        </ol>
+      </div>
+    </div>
+    <div class="note">
+      <p><b>Nothing is uploaded.</b> The file is read in your browser and never leaves
+        this machine — there is no server behind this page.</p>
+      <p>Android and iPhone write slightly different JSON. Both are handled; you do not
+        need to convert anything.</p>
+      <p>Not seeing the button? It only appears once Timeline has recorded something,
+        and needs a recent Google Maps.</p>
+    </div>
+    <div class="guide-actions">
+      <button id="guide-load">Choose file…</button>
+      <button id="guide-close">Close</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/globe.gl@2/dist/globe.gl.min.js"></script>
+<script type="module">
+import { haversineKm } from './timeline-core.js';
+
+const DEG = Math.PI / 180;
+const GLOBE_R = 100;
+// Travel family is decided by the recorded mode, never by whether Google
+// happened to save GPS breadcrumbs for the segment. A train trip with no
+// breadcrumbs is still a train trip.
+const RAIL = /TRAIN|SUBWAY|TRAM|FERRY|BOAT/;   // buses run on roads, so IN_BUS is road
+const familyOf = (mode) =>
+  mode === 'FLYING' ? 'air' : RAIL.test(mode) ? 'rail' : 'road';
+
+const FAMILY = {
+  air:  { color: '#ffb74a', stroke: 1.9, alt: null,   size: 21, cap: 40, speed: 9000 },
+  rail: { color: '#8f87ec', stroke: 1.5, alt: 0.008,  size: 17, cap: 24, speed: 5200 },
+  road: { color: '#5dcaa5', stroke: 1.3, alt: 0.0032, size: 15, cap: 28, speed: 4200 },
+};
+const colorFor = (mode) => FAMILY[familyOf(mode)].color;
+const fmtInt = (n) => Math.round(n).toLocaleString();
+const prettyMode = (m) => m.replace(/^IN_/, '').replace(/_/g, ' ').toLowerCase();
+
+function fmtDuration(minutes) {
+  const d = Math.floor(minutes / 1440), h = Math.round((minutes % 1440) / 60);
+  if (d && h) return `${d}d ${h}h`;
+  if (d) return `${d}d`;
+  if (minutes >= 60) return `${Math.round(minutes / 60)}h`;
+  return `${Math.round(minutes)}m`;
+}
+const fmtDate = (iso) =>
+  new Date(iso).toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' });
+
+/* ---------- route geometry --------------------------------------------------
+   Only flights leave the ground. Rail and road hug the surface, so a drive is
+   never mistaken for a flight. Curves are computed here rather than handed to
+   globe.gl's arcsData so each rider icon can follow the exact same line.     */
+
+function angularDist([lat1, lng1], [lat2, lng2]) {
+  const p1 = lat1 * DEG, p2 = lat2 * DEG, dl = (lng2 - lng1) * DEG;
+  return Math.acos(Math.min(1, Math.max(-1,
+    Math.sin(p1) * Math.sin(p2) + Math.cos(p1) * Math.cos(p2) * Math.cos(dl))));
+}
+
+function greatCirclePoint(a, b, ang, f) {
+  if (ang < 1e-9) return a;
+  const s = Math.sin(ang);
+  const A = Math.sin((1 - f) * ang) / s, B = Math.sin(f * ang) / s;
+  const [lat1, lng1] = [a[0] * DEG, a[1] * DEG], [lat2, lng2] = [b[0] * DEG, b[1] * DEG];
+  const x = A * Math.cos(lat1) * Math.cos(lng1) + B * Math.cos(lat2) * Math.cos(lng2);
+  const y = A * Math.cos(lat1) * Math.sin(lng1) + B * Math.cos(lat2) * Math.sin(lng2);
+  const z = A * Math.sin(lat1) + B * Math.sin(lat2);
+  return [Math.atan2(z, Math.hypot(x, y)) / DEG, Math.atan2(y, x) / DEG];
+}
+
+const flightAlt = (ang, f) =>
+  Math.min(0.34, Math.max(0.05, 0.38 * Math.sqrt(ang / Math.PI))) * Math.sin(Math.PI * f);
+
+// A direct line on a sphere still needs interpolating, otherwise a long one
+// would cut through the globe instead of lying on it.
+function directLine(from, to, ang, alt) {
+  const steps = Math.max(2, Math.min(64, Math.round(ang / DEG) + 2));
+  const pts = [];
+  for (let i = 0; i < steps; i++) {
+    const f = i / (steps - 1);
+    const [lat, lng] = greatCirclePoint(from, to, ang, f);
+    pts.push([lat, lng, alt]);
+  }
+  return pts;
+}
+
+function buildRoute(r, useGps) {
+  const fam = familyOf(r.mode);
+  const spec = FAMILY[fam];
+  const ang = angularDist(r.from, r.to);
+  let pts;
+  if (fam === 'air') {
+    const steps = Math.max(24, Math.min(128, Math.round(ang / DEG * 1.4) + 24));
+    pts = [];
+    for (let i = 0; i < steps; i++) {
+      const f = i / (steps - 1);
+      const [lat, lng] = greatCirclePoint(r.from, r.to, ang, f);
+      pts.push([lat, lng, flightAlt(ang, f)]);
+    }
+  } else if (useGps && r.path && r.path.length >= 2) {
+    pts = r.path.map(([la, ln]) => [la, ln, spec.alt]);
+  } else {
+    pts = directLine(r.from, r.to, ang, spec.alt);
+  }
+  return { ...r, fam, ang, pts, cum: cumulative(pts) };
+}
+
+// Longitude deltas are unwrapped so a route crossing the antimeridian
+// interpolates the short way instead of racing back across the map.
+const dLng = (a, b) => { let d = b - a; if (d > 180) d -= 360; if (d < -180) d += 360; return d; };
+
+function cumulative(pts) {
+  const cum = [0];
+  for (let i = 1; i < pts.length; i++) {
+    cum.push(cum[i - 1] + Math.hypot(pts[i][0] - pts[i - 1][0], dLng(pts[i - 1][1], pts[i][1])));
+  }
+  return cum;
+}
+
+function samplePath(pts, cum, f) {
+  const target = Math.min(1, Math.max(0, f)) * cum[cum.length - 1];
+  let lo = 0, hi = cum.length - 1;
+  while (lo < hi - 1) { const mid = (lo + hi) >> 1; (cum[mid] <= target ? lo = mid : hi = mid); }
+  const span = cum[hi] - cum[lo];
+  const t = span > 0 ? (target - cum[lo]) / span : 0;
+  const a = pts[lo], b = pts[hi];
+  return [a[0] + (b[0] - a[0]) * t, a[1] + dLng(a[1], b[1]) * t, a[2] + (b[2] - a[2]) * t];
+}
+
+function cartesian(lat, lng, alt) {
+  const r = GLOBE_R * (1 + alt), phi = (90 - lat) * DEG, th = (90 - lng) * DEG;
+  return [r * Math.sin(phi) * Math.cos(th), r * Math.cos(phi), r * Math.sin(phi) * Math.sin(th)];
+}
+
+/* ---------- globe ---------------------------------------------------------- */
+
+const world = Globe()(document.getElementById('globe'))
+  .globeImageUrl('https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-blue-marble.jpg')
+  .bumpImageUrl('https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-topology.png')
+  .backgroundImageUrl('https://cdn.jsdelivr.net/npm/three-globe/example/img/night-sky.png')
+  .atmosphereColor('#6fa8dc')
+  .atmosphereAltitude(0.19);
+
+const controls = world.controls();
+controls.autoRotate = true;
+controls.autoRotateSpeed = 0.45;
+controls.enableDamping = true;
+controls.dampingFactor = 0.08;
+controls.minDistance = 103;
+controls.maxDistance = 620;
+
+const HOME = { lat: 20, lng: 60, altitude: 2.4 };
+world.pointOfView(HOME, 0);
+
+/* ---------- rider icons ----------------------------------------------------
+   Each icon points east at 0deg so the heading rotation below is honest.     */
+
+const WINDOW = 'rgba(5,7,13,.72)';
+const ICON = {
+  air: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">'
+    + '<path d="M22 11.2 14.1 9.4 9.6 2.1a.7.7 0 0 0-.6-.3H7.6c-.4 0-.7.4-.6.8l1.7 7.1-4.4-1-1.2-2a.6.6 0 0 0-.5-.3H1.7c-.4 0-.7.4-.6.8L2.4 12l-1.3 4.9c-.1.4.2.8.6.8h.9c.2 0 .4-.1.5-.3l1.2-2 4.4-1-1.7 7.1c-.1.4.2.8.6.8H9c.2 0 .5-.1.6-.3l4.5-7.3 7.9-1.8a.9.9 0 0 0 0-1.7Z"/></svg>',
+  rail: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">'
+    + '<path d="M18.4 8.6h1.3a2 2 0 0 1 2 2v2.2a2 2 0 0 1-2 2h-1.3Z"/>'
+    + '<rect x="2.6" y="6.2" width="16.2" height="11" rx="3.2"/>'
+    + `<rect x="5.2" y="8.6" width="4.4" height="3.4" rx="1.1" fill="${WINDOW}"/>`
+    + `<rect x="11.1" y="8.6" width="4.4" height="3.4" rx="1.1" fill="${WINDOW}"/>`
+    + '<circle cx="6.8" cy="19.4" r="1.9"/><circle cx="14.8" cy="19.4" r="1.9"/></svg>',
+  road: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">'
+    + '<path d="M2.4 16.3c0-2.2.7-3.5 2.1-4l2.2-3c.6-.8 1.4-1.2 2.3-1.2h4.6c1 0 1.8.4 2.4 1.3l2 2.9c1.6.5 2.3 1.8 2.3 4 0 .7-.5 1.2-1.2 1.2H3.6c-.7 0-1.2-.5-1.2-1.2Z"/>'
+    + `<path d="M8.1 9.8h3.3v2.9H6.1Z" fill="${WINDOW}"/>`
+    + `<path d="M13 9.8h1.6l2 2.9H13Z" fill="${WINDOW}"/>`
+    + '<circle cx="7.4" cy="18" r="2.2"/><circle cx="16.6" cy="18" r="2.2"/></svg>',
+};
+
+for (const el of document.querySelectorAll('.lg')) el.innerHTML = ICON[el.dataset.icon];
+
+const riderLayer = document.getElementById('planes');
+let riders = [];
+
+function rebuildRiders(routes) {
+  riderLayer.replaceChildren();
+  riders = [];
+  for (const fam of ['air', 'rail', 'road']) {
+    const spec = FAMILY[fam];
+    const pick = routes.filter((r) => r.fam === fam)
+      .sort((a, b) => b.km - a.km).slice(0, spec.cap);
+    pick.forEach((route, i) => {
+      const el = document.createElement('div');
+      el.className = `rider ${fam}`;
+      el.style.setProperty('--r', `${spec.size}px`);
+      el.innerHTML = ICON[fam];
+      el.style.opacity = '0';
+      riderLayer.appendChild(el);
+      riders.push({
+        el, route,
+        phase: (i * 0.37 + (fam === 'rail' ? 0.2 : fam === 'road' ? 0.6 : 0)) % 1,
+        speed: 1 / (spec.speed + route.ang * spec.speed * 2.2),
+      });
+    });
+  }
+}
+
+function tickRiders(now) {
+  const cam = world.camera().position;
+  for (const r of riders) {
+    const f = (r.phase + now * r.speed) % 1;
+    const [lat, lng, alt] = samplePath(r.route.pts, r.route.cum, f);
+    const screen = world.getScreenCoords(lat, lng, alt);
+    if (!screen || !Number.isFinite(screen.x)) { r.el.style.opacity = '0'; continue; }
+
+    // Hide once the point passes behind the horizon.
+    const [px, py, pz] = cartesian(lat, lng, alt);
+    const pl = Math.hypot(px, py, pz) || 1;
+    const vx = cam.x - px, vy = cam.y - py, vz = cam.z - pz;
+    const vl = Math.hypot(vx, vy, vz) || 1;
+    if ((px * vx + py * vy + pz * vz) / (pl * vl) <= 0.02) { r.el.style.opacity = '0'; continue; }
+
+    const ahead = samplePath(r.route.pts, r.route.cum, Math.min(1, f + 0.01));
+    const s2 = world.getScreenCoords(ahead[0], ahead[1], ahead[2]);
+    const angle = s2 ? Math.atan2(s2.y - screen.y, s2.x - screen.x) * 180 / Math.PI : 0;
+    r.el.style.opacity = '1';
+    r.el.style.transform = `translate(${screen.x}px, ${screen.y}px) rotate(${angle}deg)`;
+  }
+  requestAnimationFrame(tickRiders);
+}
+requestAnimationFrame(tickRiders);
+
+/* ---------- rendering a journey -------------------------------------------- */
+
+let current = null;
+let gpsMode = false;   // off by default: road and rail draw as direct lines
+
+// Both record shapes collapse to one route type before any drawing happens.
+function routesOf(data) {
+  return [
+    ...data.trails.map((t) => ({
+      mode: t.mode, km: t.km, startTime: t.startTime, endTime: t.endTime,
+      from: t.path[0], to: t.path[t.path.length - 1], path: t.path,
+    })),
+    ...data.arcs.map((a) => ({
+      mode: a.mode, km: a.km, startTime: a.startTime, endTime: a.endTime,
+      from: [a.startLat, a.startLng], to: [a.endLat, a.endLng], path: null,
+    })),
+  ];
+}
+
+function draw() {
+  if (!current) return;
+  const routes = routesOf(current).map((r) => buildRoute(r, gpsMode));
+  world
+    .pathsData(routes)
+    .pathPoints('pts')
+    .pathPointLat((p) => p[0]).pathPointLng((p) => p[1]).pathPointAlt((p) => p[2])
+    .pathColor((d) => FAMILY[d.fam].color)
+    .pathStroke((d) => FAMILY[d.fam].stroke)
+    .pathResolution(2)
+    .pathDashLength((d) => (d.fam === 'air' ? 0.06 : d.fam === 'rail' ? 0.12 : 1))
+    .pathDashGap((d) => (d.fam === 'air' ? 0.014 : d.fam === 'rail' ? 0.05 : 0))
+    .pathDashInitialGap(() => Math.random())
+    .pathDashAnimateTime((d) => (d.fam === 'air' ? 26000 : d.fam === 'rail' ? 16000 : 0))
+    .pathTransitionDuration(0)
+    .pathLabel((d) => `${prettyMode(d.mode)} · ${fmtInt(d.km)} km`);
+  rebuildRiders(routes);
+}
+
+function render(data, label) {
+  current = data;
+  const { places, trails, arcs } = data;
+  const maxMinutes = Math.max(...places.map((p) => p.minutes), 1);
+
+  world
+    .htmlElementsData(places)
+    .htmlLat('lat').htmlLng('lng')
+    .htmlAltitude(0.012)
+    .htmlTransitionDuration(0)
+    .htmlElement((p) => {
+      const el = document.createElement('div');
+      el.className = 'pin' + (p.semanticType === 'Home' ? ' home' : '');
+      el.style.setProperty('--s', `${(6 + 12 * Math.sqrt(p.minutes / maxMinutes)).toFixed(1)}px`);
+      el.title = `${p.semanticType} · ${p.visits} visit${p.visits > 1 ? 's' : ''} · ${fmtDuration(p.minutes)}`;
+      el.onclick = () => showPlace(p);
+      return el;
+    });
+
+  if (typeof world.htmlElementVisibilityModifier === 'function') {
+    world.htmlElementVisibilityModifier((el, visible) => {
+      el.style.opacity = visible ? '1' : '0';
+      el.style.pointerEvents = visible ? 'auto' : 'none';
+    });
+  }
+
+  draw();
+
+  const totalKm = [...trails, ...arcs].reduce((s, r) => s + r.km, 0);
+  const days = Math.max(1, Math.round(
+    (Date.parse(data.range.to) - Date.parse(data.range.from)) / 864e5));
+  document.getElementById('range').textContent =
+    `${fmtDate(data.range.from)} – ${fmtDate(data.range.to)}`;
+  document.getElementById('s-places').textContent = fmtInt(places.length);
+  document.getElementById('s-km').textContent = fmtInt(totalKm);
+  document.getElementById('s-trips').textContent = fmtInt(trails.length + arcs.length);
+  document.getElementById('s-days').textContent = fmtInt(days);
+  document.getElementById('source').innerHTML = `showing <b>${label}</b>`;
+  document.getElementById('info').style.display = 'none';
+}
+
+// journey.json is a local personal build and is never deployed; the hosted
+// site falls back to the sample and expects you to upload your own file.
+(async () => {
+  for (const [file, label] of [['journey.json', 'your data'], ['journey.sample.json', 'sample data']]) {
+    try {
+      const r = await fetch(file);
+      if (!r.ok) continue;
+      render(await r.json(), label);
+      return;
+    } catch { /* try the next one */ }
+  }
+  document.getElementById('range').textContent = 'no data — load a Timeline.json';
+})();
+
+function showPlace(p) {
+  document.getElementById('i-name').textContent = p.semanticType;
+  document.getElementById('i-visits').textContent = p.visits;
+  document.getElementById('i-time').textContent = fmtDuration(p.minutes);
+  document.getElementById('i-first').textContent = fmtDate(p.firstSeen);
+  document.getElementById('i-last').textContent = fmtDate(p.lastSeen);
+  document.getElementById('info').style.display = 'block';
+  controls.autoRotate = false;
+  spin.setAttribute('aria-pressed', 'false');
+  world.pointOfView({ lat: p.lat, lng: p.lng, altitude: 1.1 }, 900);
+}
+
+/* ---------- upload --------------------------------------------------------- */
+
+const fileInput = document.getElementById('file');
+const progress = document.getElementById('progress');
+const progStage = document.getElementById('prog-stage');
+const progBar = document.getElementById('prog-bar');
+const drop = document.getElementById('drop');
+let worker = null;
+
+function loadFile(file) {
+  if (!file) return;
+  if (!/\.json$/i.test(file.name)) {
+    alert('That is not a .json file. The export from Maps is called Timeline.json.');
+    return;
+  }
+  closeGuide();
+  progStage.textContent = `reading ${file.name}…`;
+  progBar.style.width = '8%';
+  progress.setAttribute('data-on', '');
+
+  worker?.terminate();
+  worker = new Worker('parse-worker.js', { type: 'module' });
+  worker.onmessage = ({ data }) => {
+    if (data.stage === 'reading') { progStage.textContent = 'reading file…'; progBar.style.width = '15%'; }
+    if (data.stage === 'parsing') { progStage.textContent = 'parsing json…'; progBar.style.width = '40%'; }
+    if (data.stage === 'normalizing') {
+      progStage.textContent = 'building your journey…';
+      progBar.style.width = `${60 + 35 * (data.pct ?? 0)}%`;
+    }
+    if (data.stage === 'done') {
+      progBar.style.width = '100%';
+      render(data.journey, `${data.journey.format} export · ${data.journey.source}`);
+      world.pointOfView(HOME, 1200);
+      setTimeout(() => progress.removeAttribute('data-on'), 350);
+      worker.terminate(); worker = null;
+    }
+    if (data.stage === 'error') {
+      progStage.innerHTML = `<div class="err">${data.message}</div>`;
+      progBar.style.width = '0';
+      setTimeout(() => progress.removeAttribute('data-on'), 3200);
+      worker.terminate(); worker = null;
+    }
+  };
+  worker.postMessage(file);
+}
+
+fileInput.onchange = () => { loadFile(fileInput.files[0]); fileInput.value = ''; };
+document.getElementById('load').onclick = () => fileInput.click();
+document.getElementById('guide-load').onclick = () => fileInput.click();
+
+let dragDepth = 0;
+addEventListener('dragenter', (e) => { e.preventDefault(); if (++dragDepth === 1) drop.setAttribute('data-on', ''); });
+addEventListener('dragover', (e) => e.preventDefault());
+addEventListener('dragleave', () => { if (--dragDepth <= 0) { dragDepth = 0; drop.removeAttribute('data-on'); } });
+addEventListener('drop', (e) => {
+  e.preventDefault(); dragDepth = 0; drop.removeAttribute('data-on');
+  loadFile(e.dataTransfer.files[0]);
+});
+
+/* ---------- guide + controls ----------------------------------------------- */
+
+const scrim = document.getElementById('scrim');
+const openGuide = () => scrim.setAttribute('data-open', '');
+const closeGuide = () => scrim.removeAttribute('data-open');
+document.getElementById('help').onclick = openGuide;
+document.getElementById('guide-close').onclick = closeGuide;
+scrim.onclick = (e) => { if (e.target === scrim) closeGuide(); };
+addEventListener('keydown', (e) => { if (e.key === 'Escape') closeGuide(); });
+
+const spin = document.getElementById('spin');
+spin.onclick = () => {
+  controls.autoRotate = !controls.autoRotate;
+  spin.setAttribute('aria-pressed', String(controls.autoRotate));
+};
+
+const trailsBtn = document.getElementById('trails');
+trailsBtn.title = 'Follow the recorded GPS breadcrumbs instead of drawing direct lines';
+trailsBtn.onclick = () => {
+  gpsMode = !gpsMode;
+  trailsBtn.setAttribute('aria-pressed', String(gpsMode));
+  draw();
+};
+
+document.getElementById('reset').onclick = () => {
+  document.getElementById('info').style.display = 'none';
+  world.pointOfView(HOME, 900);
+};
+
+// ResizeObserver rather than window.resize: it also fires for zoom, devtools
+// docking and viewport emulation, which a plain resize listener can miss.
+const stage = document.getElementById('globe');
+new ResizeObserver(() => {
+  world.width(stage.clientWidth).height(stage.clientHeight);
+}).observe(stage);
+world.width(stage.clientWidth).height(stage.clientHeight);
+</script>
+</body>
+</html>
