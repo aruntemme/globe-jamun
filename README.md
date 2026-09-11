@@ -55,7 +55,10 @@ converted copy of the sample.
 - *Load your Timeline.json* (or drop a file anywhere on the page)
 - *GPS trails* — off by default, so road and rail draw as direct lines. Turn it
   on to follow the recorded breadcrumbs instead.
-- *Auto-rotate*, *Reset view*, and the **i** icon for the export guide
+- *Auto-rotate* (off by default — the globe holds still until you ask), **+** / **&minus;**
+  zoom, *Reset view*, and the **i** icon for the export guide
+- The HUD lists every place, busiest first. Click a row to fly to it; clicking a
+  marker on the globe highlights its row.
 
 On phones the HUD starts collapsed to a title bar — tap the chevron to expand
 the stats and legend. Place details open as a sheet above the controls, and the
