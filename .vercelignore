@@ -1,0 +1,10 @@
+# Vercel deploys the working directory, NOT the git tree — .gitignore does not
+# protect anything here. Without this file a local build of your own Timeline
+# gets published. Verified: a local journey.json reached production once.
+web/journey.json
+web/_t/
+data/
+tools/
+.github/
+.claude/
+README.md
