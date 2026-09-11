@@ -57,6 +57,12 @@ converted copy of the sample.
   on to follow the recorded breadcrumbs instead.
 - *Auto-rotate*, *Reset view*, and the **i** icon for the export guide
 
+On phones the HUD starts collapsed to a title bar — tap the chevron to expand
+the stats and legend. Place details open as a sheet above the controls, and the
+initial camera altitude is derived from the viewport aspect so the globe fits a
+portrait screen instead of overflowing it. You can also just open the site on
+the phone holding the export and load the file directly, with no transfer.
+
 ## How records map to the globe
 
 - `visit` → a marker, sized by total time spent there

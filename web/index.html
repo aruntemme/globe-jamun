@@ -13,6 +13,7 @@
   html, body { margin: 0; height: 100%; overflow: hidden; background: #05070d; color: var(--ink);
     font: 400 14px/1.5 ui-sans-serif, system-ui, -apple-system, sans-serif; }
   #globe { position: fixed; inset: 0; }
+  #globe canvas { touch-action: none; }   /* let OrbitControls own touch drags */
   #planes { position: fixed; inset: 0; pointer-events: none; z-index: 1; overflow: hidden; }
   .rider { position: absolute; left: 0; top: 0; width: var(--r); height: var(--r);
     margin: calc(var(--r) / -2) 0 0 calc(var(--r) / -2); will-change: transform; }
@@ -46,8 +47,19 @@
     border-radius: 8px; padding: 7px 12px; transition: background .15s, border-color .15s; }
   button:hover { background: rgba(255,255,255,.14); }
   button[aria-pressed="true"] { background: rgba(93,202,165,.18); border-color: rgba(93,202,165,.5); }
-  .icon-btn { width: 24px; height: 24px; padding: 0; border-radius: 50%; flex: none;
-    font-size: 12px; font-style: italic; font-weight: 500; line-height: 1; }
+  .icon-btn { width: 26px; height: 26px; padding: 0; border-radius: 50%; flex: none;
+    font-size: 12px; font-style: italic; font-weight: 500; line-height: 1;
+    display: flex; align-items: center; justify-content: center; }
+  .icon-btn svg { width: 14px; height: 14px; display: block; font-style: normal; }
+  .hud-actions { display: flex; gap: 6px; }
+  #hud-toggle { display: none; }
+  #hud-toggle svg { transition: transform .18s; }
+  #hud.collapsed #hud-body { display: none; }
+  #hud.collapsed .sub { margin-bottom: 0; }
+  #hud.collapsed #hud-toggle svg { transform: rotate(-90deg); }
+  .short { display: none; }
+  #info-close { display: none; position: absolute; top: 12px; right: 12px;
+    font-style: normal; font-size: 15px; }
   #load { background: rgba(255,183,74,.16); border-color: rgba(255,183,74,.45); }
   #load:hover { background: rgba(255,183,74,.28); }
 
@@ -99,8 +111,42 @@
     transition: width .25s; }
   .err { color: #f09595; font-size: 13px; margin-top: 10px; }
   @media (max-width: 1080px) { #hint { display: none; } }
-  @media (max-width: 640px) { #hud { width: auto; right: 20px; } #info { display: none !important; }
-    #controls { right: 20px; } }
+
+  /* Phones: the globe is the point, so the HUD collapses to a title bar and
+     the panels become edge-to-edge sheets instead of floating cards. */
+  @media (max-width: 640px) {
+    #hud { top: 12px; left: 12px; right: 12px; width: auto; padding: 13px 15px; }
+    #hud h1 { font-size: 14px; }
+    #hud .sub { font-size: 11.5px; margin-bottom: 12px; }
+    #hud-toggle { display: flex; }
+    .stats { gap: 9px 6px; }
+    .stat b { font-size: 17px; }
+
+    #controls { left: 12px; right: 12px; bottom: 12px; padding: 8px;
+      gap: 6px; flex-wrap: nowrap; justify-content: center; overflow-x: auto;
+      -webkit-overflow-scrolling: touch; }
+    #controls button { flex: none; padding: 10px 14px; }
+    .full { display: none; }
+    .short { display: inline; }
+
+    /* Sheet above the control bar, so tapping a marker still tells you something. */
+    #info { top: auto; bottom: 74px; left: 12px; right: 12px; width: auto; padding: 15px 16px; }
+    #info h2 { padding-right: 30px; }
+    #info-close { display: flex; }
+
+    #guide { padding: 20px 18px; max-height: 92vh; border-radius: 12px; }
+    #guide h2 { font-size: 16px; }
+    #guide .lede { font-size: 12.5px; margin-bottom: 18px; }
+    .cols { gap: 20px; }
+    #drop { display: none !important; }   /* no drag-and-drop on a phone */
+  }
+
+  /* Touch targets: keep the dot small but make the tap area finger-sized. */
+  @media (pointer: coarse) {
+    .pin { position: relative; }
+    .pin::after { content: ''; position: absolute; inset: -9px; border-radius: 50%; }
+    .pin:hover { transform: none; }
+  }
 </style>
 </head>
 <body>
@@ -113,8 +159,15 @@
       <h1>Globe Jamun</h1>
       <div class="sub" id="range">loading…</div>
     </div>
-    <button class="icon-btn" id="help" aria-label="How to export your Timeline">i</button>
+    <div class="hud-actions">
+      <button class="icon-btn" id="help" aria-label="How to export your Timeline">i</button>
+      <button class="icon-btn" id="hud-toggle" aria-label="Show details" aria-expanded="true">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9.5 12 15l6-5.5" fill="none"
+          stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
   </div>
+  <div id="hud-body">
   <div class="stats">
     <div class="stat"><b id="s-places">–</b><span>places</span></div>
     <div class="stat"><b id="s-km">–</b><span>km travelled</span></div>
@@ -130,9 +183,11 @@
       <i class="lg" data-icon="road" style="color:var(--road)"></i> road &amp; walking</div>
   </div>
   <div id="source">showing <b>sample data</b></div>
+  </div>
 </div>
 
 <div class="panel" id="info">
+  <button class="icon-btn" id="info-close" aria-label="Close">&times;</button>
   <h2 id="i-name"></h2>
   <dl>
     <dt>visits</dt><dd id="i-visits"></dd>
@@ -143,13 +198,13 @@
 </div>
 
 <div class="panel" id="controls">
-  <button id="load">Load your Timeline.json</button>
-  <button id="spin" aria-pressed="true">Auto-rotate</button>
-  <button id="trails" aria-pressed="false">GPS trails</button>
-  <button id="reset">Reset view</button>
+  <button id="load"><span class="full">Load your Timeline.json</span><span class="short">Load</span></button>
+  <button id="spin" aria-pressed="true"><span class="full">Auto-rotate</span><span class="short">Spin</span></button>
+  <button id="trails" aria-pressed="false"><span class="full">GPS trails</span><span class="short">GPS</span></button>
+  <button id="reset"><span class="full">Reset view</span><span class="short">Reset</span></button>
 </div>
 <div id="hint">drag to rotate · scroll to zoom · click a marker</div>
-<input type="file" id="file" accept=".json,application/json" hidden>
+<input type="file" id="file" accept=".json,application/json,text/json,text/plain" hidden>
 
 <div id="drop">drop your Timeline.json to load it</div>
 
@@ -189,6 +244,8 @@
     <div class="note">
       <p><b>Nothing is uploaded.</b> The file is read in your browser and never leaves
         this machine — there is no server behind this page.</p>
+      <p><b>Reading this on the phone itself?</b> Skip the transfer entirely — export,
+        then tap <b>Load</b> and pick Timeline.json out of your files.</p>
       <p>Android and iPhone write slightly different JSON. Both are handled; you do not
         need to convert anything.</p>
       <p>Not seeing the button? It only appears once Timeline has recorded something,
@@ -336,8 +393,19 @@ controls.dampingFactor = 0.08;
 controls.minDistance = 103;
 controls.maxDistance = 620;
 
-const HOME = { lat: 20, lng: 60, altitude: 2.4 };
-world.pointOfView(HOME, 0);
+// A fixed altitude framed for landscape overflows a portrait phone. Derive one
+// that fits the sphere in whichever axis is tighter.
+const stageEl = document.getElementById('globe');
+function homeView() {
+  const w = stageEl.clientWidth || innerWidth;
+  const h = stageEl.clientHeight || innerHeight;
+  const halfV = (world.camera().fov / 2) * DEG;
+  const halfH = Math.atan(Math.tan(halfV) * (w / h));
+  const margin = 1.35;   // 35% breathing room around the globe
+  const alt = margin / Math.sin(Math.min(halfV, halfH)) - 1;
+  return { lat: 20, lng: 60, altitude: Math.min(4.15, Math.max(1.2, alt)) };
+}
+world.pointOfView(homeView(), 0);
 
 /* ---------- rider icons ----------------------------------------------------
    Each icon points east at 0deg so the heading rotation below is honest.     */
@@ -549,7 +617,7 @@ function loadFile(file) {
     if (data.stage === 'done') {
       progBar.style.width = '100%';
       render(data.journey, `${data.journey.format} export · ${data.journey.source}`);
-      world.pointOfView(HOME, 1200);
+      world.pointOfView(homeView(), 1200);
       setTimeout(() => progress.removeAttribute('data-on'), 350);
       worker.terminate(); worker = null;
     }
@@ -586,6 +654,21 @@ document.getElementById('guide-close').onclick = closeGuide;
 scrim.onclick = (e) => { if (e.target === scrim) closeGuide(); };
 addEventListener('keydown', (e) => { if (e.key === 'Escape') closeGuide(); });
 
+const hud = document.getElementById('hud');
+const hudToggle = document.getElementById('hud-toggle');
+const isPhone = () => matchMedia('(max-width: 640px)').matches;
+function setHud(open) {
+  hud.classList.toggle('collapsed', !open);
+  hudToggle.setAttribute('aria-expanded', String(open));
+  hudToggle.setAttribute('aria-label', open ? 'Hide details' : 'Show details');
+}
+hudToggle.onclick = () => setHud(hud.classList.contains('collapsed'));
+setHud(!isPhone());   // starts collapsed on phones so the globe gets the screen
+
+document.getElementById('info-close').onclick = () => {
+  document.getElementById('info').style.display = 'none';
+};
+
 const spin = document.getElementById('spin');
 spin.onclick = () => {
   controls.autoRotate = !controls.autoRotate;
@@ -602,7 +685,7 @@ trailsBtn.onclick = () => {
 
 document.getElementById('reset').onclick = () => {
   document.getElementById('info').style.display = 'none';
-  world.pointOfView(HOME, 900);
+  world.pointOfView(homeView(), 900);
 };
 
 // ResizeObserver rather than window.resize: it also fires for zoom, devtools
