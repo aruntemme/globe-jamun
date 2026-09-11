@@ -23,7 +23,12 @@ Free and open source end to end — no API keys, no accounts, no paid tiers.
     web/journey.sample.json     sample build — this is what the hosted site ships
     web/journey.json            YOUR build — gitignored, never deployed
 
-Only `web/` is deployed, and only the sample files in it are tracked. The page
+Only `web/` is deployed, and only the sample files in it are tracked.
+
+**`.gitignore` alone does not make a deploy safe.** Vercel uploads the working
+directory, not the git tree, so a local `web/journey.json` built from your own
+export will go live even though git ignores it. `.vercelignore` is what actually
+prevents that — this happened once during testing. The page
 loads `journey.json` if present and falls back to `journey.sample.json`, so the
 hosted site always shows sample data and expects visitors to upload their own.
 
