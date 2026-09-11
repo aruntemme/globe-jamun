@@ -1091,7 +1091,6 @@ function startTravel() {
   // in behind the traveller. Revealing it with the dash uniforms costs a
   // uniform update per frame; rebuilding the geometry each frame would not.
   trailProgress = 0;
-  updateImagery(0.4);                         // settle on tiles before we start
   world
     .pathsData([{ pts: travelPts, trail: true }])
     .pathColor(() => '#ffd08a')
@@ -1304,7 +1303,11 @@ const BASE_TEXTURE = 'https://cdn.jsdelivr.net/npm/three-globe/example/img/earth
 let tilesOn = false;
 
 function updateImagery(altitude) {
-  if (travelling) return;   // playback drives the camera; don't thrash the tiles
+  // Leave imagery alone during playback. Forcing tiles on for the flight looked
+  // like an improvement but floods the tile engine at playback altitudes: on a
+  // multi-year history the globe goes black while they stream and the frame
+  // rate collapses to 1-2fps. The base texture is the right call here.
+  if (travelling) return;
   const attrib = document.getElementById('attrib');
   // Hysteresis, so sitting on the boundary doesn't thrash the tile loader.
   try {
@@ -1315,9 +1318,10 @@ function updateImagery(altitude) {
       attrib.hidden = false;
     } else if (tilesOn && altitude > 0.75) {
       tilesOn = false;
-      // Drop queued tiles first: a request still in flight when the engine is
-      // nulled lands in a callback with no URL builder left and throws there,
-      // asynchronously and out of reach of this try/catch.
+      // Nulling the engine is the only way to actually remove the tile sphere.
+      // Substituting a transparent tile instead looked tempting (it avoids the
+      // library's async URL read below) but renders black — the tile material
+      // does not alpha-blend — and keeps paying for tile meshes.
       world.globeTileEngineClearCache?.();
       world.globeTileEngineUrl(null);
       world.globeImageUrl(BASE_TEXTURE);   // the tile layer leaves it dimmed otherwise

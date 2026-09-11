@@ -7,3 +7,6 @@ web/journey.json
 .DS_Store
 node_modules/
 .vercel
+
+# Generated test fixtures (tools/make-fixtures.py)
+web/_t/

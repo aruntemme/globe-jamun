@@ -132,6 +132,15 @@ World Imagery tiles, which load only what is in view at a zoom matched to the
 camera, and switches back on the way out. Attribution appears in the footer
 while the tiles are live.
 
+## Testing
+
+`python3 tools/make-fixtures.py` builds a fixture set under `web/_t/`
+(gitignored) covering the shapes the 13-place sample cannot: the iOS export
+shape, a three-year history (~9.8k segments, 22MB), journeys with no GPS
+breadcrumbs, visits with no journeys, routes crossing the antimeridian, and two
+malformed files. Load each through the page and watch for uncaught errors — the
+sample is too small and too tidy to catch performance or error-path problems.
+
 ## Debugging
 
 Load the page with `#debug` to get a `window.__gj` handle exposing the globe,
