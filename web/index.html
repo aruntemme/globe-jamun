@@ -1241,6 +1241,10 @@ function updateImagery(altitude) {
       attrib.hidden = false;
     } else if (tilesOn && altitude > 0.75) {
       tilesOn = false;
+      // Drop queued tiles first: a request still in flight when the engine is
+      // nulled lands in a callback with no URL builder left and throws there,
+      // asynchronously and out of reach of this try/catch.
+      world.globeTileEngineClearCache?.();
       world.globeTileEngineUrl(null);
       world.globeImageUrl(BASE_TEXTURE);   // the tile layer leaves it dimmed otherwise
       attrib.hidden = true;
