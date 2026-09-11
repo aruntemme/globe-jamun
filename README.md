@@ -91,6 +91,30 @@ of tracking renderable.
 so an uploaded file and a `node tools/parse-timeline.mjs` run go through
 identical normalization.
 
+## Place names
+
+Visits are labelled by matching them against a GeoNames extract that ships with
+the page (`web/cities.json`, ~34k places, 0.65 MB gzipped, lazy-loaded). This is
+deliberately not a geocoding API call: sending your visit coordinates to a
+reverse-geocoding service would hand a third party your home address, which is
+the one thing this project promises not to do.
+
+The match prefers a substantial nearby city over the literally-closest entry —
+otherwise a Paris hotel resolves to "Paris 04 Hôtel-de-Ville" and a Dubai one to
+"Business Bay". Rebuild with `python3 tools/build-cities.py`.
+
+## Imagery
+
+Far out, a single texture. Below ~0.55 globe radii the page switches to Esri
+World Imagery tiles, which load only what is in view at a zoom matched to the
+camera, and switches back on the way out. Attribution appears in the footer
+while the tiles are live.
+
+## Debugging
+
+Load the page with `#debug` to get a `window.__gj` handle exposing the globe,
+its controls and the home-view calculation.
+
 ## Page views
 
 The visit count in the HUD comes from [Abacus](https://github.com/jasoncameron/abacus)

@@ -15,7 +15,9 @@
   #globe { position: fixed; inset: 0; }
   #globe canvas { touch-action: none; }   /* let OrbitControls own touch drags */
   #planes { position: fixed; inset: 0; pointer-events: none; z-index: 1; overflow: hidden; }
-  .rider { position: absolute; left: 0; top: 0; width: var(--r); height: var(--r);
+  .rider { width: 0; height: 0; pointer-events: none; }
+  .rider i { position: absolute; left: 0; top: 0; display: block;
+    width: var(--r); height: var(--r);
     margin: calc(var(--r) / -2) 0 0 calc(var(--r) / -2); will-change: transform; }
   .rider svg { display: block; width: 100%; height: 100%; }
   .rider.air { color: var(--air); filter: drop-shadow(0 0 6px rgba(255,183,74,.85)); }
@@ -86,12 +88,19 @@
     font-size: 12px; color: var(--dim); pointer-events: none; }
   #views b { color: var(--ink); font-weight: 500; }
 
-  .pin { width: var(--s); height: var(--s); margin: calc(var(--s) / -2) 0 0 calc(var(--s) / -2);
+  .pin { width: 0; height: 0; cursor: pointer; }
+  .pin .dot { position: absolute; left: 0; top: 0; width: var(--s); height: var(--s);
+    margin: calc(var(--s) / -2) 0 0 calc(var(--s) / -2);
     border-radius: 50%; background: #fff; border: 1.5px solid rgba(5,7,13,.75);
     box-shadow: 0 0 0 2px rgba(255,255,255,.14), 0 0 14px rgba(255,255,255,.45);
-    cursor: pointer; transition: transform .15s, box-shadow .15s; }
-  .pin:hover { transform: scale(1.45); box-shadow: 0 0 0 3px rgba(255,255,255,.22), 0 0 20px rgba(255,255,255,.7); }
-  .pin.home { background: #f0997b; box-shadow: 0 0 0 2px rgba(240,153,123,.22), 0 0 16px rgba(240,153,123,.6); }
+    transition: transform .15s, box-shadow .15s; }
+  .pin:hover .dot { transform: scale(1.5);
+    box-shadow: 0 0 0 3px rgba(255,255,255,.22), 0 0 20px rgba(255,255,255,.7); }
+  .pin.home .dot { background: #f0997b;
+    box-shadow: 0 0 0 2px rgba(240,153,123,.22), 0 0 16px rgba(240,153,123,.6); }
+  .pin .label { position: absolute; left: 0; top: 0; transform: translate(10px, -50%);
+    white-space: nowrap; font-size: 11px; line-height: 1; color: #fff; opacity: .92;
+    text-shadow: 0 0 4px rgba(0,0,0,.95), 0 1px 3px rgba(0,0,0,.9); pointer-events: none; }
 
   /* Modal + drop states */
   #scrim { position: fixed; inset: 0; z-index: 10; display: none; background: rgba(3,5,9,.72);
@@ -160,15 +169,13 @@
 
   /* Touch targets: keep the dot small but make the tap area finger-sized. */
   @media (pointer: coarse) {
-    .pin { position: relative; }
-    .pin::after { content: ''; position: absolute; inset: -9px; border-radius: 50%; }
-    .pin:hover { transform: none; }
+    .pin .dot::after { content: ''; position: absolute; inset: -10px; border-radius: 50%; }
+    .pin:hover .dot { transform: none; }
   }
 </style>
 </head>
 <body>
 <div id="globe"></div>
-<div id="planes"></div>
 
 <div class="panel" id="hud">
   <div class="hud-top">
@@ -238,6 +245,7 @@
   <button id="reset"><span class="full">Reset view</span><span class="short">Reset</span></button>
 </div>
 <footer id="footer">
+  <span id="attrib" hidden></span>
   <span id="views" hidden></span>
   <span id="hint">drag to rotate · scroll to zoom · click a marker</span>
 </footer>
@@ -287,6 +295,9 @@
         then tap <b>Load</b> and pick Timeline.json out of your files.</p>
       <p>Android and iPhone write slightly different JSON. Both are handled; you do not
         need to convert anything.</p>
+      <p>Place names come from <b>GeoNames</b> (CC BY 4.0), matched on your own device
+        against a list that ships with the page — your coordinates are never sent to a
+        geocoder. Close-up imagery © <b>Esri</b>.</p>
       <p>Not seeing the button? It only appears once Timeline has recorded something,
         and needs a recent Google Maps.</p>
     </div>
@@ -422,7 +433,8 @@ const world = Globe()(document.getElementById('globe'))
   .bumpImageUrl('https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-topology.png')
   .backgroundImageUrl('https://cdn.jsdelivr.net/npm/three-globe/example/img/night-sky.png')
   .atmosphereColor('#6fa8dc')
-  .atmosphereAltitude(0.19);
+  .atmosphereAltitude(0.19)
+  .globeCurvatureResolution(2);
 
 const controls = world.controls();
 controls.autoRotate = true;
@@ -446,6 +458,9 @@ function homeView() {
 }
 world.pointOfView(homeView(), 0);
 
+// Opt-in inspection hook: load with #debug to poke at the globe from a console.
+if (location.hash === '#debug') window.__gj = { world, controls, homeView };
+
 /* ---------- rider icons ----------------------------------------------------
    Each icon points east at 0deg so the heading rotation below is honest.     */
 
@@ -468,52 +483,93 @@ const ICON = {
 
 for (const el of document.querySelectorAll('.lg')) el.innerHTML = ICON[el.dataset.icon];
 
-const riderLayer = document.getElementById('planes');
+/* ---------- riders ----------------------------------------------------------
+   Riders are CSS2D children of the globe, not an overlay. An overlay has to
+   project 3D to screen coordinates in its own animation frame, which lands a
+   frame behind the canvas during a drag — that is the swim you see. Here the
+   loop writes each rider's 3D position and the renderer projects it in the very
+   same frame it draws the globe, so a rider can never slide against the map. */
+
 let riders = [];
 
-function rebuildRiders(routes) {
-  riderLayer.replaceChildren();
-  riders = [];
+function makeRiders(routes) {
+  const out = [];
   for (const fam of ['air', 'rail', 'road']) {
     const spec = FAMILY[fam];
     const pick = routes.filter((r) => r.fam === fam)
       .sort((a, b) => b.km - a.km).slice(0, spec.cap);
     pick.forEach((route, i) => {
-      const el = document.createElement('div');
-      el.className = `rider ${fam}`;
-      el.style.setProperty('--r', `${spec.size}px`);
-      el.innerHTML = ICON[fam];
-      el.style.opacity = '0';
-      riderLayer.appendChild(el);
-      riders.push({
-        el, route,
+      const [lat, lng, alt] = samplePath(route.pts, route.cum, 0);
+      out.push({
+        kind: 'rider', fam, route, lat, lng, alt,
         phase: (i * 0.37 + (fam === 'rail' ? 0.2 : fam === 'road' ? 0.6 : 0)) % 1,
         speed: 1 / (spec.speed + route.ang * spec.speed * 2.2),
       });
     });
   }
+  return out;
+}
+
+function riderElement(d) {
+  const el = document.createElement('div');
+  el.className = `rider ${d.fam}`;
+  const inner = document.createElement('i');
+  inner.innerHTML = ICON[d.fam];
+  inner.style.setProperty('--r', `${FAMILY[d.fam].size}px`);
+  el.appendChild(inner);
+  el.style.opacity = '0';
+  d.el = el;
+  d.inner = inner;
+  return el;
+}
+
+// globe.gl builds its CSS2DObjects during a later digest, not synchronously on
+// htmlElementsData(), so linking has to retry until the objects actually exist.
+let linkPending = false;
+function linkRiders() {
+  linkPending = true;
+}
+// A link goes stale whenever globe.gl rebuilds the layer — which it does on any
+// globeImageUrl/tile-engine change, so every zoom across the tile threshold
+// silently orphaned every rider. Treat a mismatched element as unlinked.
+const unlinked = (r) => r.el && (!r.obj || r.obj.element !== r.el);
+
+function tryLink() {
+  const pending = riders.filter(unlinked);
+  if (!pending.length) return;
+  const byElement = new Map(pending.map((r) => [r.el, r]));
+  world.scene().traverse((o) => {
+    const r = o.element && byElement.get(o.element);
+    if (r) r.obj = o;
+  });
 }
 
 function tickRiders(now) {
+  if (linkPending || riders.some(unlinked)) { tryLink(); linkPending = false; }
   const cam = world.camera().position;
   for (const r of riders) {
+    if (!r.obj || r.obj.element !== r.el) continue;
     const f = (r.phase + now * r.speed) % 1;
     const [lat, lng, alt] = samplePath(r.route.pts, r.route.cum, f);
-    const screen = world.getScreenCoords(lat, lng, alt);
-    if (!screen || !Number.isFinite(screen.x)) { r.el.style.opacity = '0'; continue; }
+    const [x, y, z] = cartesian(lat, lng, alt);
+    r.obj.position.set(x, y, z);
 
-    // Hide once the point passes behind the horizon.
-    const [px, py, pz] = cartesian(lat, lng, alt);
-    const pl = Math.hypot(px, py, pz) || 1;
-    const vx = cam.x - px, vy = cam.y - py, vz = cam.z - pz;
+    // CSS2D does no depth testing, so hide riders behind the horizon.
+    const pl = Math.hypot(x, y, z) || 1;
+    const vx = cam.x - x, vy = cam.y - y, vz = cam.z - z;
     const vl = Math.hypot(vx, vy, vz) || 1;
-    if ((px * vx + py * vy + pz * vz) / (pl * vl) <= 0.02) { r.el.style.opacity = '0'; continue; }
-
-    const ahead = samplePath(r.route.pts, r.route.cum, Math.min(1, f + 0.01));
-    const s2 = world.getScreenCoords(ahead[0], ahead[1], ahead[2]);
-    const angle = s2 ? Math.atan2(s2.y - screen.y, s2.x - screen.x) * 180 / Math.PI : 0;
+    if ((x * vx + y * vy + z * vz) / (pl * vl) <= 0.02) { r.el.style.opacity = '0'; continue; }
     r.el.style.opacity = '1';
-    r.el.style.transform = `translate(${screen.x}px, ${screen.y}px) rotate(${angle}deg)`;
+
+    // Heading is cosmetic, so a frame of staleness here costs nothing. Rotate
+    // the inner node — the outer one carries the renderer's own transform.
+    const a = world.getScreenCoords(lat, lng, alt);
+    const b0 = samplePath(r.route.pts, r.route.cum, Math.min(1, f + 0.01));
+    const b = world.getScreenCoords(b0[0], b0[1], b0[2]);
+    if (a && b) {
+      const deg = Math.atan2(b.y - a.y, b.x - a.x) * 180 / Math.PI;
+      r.inner.style.transform = `rotate(${deg}deg)`;
+    }
   }
   requestAnimationFrame(tickRiders);
 }
@@ -554,30 +610,50 @@ function draw() {
     .pathDashAnimateTime((d) => (d.fam === 'air' ? 26000 : d.fam === 'rail' ? 16000 : 0))
     .pathTransitionDuration(0)
     .pathLabel((d) => `${prettyMode(d.mode)} · ${fmtInt(d.km)} km`);
-  rebuildRiders(routes);
+
+  // Places and riders share one CSS2D layer so both are projected inside the
+  // renderer's own frame. Ground markers sit at altitude 0: at the 0.012 used
+  // before, a marker floats ~76 km up and slides against the terrain as you
+  // rotate — measured at 4px off centre-screen and 20px toward the edge.
+  const maxMinutes = Math.max(...current.places.map((p) => p.minutes), 1);
+  rankPlaceLabels();
+  riders = makeRiders(routes);
+  world
+    .htmlElementsData([...current.places.map((p) => ({ kind: 'place', place: p })), ...riders])
+    .htmlLat((d) => (d.kind === 'place' ? d.place.lat : d.lat))
+    .htmlLng((d) => (d.kind === 'place' ? d.place.lng : d.lng))
+    .htmlAltitude((d) => (d.kind === 'place' ? 0 : d.alt))
+    .htmlTransitionDuration(0)
+    .htmlElement((d) => (d.kind === 'rider' ? riderElement(d) : pinElement(d.place, maxMinutes)));
+  linkRiders();
+  labelPlaces();
+}
+
+function pinElement(p, maxMinutes) {
+  const el = document.createElement('div');
+  el.className = 'pin' + (p.semanticType === 'Home' ? ' home' : '');
+  const dot = document.createElement('i');
+  dot.className = 'dot';
+  dot.style.setProperty('--s', `${(6 + 12 * Math.sqrt(p.minutes / maxMinutes)).toFixed(1)}px`);
+  el.appendChild(dot);
+  const label = document.createElement('span');
+  label.className = 'label';
+  el.appendChild(label);
+  el.onclick = () => showPlace(p);
+  p.el = el;
+  p.labelEl = label;
+  applyPlaceLabel(p);
+  return el;
 }
 
 function render(data, label) {
   current = data;
   const { places, trails, arcs } = data;
-  const maxMinutes = Math.max(...places.map((p) => p.minutes), 1);
 
-  world
-    .htmlElementsData(places)
-    .htmlLat('lat').htmlLng('lng')
-    .htmlAltitude(0.012)
-    .htmlTransitionDuration(0)
-    .htmlElement((p) => {
-      const el = document.createElement('div');
-      el.className = 'pin' + (p.semanticType === 'Home' ? ' home' : '');
-      el.style.setProperty('--s', `${(6 + 12 * Math.sqrt(p.minutes / maxMinutes)).toFixed(1)}px`);
-      el.title = `${p.semanticType} · ${p.visits} visit${p.visits > 1 ? 's' : ''} · ${fmtDuration(p.minutes)}`;
-      el.onclick = () => showPlace(p);
-      return el;
-    });
-
+  // Riders manage their own occlusion in the tick; only places go through this.
   if (typeof world.htmlElementVisibilityModifier === 'function') {
     world.htmlElementVisibilityModifier((el, visible) => {
+      if (el.classList.contains('rider')) return;
       el.style.opacity = visible ? '1' : '0';
       el.style.pointerEvents = visible ? 'auto' : 'none';
     });
@@ -602,6 +678,8 @@ function render(data, label) {
 
 // journey.json is a local personal build and is never deployed; the hosted
 // site falls back to the sample and expects you to upload your own file.
+loadCities();
+
 (async () => {
   for (const [file, label] of [['journey.json', 'your data'], ['journey.sample.json', 'sample data']]) {
     try {
@@ -729,6 +807,105 @@ document.getElementById('reset').onclick = () => {
   document.getElementById('info').style.display = 'none';
   world.pointOfView(homeView(), 900);
 };
+
+/* ---------- place names ----------------------------------------------------
+   Resolved offline against a bundled GeoNames extract. Reverse geocoding these
+   coordinates through a web service would ship your home address to a third
+   party, which is the one thing this project promises never to do — so the
+   names come to you rather than your locations going to them.              */
+
+let cityGrid = null;
+
+async function loadCities() {
+  try {
+    const r = await fetch('cities.json');
+    if (!r.ok) return;
+    const { cities } = await r.json();
+    cityGrid = new Map();
+    for (const c of cities) {
+      const k = `${Math.round(c[2])}|${Math.round(c[3])}`;
+      let cell = cityGrid.get(k);
+      if (!cell) cityGrid.set(k, cell = []);
+      cell.push(c);
+    }
+    labelPlaces();
+  } catch { /* names are an enhancement; the globe works without them */ }
+}
+
+function nearestCity(lat, lng) {
+  if (!cityGrid) return null;
+  let nearest = null, nearestKm = Infinity;
+  let major = null, majorPop = 0;
+  const rlat = Math.round(lat), rlng = Math.round(lng);
+  for (let dy = -1; dy <= 1; dy++) {
+    for (let dx = -1; dx <= 1; dx++) {
+      // wrap longitude so places either side of the antimeridian still match
+      const lngCell = ((rlng + dx + 180 + 360) % 360) - 180;
+      const cell = cityGrid.get(`${rlat + dy}|${lngCell}`);
+      if (!cell) continue;
+      for (const c of cell) {
+        const km = haversineKm([lat, lng], [c[2], c[3]]);
+        if (km < nearestKm) { nearestKm = km; nearest = c; }
+        // A big city 30 km away is the answer people expect; the suburb 2 km
+        // away is merely the closest row in the dataset.
+        if (km <= 35 && c[4] > majorPop && c[4] >= 250000) { majorPop = c[4]; major = [c, km]; }
+      }
+    }
+  }
+  if (major) return { name: major[0][0], cc: major[0][1], km: major[1] };
+  return nearest && nearestKm <= 75 ? { name: nearest[0], cc: nearest[1], km: nearestKm } : null;
+}
+
+function applyPlaceLabel(p) {
+  if (p.city === undefined) p.city = nearestCity(p.lat, p.lng);
+  const name = p.city ? p.city.name : null;
+  const kind = p.semanticType === 'Inferred' ? 'Visited' : p.semanticType;
+  if (p.labelEl) p.labelEl.textContent = (p.showLabel && name) ? name : '';
+  if (p.el) {
+    p.el.title = `${name ? name + ' · ' : ''}${kind} · `
+      + `${p.visits} visit${p.visits > 1 ? 's' : ''} · ${fmtDuration(p.minutes)}`;
+  }
+}
+
+// Only the busiest places keep a permanent label, otherwise a dense cluster
+// becomes a wall of overlapping text.
+function rankPlaceLabels() {
+  [...current.places].sort((a, b) => b.minutes - a.minutes)
+    .forEach((p, i) => { p.showLabel = i < 7; p.city = undefined; });
+}
+
+function labelPlaces() {
+  if (!current) return;
+  current.places.forEach(applyPlaceLabel);
+}
+
+/* ---------- sharper imagery when you zoom in --------------------------------
+   The base texture is a single image: fine for the whole globe, mush by the
+   time you are over a city. Below the threshold we switch to Esri's tiled
+   imagery, which fetches only the tiles in view at a zoom matched to the
+   camera. Above it we return to the flat texture, which looks better far out. */
+
+const TILE_URL = (x, y, l) =>
+  `https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/${l}/${y}/${x}`;
+const BASE_TEXTURE = 'https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-blue-marble.jpg';
+let tilesOn = false;
+
+function updateImagery(altitude) {
+  const attrib = document.getElementById('attrib');
+  // Hysteresis, so sitting on the boundary doesn't thrash the tile loader.
+  if (!tilesOn && altitude < 0.55) {
+    tilesOn = true;
+    world.globeTileEngineUrl(TILE_URL);
+    attrib.textContent = 'imagery © Esri';
+    attrib.hidden = false;
+  } else if (tilesOn && altitude > 0.75) {
+    tilesOn = false;
+    world.globeTileEngineUrl(null);
+    world.globeImageUrl(BASE_TEXTURE);   // the tile layer leaves it dimmed otherwise
+    attrib.hidden = true;
+  }
+}
+world.onZoom(({ altitude }) => updateImagery(altitude));
 
 /* ---------- page views -----------------------------------------------------
    No backend of ours. Abacus (open source, no cookies, no identifiers) stores a
