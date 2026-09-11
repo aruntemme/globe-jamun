@@ -465,6 +465,20 @@ function buildRoute(r, useGps) {
 // interpolates the short way instead of racing back across the map.
 const dLng = (a, b) => { let d = b - a; if (d > 180) d -= 360; if (d < -180) d += 360; return d; };
 
+// Travel measures distance in 3D. A flight arc is far longer through space than
+// its ground track, so a fraction computed in lat/lng space advances the
+// traveller faster than the dash that reveals its trail, and the line visibly
+// falls behind the dot. Both now run off the same metric.
+function cumulative3D(pts) {
+  const cum = [0];
+  for (let i = 1; i < pts.length; i++) {
+    const a = cartesian(pts[i - 1][0], pts[i - 1][1], pts[i - 1][2] ?? 0);
+    const b = cartesian(pts[i][0], pts[i][1], pts[i][2] ?? 0);
+    cum.push(cum[i - 1] + Math.hypot(b[0] - a[0], b[1] - a[1], b[2] - a[2]));
+  }
+  return cum;
+}
+
 function cumulative(pts) {
   const cum = [0];
   for (let i = 1; i < pts.length; i++) {
@@ -1000,7 +1014,7 @@ function buildItinerary() {
       travelLeg.push(i);
     });
   });
-  travelCum = cumulative(travelPts);
+  travelCum = cumulative3D(travelPts);
 }
 
 function startTravel() {
