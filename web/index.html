@@ -37,6 +37,7 @@
     border-top: 1px solid var(--line); padding-top: 10px; }
   #source b { color: var(--ink); font-weight: 500; }
   #places-wrap { margin-top: 12px; border-top: 1px solid var(--line); padding-top: 11px; }
+  #route-note { margin-top: 10px; font-size: 11px; color: var(--dim); }
   .places-head { font-size: 11px; color: var(--dim); margin-bottom: 7px; }
   .places-head b { color: var(--ink); font-weight: 500; }
   #places-list { max-height: 168px; overflow-y: auto; margin: 0 -4px; }
@@ -256,6 +257,7 @@
     <div><i class="swatch" style="background:var(--road)"></i>
       <i class="lg" data-icon="road" style="color:var(--road)"></i> road &amp; walking</div>
   </div>
+  <div id="route-note" hidden></div>
   <div id="places-wrap">
     <div class="places-head">places <b id="places-count"></b></div>
     <div id="places-list"></div>
@@ -440,13 +442,17 @@ function directLine(from, to, ang, alt) {
   return pts;
 }
 
-function buildRoute(r, useGps) {
+// `budget` caps how many points this leg contributes. Travel passes one so a
+// long history never materialises hundreds of thousands of points just to thin
+// them afterwards — that build was a second-long freeze on pressing play.
+function buildRoute(r, useGps, budget) {
   const fam = familyOf(r.mode);
   const spec = FAMILY[fam];
   const ang = angularDist(r.from, r.to);
   let pts;
   if (fam === 'air') {
-    const steps = Math.max(24, Math.min(128, Math.round(ang / DEG * 1.4) + 24));
+    let steps = Math.max(24, Math.min(128, Math.round(ang / DEG * 1.4) + 24));
+    if (budget) steps = Math.max(8, Math.min(steps, budget));
     pts = [];
     for (let i = 0; i < steps; i++) {
       const f = i / (steps - 1);
@@ -454,9 +460,22 @@ function buildRoute(r, useGps) {
       pts.push([lat, lng, flightAlt(ang, f)]);
     }
   } else if (useGps && r.path && r.path.length >= 2) {
-    pts = r.path.map(([la, ln]) => [la, ln, spec.alt]);
+    const src = r.path;
+    if (budget && src.length > budget) {
+      const stride = Math.ceil(src.length / budget);
+      pts = [];
+      for (let i = 0; i < src.length; i += stride) pts.push([src[i][0], src[i][1], spec.alt]);
+      const last = src[src.length - 1];
+      pts.push([last[0], last[1], spec.alt]);
+    } else {
+      pts = src.map(([la, ln]) => [la, ln, spec.alt]);
+    }
   } else {
     pts = directLine(r.from, r.to, ang, spec.alt);
+    if (budget && pts.length > budget) {
+      const stride = Math.ceil(pts.length / budget);
+      pts = pts.filter((_, i) => i % stride === 0 || i === pts.length - 1);
+    }
   }
   return { ...r, fam, ang, pts, cum: cumulative(pts) };
 }
@@ -689,7 +708,19 @@ let displayRoutes = [];
 
 function draw() {
   if (!current) return;
-  const routes = routesOf(current).map((r) => buildRoute(r, gpsMode));
+  // Every route is its own line object. A few thousand of them costs more in
+  // draw calls than it adds in meaning — the short repeated commutes lie on top
+  // of each other anyway — so draw the longest and say so.
+  const MAX_DRAWN = 1200;
+  const all = routesOf(current).map((r) => buildRoute(r, gpsMode));
+  const routes = all.length > MAX_DRAWN
+    ? [...all].sort((a, b) => b.km - a.km).slice(0, MAX_DRAWN)
+    : all;
+  const note = document.getElementById('route-note');
+  note.textContent = all.length > MAX_DRAWN
+    ? `drawing the ${fmtInt(MAX_DRAWN)} longest of ${fmtInt(all.length)} journeys`
+    : '';
+  note.hidden = all.length <= MAX_DRAWN;
   displayRoutes = routes;
   world
     .pathsData(routes)
@@ -697,7 +728,7 @@ function draw() {
     .pathPointLat((p) => p[0]).pathPointLng((p) => p[1]).pathPointAlt((p) => p[2])
     .pathColor((d) => FAMILY[d.fam].color)
     .pathStroke((d) => FAMILY[d.fam].stroke)
-    .pathResolution(2)
+    .pathResolution(routes.length > 600 ? 4 : 2)
     .pathDashLength((d) => (d.fam === 'air' ? 0.06 : d.fam === 'rail' ? 0.12 : 1))
     .pathDashGap((d) => (d.fam === 'air' ? 0.014 : d.fam === 'rail' ? 0.05 : 0))
     .pathDashInitialGap(() => Math.random())
@@ -990,6 +1021,8 @@ let travelStart = 0;
 let shownLeg = -1;
 let camAlt = 1;
 let trailProgress = 0;
+let trailMat = null;
+let trailUnit = 0;
 
 const travelBtn = document.getElementById('travel');
 const speedSel = document.getElementById('speed');
@@ -998,12 +1031,18 @@ const travelBar = document.getElementById('travel-bar');
 // One path, not thirty. Consecutive legs meet at the place between them, so
 // stitching them end to end gives a single unbroken line for the traveller to
 // follow — no restart, no jump, no seam at a leg boundary.
+const TRAVEL_POINTS = 6000;
+
 function buildItinerary() {
-  itinerary = routesOf(current)
+  const legs = routesOf(current)
     .filter((r) => r.startTime)
-    .sort((a, b) => (a.startTime < b.startTime ? -1 : 1))
-    // the traveller follows the real breadcrumbs even though the map does not
-    .map((r) => buildRoute(r, true));
+    .sort((a, b) => (a.startTime < b.startTime ? -1 : 1));
+  // Share the point budget out by distance, so a flight gets detail and a
+  // two-kilometre commute gets the handful of points it deserves.
+  const totalKm = legs.reduce((sum, r) => sum + (r.km || 0), 0) || 1;
+  const per = (r) =>
+    Math.max(2, Math.min(400, Math.round(TRAVEL_POINTS * ((r.km || 0) / totalKm))));
+  itinerary = legs.map((r) => buildRoute(r, true, per(r)));
 
   travelPts = [];
   travelLeg = [];
@@ -1014,6 +1053,22 @@ function buildItinerary() {
       travelLeg.push(i);
     });
   });
+  // A multi-year history stitches to ~200k points, and building that line is a
+  // visible stall at the moment you press play. Thin it — at these zooms the
+  // difference is invisible — while always keeping each leg's first and last
+  // point so boundaries and the leg readout stay exact.
+  const CAP = TRAVEL_POINTS * 2;   // a safety net; the per-leg budget does the work
+  if (travelPts.length > CAP) {
+    const stride = Math.ceil(travelPts.length / CAP);
+    const pts = [], legs = [];
+    for (let i = 0; i < travelPts.length; i++) {
+      const boundary = i === 0 || i === travelPts.length - 1
+        || travelLeg[i] !== travelLeg[i - 1] || travelLeg[i] !== travelLeg[i + 1];
+      if (boundary || i % stride === 0) { pts.push(travelPts[i]); legs.push(travelLeg[i]); }
+    }
+    travelPts = pts;
+    travelLeg = legs;
+  }
   travelCum = cumulative3D(travelPts);
 }
 
@@ -1041,10 +1096,25 @@ function startTravel() {
     .pathsData([{ pts: travelPts, trail: true }])
     .pathColor(() => '#ffd08a')
     .pathStroke(() => 1.7)
-    .pathDashLength(() => trailProgress)
-    .pathDashGap(() => Math.max(1e-4, 1 - trailProgress))
+    .pathDashLength(() => 1)          // set once; the reveal is driven below
+    .pathDashGap(() => 1e-4)
     .pathDashInitialGap(() => 0)
     .pathDashAnimateTime(() => 0);
+
+  // Grab the line's material once the layer has built and read the dash unit
+  // that spans the whole path. From then on the reveal is two uniform writes
+  // per frame instead of a re-digest of the layer.
+  trailMat = null;
+  requestAnimationFrame(() => {
+    world.scene().traverse((o) => {
+      if (!trailMat && o.material?.type === 'LineMaterial') trailMat = o.material;
+    });
+    if (trailMat) {
+      trailUnit = trailMat.dashSize || 0;
+      trailMat.dashSize = 1e-6;
+      trailMat.gapSize = trailUnit;
+    }
+  });
 }
 
 function stopTravel() {
@@ -1105,10 +1175,14 @@ function stepTravel(now) {
 
   // Re-setting the accessors is what makes globe.gl re-read them; the geometry
   // itself is untouched, so this is a uniform update rather than a rebuild.
+  // Two uniform writes. Re-setting the accessors here instead made globe.gl
+  // rebuild the trail geometry every frame: harmless on a short sample, but
+  // 4fps with two-second freezes on a real multi-year history.
   trailProgress = f;
-  world
-    .pathDashLength(() => trailProgress)
-    .pathDashGap(() => Math.max(1e-4, 1 - trailProgress));
+  if (trailMat && trailUnit) {
+    trailMat.dashSize = Math.max(1e-6, trailUnit * f);
+    trailMat.gapSize = Math.max(1e-6, trailUnit * (1 - f));
+  }
 
   // Which leg are we on? Index by distance along the stitched path.
   const target = f * travelCum[travelCum.length - 1];
