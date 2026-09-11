@@ -623,6 +623,7 @@ function tickRiders(now) {
   const cam = world.camera().position;
   for (const r of riders) {
     if (!r.obj || r.obj.element !== r.el) continue;
+    if (travelling) { r.el.style.opacity = '0'; continue; }
     const f = (r.phase + now * r.speed) % 1;
     const [lat, lng, alt] = samplePath(r.route.pts, r.route.cum, f);
     const [x, y, z] = cartesian(lat, lng, alt);
@@ -670,9 +671,12 @@ function routesOf(data) {
   ];
 }
 
+let displayRoutes = [];
+
 function draw() {
   if (!current) return;
   const routes = routesOf(current).map((r) => buildRoute(r, gpsMode));
+  displayRoutes = routes;
   world
     .pathsData(routes)
     .pathPoints('pts')
@@ -961,45 +965,58 @@ document.getElementById('reset').onclick = () => {
    along. The map keeps its clean direct lines, but the traveller follows the
    recorded GPS breadcrumbs where they exist, so a drive traces the real road. */
 
-const LEG_SECONDS = 12;                       // at 1x; the dropdown divides this
-const TRAVEL_ALT = { air: 0.9, rail: 0.42, road: 0.3 };
+const TRAVEL_SECONDS = 120;                   // whole journey at 1x
+const TRAVEL_ALT = { air: 0.85, rail: 0.4, road: 0.3 };
+let travelPts = [];        // every leg stitched into one continuous path
+let travelCum = [];
+let travelLeg = [];        // which leg each point belongs to
 let itinerary = [];
 let travelling = false;
-let legIndex = 0;
-let legStarted = 0;
+let travelStart = 0;
+let shownLeg = -1;
+let camAlt = 1;
 
 const travelBtn = document.getElementById('travel');
 const speedSel = document.getElementById('speed');
 const travelBar = document.getElementById('travel-bar');
 
+// One path, not thirty. Consecutive legs meet at the place between them, so
+// stitching them end to end gives a single unbroken line for the traveller to
+// follow — no restart, no jump, no seam at a leg boundary.
 function buildItinerary() {
   itinerary = routesOf(current)
     .filter((r) => r.startTime)
     .sort((a, b) => (a.startTime < b.startTime ? -1 : 1))
-    // the traveller gets the true recorded path, not the tidied-up straight line
+    // the traveller follows the real breadcrumbs even though the map does not
     .map((r) => buildRoute(r, true));
-}
 
-function legDuration(leg) {
-  const speed = Number(speedSel.value) || 5;
-  // Long hauls take somewhat longer, but not proportionally — otherwise a
-  // flight to London outlasts patience while a commute is a blink.
-  return (LEG_SECONDS * (0.45 + 0.55 * Math.min(1, leg.ang / 1.2)) / speed) * 1000;
+  travelPts = [];
+  travelLeg = [];
+  itinerary.forEach((leg, i) => {
+    leg.pts.forEach((pt, j) => {
+      if (i > 0 && j === 0) return;          // drop the duplicate join point
+      travelPts.push(pt);
+      travelLeg.push(i);
+    });
+  });
+  travelCum = cumulative(travelPts);
 }
 
 function startTravel() {
   if (!current) return;
   buildItinerary();
-  if (!itinerary.length) return;
+  if (travelPts.length < 2) return;
   travelling = true;
-  legIndex = 0;
-  legStarted = 0;
+  travelStart = 0;
+  shownLeg = -1;
+  camAlt = world.pointOfView().altitude;
   controls.autoRotate = false;
   spin.setAttribute('aria-pressed', 'false');
   travelBtn.setAttribute('aria-pressed', 'true');
   travelBar.hidden = false;
   document.body.classList.add('travelling');
   document.getElementById('info').style.display = 'none';
+  world.pathsData([]);                        // a clean map while it plays
 }
 
 function stopTravel() {
@@ -1008,18 +1025,18 @@ function stopTravel() {
   travelBtn.setAttribute('aria-pressed', 'false');
   travelBar.hidden = true;
   document.body.classList.remove('travelling');
-  // Hide by query, not through traveller.el: a layer rebuild swaps the element
-  // out from under us, and the stale reference leaves the dot stuck on screen.
   for (const el of document.querySelectorAll('.traveller')) el.style.opacity = '0';
+  world.pathsData(displayRoutes);             // put the routes back
 }
 
-function describeLeg(leg, i) {
+function describeLeg(i) {
+  const leg = itinerary[i];
   const at = (pt) => {
     const c = nearestCity(pt[0], pt[1]);
     return c ? c.name : `${pt[0].toFixed(2)}, ${pt[1].toFixed(2)}`;
   };
-  document.getElementById('tb-leg').textContent =
-    `${at(leg.pts[0])} → ${at(leg.pts[leg.pts.length - 1])}`;
+  const from = at(leg.pts[0]), to = at(leg.pts[leg.pts.length - 1]);
+  document.getElementById('tb-leg').textContent = from === to ? from : `${from} → ${to}`;
   document.getElementById('tb-when').textContent = fmtDate(leg.startTime);
   document.getElementById('tb-mode').textContent =
     `${prettyMode(leg.mode)} · ${fmtInt(leg.km)} km`;
@@ -1028,35 +1045,47 @@ function describeLeg(leg, i) {
 
 function stepTravel(now) {
   if (!travelling || !traveller?.obj) return;
-  if (!legStarted) { legStarted = now; describeLeg(itinerary[legIndex], legIndex); }
+  if (!travelStart) travelStart = now;
 
-  const leg = itinerary[legIndex];
-  const dur = legDuration(leg);
-  let f = (now - legStarted) / dur;
+  const speed = Number(speedSel.value) || 5;
+  const f = (now - travelStart) / ((TRAVEL_SECONDS / speed) * 1000);
 
   if (f >= 1) {
-    legIndex += 1;
-    if (legIndex >= itinerary.length) {   // journey complete
-      stopTravel();
-      world.pointOfView(homeView(), 1400);
-      return;
-    }
-    legStarted = now;
-    describeLeg(itinerary[legIndex], legIndex);
-    f = 0;
+    stopTravel();
+    world.pointOfView(homeView(), 1400);
+    return;
   }
 
-  const [lat, lng, alt] = samplePath(leg.pts, leg.cum, f);
+  const [lat, lng, alt] = samplePath(travelPts, travelCum, f);
   const [x, y, z] = cartesian(lat, lng, alt);
   traveller.obj.position.set(x, y, z);
   traveller.el.style.opacity = '1';
   document.getElementById('tb-fill').style.width = `${(f * 100).toFixed(1)}%`;
 
-  world.pointOfView({ lat, lng, altitude: TRAVEL_ALT[leg.fam] ?? 0.4 }, 0);
+  // Which leg are we on? Index by distance along the stitched path.
+  const target = f * travelCum[travelCum.length - 1];
+  let lo = 0, hi = travelCum.length - 1;
+  while (lo < hi - 1) { const mid = (lo + hi) >> 1; (travelCum[mid] <= target ? lo = mid : hi = mid); }
+  const legIdx = travelLeg[lo];
+  if (legIdx !== shownLeg) { shownLeg = legIdx; describeLeg(legIdx); }
+
+  // Ease the camera height instead of snapping it when the travel mode changes,
+  // so a drive rising into a flight is one continuous movement.
+  const wanted = TRAVEL_ALT[itinerary[legIdx]?.fam] ?? 0.4;
+  camAlt += (wanted - camAlt) * 0.045;
+  world.pointOfView({ lat, lng, altitude: camAlt }, 0);
 }
 
 travelBtn.onclick = () => (travelling ? stopTravel() : startTravel());
-speedSel.onchange = () => { if (travelling) legStarted = 0; };
+// Changing speed mid-flight keeps your position rather than restarting.
+speedSel.onchange = () => {
+  if (!travelling) return;
+  const elapsed = performance.now() - travelStart;
+  const ratio = Number(speedSel.dataset.prev || 5) / (Number(speedSel.value) || 5);
+  travelStart = performance.now() - elapsed * ratio;
+  speedSel.dataset.prev = speedSel.value;
+};
+speedSel.dataset.prev = speedSel.value;
 // Any grab of the globe hands control back to you.
 controls.addEventListener('start', stopTravel);
 

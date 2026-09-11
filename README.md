@@ -97,9 +97,17 @@ identical normalization.
 
 ## Travel playback
 
+Every leg is stitched into one continuous path — consecutive legs meet at the
+place between them, so the traveller crosses a leg boundary without a restart
+or a seam. While it plays, the route lines and rider icons are cleared and the
+camera height eases between travel modes, so a drive rising into a flight reads
+as one movement rather than a cut.
+
 The map draws direct lines because they read better at a glance, but the
 traveller follows the recorded GPS breadcrumbs where they exist — so playback
-traces the real road while the overview stays legible.
+traces the real road while the overview stays legible. The whole journey takes
+120s at 1x, divided by the chosen speed, so the run length does not balloon
+with the size of your history.
 
 ## Place names
 
