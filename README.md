@@ -1,4 +1,4 @@
-# Global view
+# Globe Jamun
 
 
 A 3D globe of everywhere you've been, built from Google Maps Timeline.

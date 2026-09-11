@@ -5,6 +5,7 @@ both this sample and the genuine Android/iOS files.
 """
 import json
 import math
+import os
 import random
 from datetime import datetime, timedelta, timezone
 
@@ -225,7 +226,8 @@ doc = {
     },
 }
 
-out = "/Users/temme/globalview/data/Timeline.sample.json"
+out = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                   "data", "Timeline.sample.json")
 with open(out, "w") as f:
     json.dump(doc, f, indent=1)
 
