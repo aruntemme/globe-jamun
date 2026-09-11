@@ -1,6 +1,5 @@
 # Global view
 
-Live: https://aruntemme.github.io/globalview/
 
 A 3D globe of everywhere you've been, built from Google Maps Timeline.
 Free and open source end to end — no API keys, no accounts, no paid tiers.
