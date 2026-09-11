@@ -40,6 +40,9 @@
   #hud-upload:hover { background: rgba(255,183,74,.3); border-color: rgba(255,183,74,.7); }
   #hud-upload svg { width: 14px; height: 14px; flex: none; }
   #hud-hint { margin-top: 7px; text-align: center; font-size: 11px; color: var(--dim); }
+  #views { margin-top: 11px; padding-top: 10px; border-top: 1px solid var(--line);
+    text-align: center; font-size: 11px; color: var(--dim); }
+  #views b { color: var(--ink); font-weight: 500; }
   @media (pointer: coarse) { #hud-hint { display: none; } }
   .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 8px;
     border-top: 1px solid var(--line); padding-top: 12px; }
@@ -210,6 +213,7 @@
     <span id="hud-upload-label">Upload your Timeline.json</span>
   </button>
   <div id="hud-hint">or drop the file anywhere on this page</div>
+  <div id="views" hidden></div>
   </div>
 </div>
 
@@ -269,8 +273,10 @@
       </div>
     </div>
     <div class="note">
-      <p><b>Nothing is uploaded.</b> The file is read in your browser and never leaves
-        this machine — there is no server behind this page.</p>
+      <p><b>Your data is never uploaded.</b> The Timeline file is read inside your
+        browser and never leaves this machine. The only requests this page makes are
+        for the map imagery and an anonymous page counter — no cookies, no identifiers,
+        and nothing whatsoever about your locations.</p>
       <p><b>Reading this on the phone itself?</b> Skip the transfer entirely — export,
         then tap <b>Load</b> and pick Timeline.json out of your files.</p>
       <p>Android and iPhone write slightly different JSON. Both are handled; you do not
@@ -717,6 +723,28 @@ document.getElementById('reset').onclick = () => {
   document.getElementById('info').style.display = 'none';
   world.pointOfView(homeView(), 900);
 };
+
+/* ---------- page views -----------------------------------------------------
+   No backend of ours. Abacus (open source, no cookies, no identifiers) stores a
+   single integer against one key. Local runs read without incrementing so
+   development never inflates the count, and the whole line stays hidden if the
+   service is unreachable or blocked — it is decoration, not a dependency.   */
+
+const VIEWS_KEY = 'globe-jamun-aruntemme/site';
+(async () => {
+  const el = document.getElementById('views');
+  const local = ['localhost', '127.0.0.1', '::1', ''].includes(location.hostname);
+  try {
+    const r = await fetch(`https://abacus.jasoncameron.dev/${local ? 'get' : 'hit'}/${VIEWS_KEY}`);
+    if (!r.ok) return;
+    const { value } = await r.json();
+    if (!Number.isFinite(value)) return;
+    el.innerHTML = `<b>${value.toLocaleString()}</b> ${value === 1 ? 'visit' : 'visits'}`;
+    el.hidden = false;
+  } catch {
+    /* counter offline or blocked — the page simply does without it */
+  }
+})();
 
 // ResizeObserver rather than window.resize: it also fires for zoom, devtools
 // docking and viewport emulation, which a plain resize listener can miss.

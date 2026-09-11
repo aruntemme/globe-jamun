@@ -91,6 +91,17 @@ of tracking renderable.
 so an uploaded file and a `node tools/parse-timeline.mjs` run go through
 identical normalization.
 
+## Page views
+
+The visit count in the HUD comes from [Abacus](https://github.com/jasoncameron/abacus)
+— open source, no signup, no cookies, no identifiers, one integer against one key.
+It is the only stateful thing this project touches. Local runs read the value
+without incrementing it, and the line hides itself entirely if the service is
+blocked or down, so nothing depends on it.
+
+Caveat worth knowing: the key is public and guessable, so the number is a rough
+indicator, not an audited metric. Anyone who finds the key could inflate it.
+
 ## Sample data
 
 `data/Timeline.json` is synthetic: a Chennai-based year with commutes, drives to
