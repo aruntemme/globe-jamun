@@ -40,9 +40,7 @@
   #hud-upload:hover { background: rgba(255,183,74,.3); border-color: rgba(255,183,74,.7); }
   #hud-upload svg { width: 14px; height: 14px; flex: none; }
   #hud-hint { margin-top: 7px; text-align: center; font-size: 11px; color: var(--dim); }
-  #views { margin-top: 11px; padding-top: 10px; border-top: 1px solid var(--line);
-    text-align: center; font-size: 11px; color: var(--dim); }
-  #views b { color: var(--ink); font-weight: 500; }
+
   @media (pointer: coarse) { #hud-hint { display: none; } }
   .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 8px;
     border-top: 1px solid var(--line); padding-top: 12px; }
@@ -81,7 +79,12 @@
   #info h2 { margin: 0 0 10px; font-size: 14px; font-weight: 500; }
   #info dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; font-size: 12px; }
   #info dt { color: var(--dim); } #info dd { margin: 0; text-align: right; }
-  #hint { position: fixed; bottom: 22px; right: 20px; z-index: 3; color: var(--dim); font-size: 12px; }
+  /* Sits below the panels (z-index 2) so the place sheet covers it cleanly
+     on phones rather than showing through. */
+  #footer { position: fixed; bottom: 22px; right: 20px; z-index: 2;
+    display: flex; align-items: center; gap: 14px;
+    font-size: 12px; color: var(--dim); pointer-events: none; }
+  #views b { color: var(--ink); font-weight: 500; }
 
   .pin { width: var(--s); height: var(--s); margin: calc(var(--s) / -2) 0 0 calc(var(--s) / -2);
     border-radius: 50%; background: #fff; border: 1.5px solid rgba(5,7,13,.75);
@@ -147,6 +150,7 @@
     #info h2 { padding-right: 30px; }
     #info-close { display: flex; }
 
+    #footer { left: 12px; right: 12px; bottom: 78px; justify-content: center; }
     #guide { padding: 20px 18px; max-height: 92vh; border-radius: 12px; }
     #guide h2 { font-size: 16px; }
     #guide .lede { font-size: 12.5px; margin-bottom: 18px; }
@@ -213,7 +217,6 @@
     <span id="hud-upload-label">Upload your Timeline.json</span>
   </button>
   <div id="hud-hint">or drop the file anywhere on this page</div>
-  <div id="views" hidden></div>
   </div>
 </div>
 
@@ -234,7 +237,10 @@
   <button id="trails" aria-pressed="false"><span class="full">GPS trails</span><span class="short">GPS</span></button>
   <button id="reset"><span class="full">Reset view</span><span class="short">Reset</span></button>
 </div>
-<div id="hint">drag to rotate · scroll to zoom · click a marker</div>
+<footer id="footer">
+  <span id="views" hidden></span>
+  <span id="hint">drag to rotate · scroll to zoom · click a marker</span>
+</footer>
 <input type="file" id="file" accept=".json,application/json,text/json,text/plain" hidden>
 
 <div id="drop">drop your Timeline.json to load it</div>

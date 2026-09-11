@@ -6,3 +6,4 @@ web/journey.json
 
 .DS_Store
 node_modules/
+.vercel
