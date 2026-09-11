@@ -48,6 +48,28 @@
   .place-row .nm { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .place-row .mt { flex: none; font-size: 11px; color: var(--dim); }
   .place-row[aria-current="true"] .mt { color: var(--air); }
+  select { font: inherit; font-size: 12px; color: var(--ink); cursor: pointer;
+    background: rgba(255,255,255,.06); border: 1px solid var(--line);
+    border-radius: 8px; padding: 7px 8px; }
+  #travel[aria-pressed="true"] { background: rgba(255,183,74,.2); border-color: rgba(255,183,74,.55);
+    color: var(--air); }
+
+  #travel-bar { top: 20px; left: 50%; transform: translateX(-50%); width: min(360px, calc(100% - 40px));
+    padding: 12px 15px; z-index: 4; }
+  .tb-row { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+  .tb-row b { font-weight: 500; font-size: 13px; overflow: hidden;
+    text-overflow: ellipsis; white-space: nowrap; }
+  .tb-row span { flex: none; font-size: 11px; color: var(--dim); }
+  .tb-meta { display: flex; justify-content: space-between; margin-top: 3px;
+    font-size: 11px; color: var(--dim); }
+  .tb-track { height: 2px; margin-top: 10px; border-radius: 2px;
+    background: rgba(255,255,255,.13); overflow: hidden; }
+  .tb-track i { display: block; height: 100%; width: 0; background: var(--air); }
+  .traveller { width: 0; height: 0; pointer-events: none; }
+  .traveller i { position: absolute; left: 0; top: 0; width: 13px; height: 13px;
+    margin: -6.5px 0 0 -6.5px; border-radius: 50%; background: #fff;
+    box-shadow: 0 0 0 3px rgba(255,255,255,.25), 0 0 16px 3px rgba(255,255,255,.8); }
+
   #zoom { right: 20px; bottom: 58px; padding: 5px; display: flex;
     flex-direction: column; gap: 5px; }
   #zoom button { width: 32px; height: 32px; padding: 0; font-size: 17px; line-height: 1;
@@ -157,6 +179,8 @@
      the panels become edge-to-edge sheets instead of floating cards. */
   @media (max-width: 640px) {
     #hud { top: 12px; left: 12px; right: 12px; width: auto; padding: 13px 15px; }
+    #travel-bar { top: 12px; width: calc(100% - 24px); }
+    body.travelling #hud { display: none; }
     #hud h1 { font-size: 14px; }
     #hud .sub { font-size: 11.5px; margin-bottom: 12px; }
     #hud-toggle { display: flex; }
@@ -263,9 +287,20 @@
 <div class="panel" id="controls">
   <button id="load"><span class="full">Load your Timeline.json</span><span class="short">Load</span></button>
   <button id="spin" aria-pressed="false"><span class="full">Auto-rotate</span><span class="short">Spin</span></button>
-  <button id="trails" aria-pressed="false"><span class="full">GPS trails</span><span class="short">GPS</span></button>
+  <button id="travel" aria-pressed="false"><span class="full">Travel</span><span class="short">Play</span></button>
+  <select id="speed" aria-label="Travel speed">
+    <option value="2">2&times;</option>
+    <option value="5" selected>5&times;</option>
+    <option value="10">10&times;</option>
+  </select>
   <button id="reset"><span class="full">Reset view</span><span class="short">Reset</span></button>
 </div>
+<div id="travel-bar" class="panel" hidden>
+  <div class="tb-row"><b id="tb-leg"></b><span id="tb-when"></span></div>
+  <div class="tb-meta"><span id="tb-mode"></span><span id="tb-count"></span></div>
+  <div class="tb-track"><i id="tb-fill"></i></div>
+</div>
+
 <div id="zoom" class="panel">
   <button id="zoom-in" aria-label="Zoom in" title="Zoom in">+</button>
   <button id="zoom-out" aria-label="Zoom out" title="Zoom out">&minus;</button>
@@ -518,6 +553,16 @@ for (const el of document.querySelectorAll('.lg')) el.innerHTML = ICON[el.datase
    same frame it draws the globe, so a rider can never slide against the map. */
 
 let riders = [];
+let traveller = null;
+
+function travellerElement(d) {
+  const el = document.createElement('div');
+  el.className = 'traveller';
+  el.appendChild(document.createElement('i'));
+  el.style.opacity = '0';
+  d.el = el;
+  return el;
+}
 
 function makeRiders(routes) {
   const out = [];
@@ -560,9 +605,10 @@ function linkRiders() {
 // globeImageUrl/tile-engine change, so every zoom across the tile threshold
 // silently orphaned every rider. Treat a mismatched element as unlinked.
 const unlinked = (r) => r.el && (!r.obj || r.obj.element !== r.el);
+const linkables = () => (traveller ? [...riders, traveller] : riders);
 
 function tryLink() {
-  const pending = riders.filter(unlinked);
+  const pending = linkables().filter(unlinked);
   if (!pending.length) return;
   const byElement = new Map(pending.map((r) => [r.el, r]));
   world.scene().traverse((o) => {
@@ -572,7 +618,8 @@ function tryLink() {
 }
 
 function tickRiders(now) {
-  if (linkPending || riders.some(unlinked)) { tryLink(); linkPending = false; }
+  if (linkPending || linkables().some(unlinked)) { tryLink(); linkPending = false; }
+  stepTravel(now);
   const cam = world.camera().position;
   for (const r of riders) {
     if (!r.obj || r.obj.element !== r.el) continue;
@@ -605,7 +652,9 @@ requestAnimationFrame(tickRiders);
 /* ---------- rendering a journey -------------------------------------------- */
 
 let current = null;
-let gpsMode = false;   // off by default: road and rail draw as direct lines
+// The map always draws direct lines; only the traveller follows the real
+// breadcrumbs, so the overview stays readable while playback stays truthful.
+const gpsMode = false;
 
 // Both record shapes collapse to one route type before any drawing happens.
 function routesOf(data) {
@@ -645,13 +694,22 @@ function draw() {
   const maxMinutes = Math.max(...current.places.map((p) => p.minutes), 1);
   rankPlaceLabels();
   riders = makeRiders(routes);
+  traveller = { kind: 'traveller', lat: riders[0]?.lat ?? 0, lng: riders[0]?.lng ?? 0, alt: 0.004 };
   world
-    .htmlElementsData([...current.places.map((p) => ({ kind: 'place', place: p })), ...riders])
+    .htmlElementsData([
+      ...current.places.map((p) => ({ kind: 'place', place: p })),
+      ...riders,
+      traveller,
+    ])
     .htmlLat((d) => (d.kind === 'place' ? d.place.lat : d.lat))
     .htmlLng((d) => (d.kind === 'place' ? d.place.lng : d.lng))
     .htmlAltitude((d) => (d.kind === 'place' ? 0 : d.alt))
     .htmlTransitionDuration(0)
-    .htmlElement((d) => (d.kind === 'rider' ? riderElement(d) : pinElement(d.place, maxMinutes)));
+    .htmlElement((d) => {
+      if (d.kind === 'rider') return riderElement(d);
+      if (d.kind === 'traveller') return travellerElement(d);
+      return pinElement(d.place, maxMinutes);
+    });
   linkRiders();
   labelPlaces();
   buildPlaceList();
@@ -659,11 +717,30 @@ function draw() {
 
 let selectedPlace = null;
 
+// Real exports carry values like UNKNOWN, INFERRED, TYPE_HOME,
+// TYPE_SEARCHED_ADDRESS; the synthetic sample uses title case. Only a type that
+// actually says something about the place earns a place in the name — most
+// visits are simply unlabelled, and "· unknown" on every row is noise.
+const KIND_LABELS = {
+  HOME: 'home', WORK: 'work', AIRPORT: 'airport',
+  SEARCHED_ADDRESS: 'searched', ALIASED_LOCATION: 'saved place',
+};
+const KIND_NONE = new Set(['', 'UNKNOWN', 'INFERRED', 'UNKNOWN_ACTIVITY_TYPE']);
+
+function placeKind(p) {
+  const raw = String(p.semanticType ?? '').trim();
+  const key = raw.toUpperCase().replace(/^TYPE_/, '').replace(/[\s-]+/g, '_');
+  if (KIND_NONE.has(key)) return null;
+  return KIND_LABELS[key] ?? raw.toLowerCase();
+}
+
 function placeRowName(p) {
-  const kind = p.semanticType === 'Inferred' ? null : p.semanticType;
+  const kind = placeKind(p);
   const city = p.city ? p.city.name : null;
-  if (city && kind) return `${city} · ${kind.toLowerCase()}`;
-  return city ?? kind ?? 'Unknown place';
+  if (city && kind) return `${city} · ${kind}`;
+  // Coordinates beat "Unknown place": they at least say where it was.
+  return city ?? (kind && kind[0].toUpperCase() + kind.slice(1))
+    ?? `${p.lat.toFixed(3)}, ${p.lng.toFixed(3)}`;
 }
 
 function buildPlaceList() {
@@ -713,7 +790,9 @@ function render(data, label) {
   // Riders manage their own occlusion in the tick; only places go through this.
   if (typeof world.htmlElementVisibilityModifier === 'function') {
     world.htmlElementVisibilityModifier((el, visible) => {
-      if (el.classList.contains('rider')) return;
+      // Riders and the traveller drive their own opacity; the modifier would
+      // otherwise re-show them every render and override stopTravel.
+      if (el.classList.contains('rider') || el.classList.contains('traveller')) return;
       el.style.opacity = visible ? '1' : '0';
       el.style.pointerEvents = visible ? 'auto' : 'none';
     });
@@ -858,13 +937,7 @@ spin.onclick = () => {
   spin.setAttribute('aria-pressed', String(controls.autoRotate));
 };
 
-const trailsBtn = document.getElementById('trails');
-trailsBtn.title = 'Follow the recorded GPS breadcrumbs instead of drawing direct lines';
-trailsBtn.onclick = () => {
-  gpsMode = !gpsMode;
-  trailsBtn.setAttribute('aria-pressed', String(gpsMode));
-  draw();
-};
+
 
 // Altitude bounds mirror the OrbitControls distance clamps (103..620 units on a
 // radius-100 globe), so the buttons stop exactly where a scroll would.
@@ -882,6 +955,110 @@ document.getElementById('reset').onclick = () => {
   document.getElementById('info').style.display = 'none';
   world.pointOfView(homeView(), 900);
 };
+
+/* ---------- travel ----------------------------------------------------------
+   Replays the journey in order, one leg at a time, with the camera riding
+   along. The map keeps its clean direct lines, but the traveller follows the
+   recorded GPS breadcrumbs where they exist, so a drive traces the real road. */
+
+const LEG_SECONDS = 12;                       // at 1x; the dropdown divides this
+const TRAVEL_ALT = { air: 0.9, rail: 0.42, road: 0.3 };
+let itinerary = [];
+let travelling = false;
+let legIndex = 0;
+let legStarted = 0;
+
+const travelBtn = document.getElementById('travel');
+const speedSel = document.getElementById('speed');
+const travelBar = document.getElementById('travel-bar');
+
+function buildItinerary() {
+  itinerary = routesOf(current)
+    .filter((r) => r.startTime)
+    .sort((a, b) => (a.startTime < b.startTime ? -1 : 1))
+    // the traveller gets the true recorded path, not the tidied-up straight line
+    .map((r) => buildRoute(r, true));
+}
+
+function legDuration(leg) {
+  const speed = Number(speedSel.value) || 5;
+  // Long hauls take somewhat longer, but not proportionally — otherwise a
+  // flight to London outlasts patience while a commute is a blink.
+  return (LEG_SECONDS * (0.45 + 0.55 * Math.min(1, leg.ang / 1.2)) / speed) * 1000;
+}
+
+function startTravel() {
+  if (!current) return;
+  buildItinerary();
+  if (!itinerary.length) return;
+  travelling = true;
+  legIndex = 0;
+  legStarted = 0;
+  controls.autoRotate = false;
+  spin.setAttribute('aria-pressed', 'false');
+  travelBtn.setAttribute('aria-pressed', 'true');
+  travelBar.hidden = false;
+  document.body.classList.add('travelling');
+  document.getElementById('info').style.display = 'none';
+}
+
+function stopTravel() {
+  if (!travelling) return;
+  travelling = false;
+  travelBtn.setAttribute('aria-pressed', 'false');
+  travelBar.hidden = true;
+  document.body.classList.remove('travelling');
+  // Hide by query, not through traveller.el: a layer rebuild swaps the element
+  // out from under us, and the stale reference leaves the dot stuck on screen.
+  for (const el of document.querySelectorAll('.traveller')) el.style.opacity = '0';
+}
+
+function describeLeg(leg, i) {
+  const at = (pt) => {
+    const c = nearestCity(pt[0], pt[1]);
+    return c ? c.name : `${pt[0].toFixed(2)}, ${pt[1].toFixed(2)}`;
+  };
+  document.getElementById('tb-leg').textContent =
+    `${at(leg.pts[0])} → ${at(leg.pts[leg.pts.length - 1])}`;
+  document.getElementById('tb-when').textContent = fmtDate(leg.startTime);
+  document.getElementById('tb-mode').textContent =
+    `${prettyMode(leg.mode)} · ${fmtInt(leg.km)} km`;
+  document.getElementById('tb-count').textContent = `${i + 1} of ${itinerary.length}`;
+}
+
+function stepTravel(now) {
+  if (!travelling || !traveller?.obj) return;
+  if (!legStarted) { legStarted = now; describeLeg(itinerary[legIndex], legIndex); }
+
+  const leg = itinerary[legIndex];
+  const dur = legDuration(leg);
+  let f = (now - legStarted) / dur;
+
+  if (f >= 1) {
+    legIndex += 1;
+    if (legIndex >= itinerary.length) {   // journey complete
+      stopTravel();
+      world.pointOfView(homeView(), 1400);
+      return;
+    }
+    legStarted = now;
+    describeLeg(itinerary[legIndex], legIndex);
+    f = 0;
+  }
+
+  const [lat, lng, alt] = samplePath(leg.pts, leg.cum, f);
+  const [x, y, z] = cartesian(lat, lng, alt);
+  traveller.obj.position.set(x, y, z);
+  traveller.el.style.opacity = '1';
+  document.getElementById('tb-fill').style.width = `${(f * 100).toFixed(1)}%`;
+
+  world.pointOfView({ lat, lng, altitude: TRAVEL_ALT[leg.fam] ?? 0.4 }, 0);
+}
+
+travelBtn.onclick = () => (travelling ? stopTravel() : startTravel());
+speedSel.onchange = () => { if (travelling) legStarted = 0; };
+// Any grab of the globe hands control back to you.
+controls.addEventListener('start', stopTravel);
 
 /* ---------- place names ----------------------------------------------------
    Resolved offline against a bundled GeoNames extract. Reverse geocoding these
@@ -934,10 +1111,10 @@ function nearestCity(lat, lng) {
 function applyPlaceLabel(p) {
   if (p.city === undefined) p.city = nearestCity(p.lat, p.lng);
   const name = p.city ? p.city.name : null;
-  const kind = p.semanticType === 'Inferred' ? 'Visited' : p.semanticType;
+  const kind = placeKind(p) ?? 'visited';
   if (p.labelEl) p.labelEl.textContent = (p.showLabel && name) ? name : '';
   if (p.el) {
-    p.el.title = `${name ? name + ' · ' : ''}${kind} · `
+    p.el.title = `${name ? name + ' · ' : ''}${kind[0].toUpperCase() + kind.slice(1)} · `
       + `${p.visits} visit${p.visits > 1 ? 's' : ''} · ${fmtDuration(p.minutes)}`;
   }
 }

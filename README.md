@@ -53,8 +53,9 @@ converted copy of the sample.
 - drag to rotate, scroll to zoom, right-drag to pan
 - click a marker to fly to it and see visit stats
 - *Load your Timeline.json* (or drop a file anywhere on the page)
-- *GPS trails* — off by default, so road and rail draw as direct lines. Turn it
-  on to follow the recorded breadcrumbs instead.
+- *Travel* — replays the journey in order, one leg at a time, with the camera
+  riding along and a speed dropdown (2× / 5× / 10×). Grabbing the globe hands
+  control straight back to you.
 - *Auto-rotate* (off by default — the globe holds still until you ask), **+** / **&minus;**
   zoom, *Reset view*, and the **i** icon for the export guide
 - The HUD lists every place, busiest first. Click a row to fly to it; clicking a
@@ -93,6 +94,12 @@ of tracking renderable.
 `web/timeline-core.js` is imported by both the Node CLI and the browser worker,
 so an uploaded file and a `node tools/parse-timeline.mjs` run go through
 identical normalization.
+
+## Travel playback
+
+The map draws direct lines because they read better at a glance, but the
+traveller follows the recorded GPS breadcrumbs where they exist — so playback
+traces the real road while the overview stays legible.
 
 ## Place names
 
